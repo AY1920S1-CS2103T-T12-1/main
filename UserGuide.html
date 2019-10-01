@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>+Work - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>+Work - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T-T12-1</code>      Since: <code>Sept 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,16 +13,12 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#universal-commands">3.1. Universal Commands</a></li>
+<li><a href="#member-related-commands">3.2. Member-related Commands</a></li>
+<li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
+<li><a href="#calendar-commands">3.4. Calendar Commands</a></li>
+<li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
+<li><a href="#saving-the-data">3.6. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -34,7 +30,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>+Work is a project management tool that allows the project leader of a small group (less than 20 people) to manage this group to achieve their objectives for a single project. To increase efficiency of the group we help the group manage their meeting times, task allocation as well as personal claims for equipment purchased. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -47,10 +43,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>+Work.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your +Work.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -69,16 +65,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
+<p><strong><code>add member</code></strong><code>Abhinav Ramnath</code> : Adds member m/Abhinav Ramnath</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
+<p><strong><code>add task</code></strong><code>t/Finish up milestone setting mi/1</code> : adds a task called 'Finish up milestone' and and assigns it to the first member, Gabriel Seow.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>assign</code></strong><code>ti/5 m/3</code> : assigns the 3rd member, Seah Lynn, to the 5th task</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app</p>
+<p><strong><code>doing task</code></strong><code>ti/3</code> : changes status of task 3 from 'to be done&#8217;to 'doing'</p>
 </li>
 </ul>
 </div>
@@ -101,32 +97,272 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>The command begins with the type of command to be executed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: in <code>remove member [mi/MEMBER_ID]</code>, remove member is the type of command</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>The words in UPPER_CASE corresponds to the parameters given by the user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: In <code>add member [m/MEMBER_NAME]</code>, MEMBER_NAME is the input specified by the user, such as: add member m/Gabriel Seow</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>The user specifies the type of parameter given through a prefix. The list of allowed prefixes can be found below.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: In <code>add task [t/TASK_NAME] [m/MEMBER_NAME]</code>, the user inputs the name of the task after t/ and inputs the name of the member after m/, such as:<br>
+<code>add task t/Finish Project Draft m/Elsa Koh</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be given in any order</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Example: If the command specifies <code>[t/TASK_NAME] [m/MEMBER_NAME]</code>,<br>
+<code>[m/MEMBER_NAME] [t/TASK_NAME]</code> is also acceptable`</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Date and Time is specified in the format <code>dd-mm-yyyy hh:mm</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<hr>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<h3 id="universal-commands"><a class="link" href="#universal-commands">3.1. Universal Commands</a></h3>
+<div class="sect3">
+<h4 id="accessing-project-dashboard-page-code-home-code-br"><a class="link" href="#accessing-project-dashboard-page-code-home-code-br">3.1.1. Accessing project dashboard page: <code>/home</code><br></a></h4>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Returns to project dashboard page<br>
+Format: <code>/home</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="accessing-time-management-page-code-calendar-code-br"><a class="link" href="#accessing-time-management-page-code-calendar-code-br">3.1.2. Accessing time management page: <code>/calendar</code><br></a></h4>
+<div class="paragraph">
+<p>Returns to time management page where calendar and meeting times are displayed<br>
+Format: <code>/calendar</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="accessing-inventory-management-page-code-inventory-code-br"><a class="link" href="#accessing-inventory-management-page-code-inventory-code-br">3.1.3. Accessing inventory management page: <code>/inventory</code><br></a></h4>
+<div class="paragraph">
+<p>Returns to inventory management page <br>
+Format: <code>/inventory</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-help-code-help-code-br"><a class="link" href="#view-help-code-help-code-br">3.1.4. View help: <code>/help</code><br></a></h4>
+<div class="paragraph">
+<p>Displays a list of possible commands for the user<br>
+Format: <code>/help</code></p>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="member-related-commands"><a class="link" href="#member-related-commands">3.2. Member-related Commands</a></h3>
+<div class="sect3">
+<h4 id="add-a-member-code-add-member-code-br"><a class="link" href="#add-a-member-code-add-member-code-br">3.2.1. Add a member: <code>add member</code><br></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a team member to the list of team members<br>
+Format: <code>add member [m/MEMBER_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add member m/Gabriel Seow</code></p>
+</li>
+<li>
+<p><code>add member m/Abhinav Ramnath</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.2. List existing members: <code>list members</code><br></a></h4>
+<div class="paragraph">
+<p>Shows a list of all team members in the dashboard<br>
+Format: <code>list members</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-member-code-remove-member-code-br"><a class="link" href="#remove-a-member-code-remove-member-code-br">3.2.3. Remove a member: <code>remove member</code><br></a></h4>
+<div class="paragraph">
+<p>Removes a team member from the dashboard, and removes the team member from associated tasks<br>
+Format: <code>remove member [mi/MEMBER_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remove member mi/9</code><br>
+Removes the member with member ID 9 from the dashboard and removes her from associated tasks</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="assign-a-task-to-a-member-code-assign-code-br"><a class="link" href="#assign-a-task-to-a-member-code-assign-code-br">3.2.4. Assign a task to a member: <code>assign</code><br></a></h4>
+<div class="paragraph">
+<p>Assigns a task to the specified team member<br>
+Format: <code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>assign ti/5 m/3</code><br>
+Assigns the task with ID 5 to the team member 3</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-task-for-a-member-code-fire-code-br"><a class="link" href="#remove-a-task-for-a-member-code-fire-code-br">3.2.5. Remove a task for a member: <code>fire</code><br></a></h4>
+<div class="paragraph">
+<p>Removes a task for the specified team member<br>
+Format: <code>fire [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fire ti/9 mi/3</code><br>
+Removes the task with ID 9 from the team member with ID 3</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-related-commands"><a class="link" href="#task-related-commands">3.3. Task-related Commands</a></h3>
+<div class="sect3">
+<h4 id="add-a-task-code-add-task-code"><a class="link" href="#add-a-task-code-add-task-code">3.3.1. Add a task: <code>add task</code></a></h4>
+<div class="paragraph">
+<p>Adds a task into project dashboard</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add task t/Finish up milestone setting m/Gabriel Seow</code><br>
+A new task will be added to the project dashboard</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-a-task-status-to-doing-code-doing-code"><a class="link" href="#set-a-task-status-to-doing-code-doing-code">3.3.2. Set a task status to ‘Doing’: <code>doing</code></a></h4>
+<div class="paragraph">
+<p>Updates task status to ‘Doing’</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>doing task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>doing task ti/3</code><br>
+Marks the status of task 3 as doing</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-a-task-status-to-done-done"><a class="link" href="#set-a-task-status-to-done-done">3.3.3. Set a task status to ‘Done’: done</a></h4>
+<div class="paragraph">
+<p>Updates task status to ‘Done’</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>done task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>done task ti/2</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Marks the status of task 2 as done.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-the-existing-tasks-code-list-tasks-code"><a class="link" href="#list-the-existing-tasks-code-list-tasks-code">3.3.4. List the existing tasks: <code>list tasks</code></a></h4>
+<div class="paragraph">
+<p>List all the tasks on the dashboard</p>
+</div>
+<div class="paragraph">
+<p>Format: 'list tasks'</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-task-remove-task"><a class="link" href="#remove-a-task-remove-task">3.3.5. Remove a task: remove task</a></h4>
+<div class="paragraph">
+<p>Removes a task from the dashboard</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>remove task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remove task 2</code><br>
+Removes the 2nd task in the dashboard</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-deadline-for-a-task-code-deadline-task-code"><a class="link" href="#set-deadline-for-a-task-code-deadline-task-code">3.3.6. Set deadline for a task: <code>deadline task</code></a></h4>
+<div class="paragraph">
+<p>Sets deadline for existing tasks on dashboard</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>deadline task [ti/TASK_ID] [at/DEADLINE] [at/ dd-mm-yy hh:mm]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -135,60 +371,113 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+Remember to input using 24 hour time format
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>deadline task ti/21 at/21-09-19 15:00</code> <br>
+Deadline for task 21 will be specified as 21/09/19 1500</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="calendar-commands"><a class="link" href="#calendar-commands">3.4. Calendar Commands</a></h3>
+<div class="sect3">
+<h4 id="add-a-member-s-calendar"><a class="link" href="#add-a-member-s-calendar">3.4.1. Add a member’s calendar</a></h4>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a calendar to the required member&#8217;s profile</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Steps</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>User first exports their .ics file from NUSmods</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>Then import it into their google calendar</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Add any weekly commitments to their google calendar</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>Export .ics file again</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>Import all to our application</p>
+</li>
+<li>
+<p>generate timings</p>
+</li>
+<li>
+<p>Choose the desired timing for the weekly meetings from the grid displayed</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="generate-free-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generate-free-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generate free time across all calendars uploaded: <code>generate timings</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>generate timings</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>generate timings</code><br>
+Generates a grid showing the number of people who can make it for a particular time slot during the week (mock-up needed)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-meeting-code-add-meeting-code"><a class="link" href="#add-a-meeting-code-add-meeting-code">3.4.3. Add a meeting: <code>add meeting</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>Add meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
+</div>
+<div class="paragraph">
+<p>to add a new meeting</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add meeting at/10-10-2018 19:00 l/COM2-0204</code><br>
+User chooses the meeting time from the grid displayed from generate timings commands (3.4.2) . A meeting is added to the internal calendar of the application, which will be displayed on the dashboard.</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory-commands"><a class="link" href="#inventory-commands">3.5. Inventory Commands</a></h3>
+<div class="sect3">
+<h4 id="adding-an-inventory-code-add-inventory-code"><a class="link" href="#adding-an-inventory-code-add-inventory-code">3.5.1. Adding an inventory: <code>add inventory</code></a></h4>
+<div class="paragraph">
+<p>Adds an inventory item bought or required for a specific project task.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add inventory [ti/TASK_ID] [i/ITEM_NAME] [mi/MEMBER_ID] [p/PRICE(optional)]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -196,44 +485,23 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>add inventory ti/2 i/Mahjong Paper mi/3 p/8.50</code><br>
+Adds the item “Mahjong paper” for $8.50 to the inventory list. This item is tagged to task 2 and was paid for by member 3.</p>
 </li>
 <li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>add inventory ti/4 i/scissors mi/1</code><br>
+Adds the item “scissors” to the inventory list. The item is tagged to task 4 and is provided by member 1 for no cost.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-an-inventory-code-delete-inventory-code"><a class="link" href="#deleting-an-inventory-code-delete-inventory-code">3.5.2. Deleting an inventory: <code>delete inventory</code></a></h4>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Deletes an inventory item.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
+<div class="paragraph">
+<p>Format: <code>delete inventory [ii/ITEM_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -241,38 +509,19 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>delete inventory ii/3</code><br>
+Deletes the third item from the inventory list</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="generating-a-report-of-inventory-by-task-code-generate-inventory-task-code"><a class="link" href="#generating-a-report-of-inventory-by-task-code-generate-inventory-task-code">3.5.3. Generating a report of inventory by task: <code>generate inventory /task</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Generates a PDF report containing all inventories grouped by tasks for easier sharing.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="paragraph">
+<p>Format: <code>generate inventory /task</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -280,43 +529,39 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>generate inventory /task</code><br>
+File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<div class="sect3">
+<h4 id="generating-a-report-of-inventory-by-people-code-generate-inventory-person-code"><a class="link" href="#generating-a-report-of-inventory-by-people-code-generate-inventory-person-code">3.5.4. Generating a report of inventory by people: <code>generate inventory /person</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Generates a PDF report containing all inventories grouped by members for easier understanding of claims.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Format: <code>generate inventory /person</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>generate inventory /person</code><br>
+File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
+</li>
+</ul>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.6. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -325,8 +570,24 @@ There is no need to save manually.</p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p><strong>Q</strong>: Can I use file formats other than ics for the calendar feature?<br>
+<strong>A</strong>: No, the file format has to be in ics folder, downloaded either from NUSmods or Google Calendar.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can i export the claims report as a word document?<br>
+<strong>A</strong>: No, the application only supports pdf.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What if the calendar cannot find a timing where everyone is free?<br>
+<strong>A</strong>: There will be a grid showing the number of available members by time, so it will be easier for the user to choose the best possible time for the meeting.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: My project has a budget, does the application help me keep track of the projects financial status?<br>
+<strong>A</strong>: Using /inventory the application can keep track of current expenses for each task and the member who purchased it, however, there are currently no accounting services available.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Some of the tasks for my project require sub tasks to be completed, is there a way to add them?<br>
+<strong>A</strong>: Ideally since the user is the project leader, they should only see the main tasks to be accomplished for the project. This would help facilitate their managerial role within the project. Hence, the application does not support subtasks.</p>
 </div>
 </div>
 </div>
@@ -336,31 +597,69 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Project dashboard</strong>: <code>/home</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Time management page</strong>: <code>/calendar</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Inventory management page</strong>: <code>/inventory</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Help</strong>: <code>/help</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Add member</strong>: <code>add member [m/MEMBER_NAME]</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>List members</strong>: <code>list members</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Remove member</strong>: <code>remove member [m/MEMBER_NAME]</code></p>
+</li>
+<li>
+<p><strong>Add task to member</strong>: <code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+</li>
+<li>
+<p><strong>Remove task from member</strong>: <code>fire [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+</li>
+<li>
+<p><strong>Add task</strong>: <code>add task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
+</li>
+<li>
+<p><strong>Doing task</strong>: <code>doing task [ti/TASK_ID]</code></p>
+</li>
+<li>
+<p><strong>Done task</strong>: <code>done task [ti/TASK_ID]</code></p>
+</li>
+<li>
+<p><strong>List tasks</strong>: <code>list tasks</code></p>
+</li>
+<li>
+<p><strong>Remove task</strong>: <code>remove task [ti/TASK_ID]</code></p>
+</li>
+<li>
+<p><strong>Deadline</strong>:  <code>deadline task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code></p>
+</li>
+<li>
+<p><strong>Generate timings</strong>: <code>generate timings</code></p>
+</li>
+<li>
+<p><strong>add meeting</strong>: <code>add meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code></p>
+</li>
+<li>
+<p><strong>Adding an inventory</strong>: <code>add inventory</code></p>
+</li>
+<li>
+<p><strong>Deleting an inventory</strong>: <code>delete inventory</code></p>
+</li>
+<li>
+<p><strong>Generating report of inventory by task</strong>: <code>generate inventory /task</code></p>
+</li>
+<li>
+<p><strong>Generating report of inventory by person</strong>: <code>generate inventory /person</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-24 08:50:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 06:22:30 UTC</div></div></div></body></html>
