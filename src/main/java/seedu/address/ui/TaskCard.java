@@ -35,6 +35,8 @@ public class TaskCard extends UiPart<Region> {
     @FXML
     private Label taskStatus;
     @FXML
+    private Label remark;
+    @FXML
     private FlowPane tags;
 
     public TaskCard(Task task, int displayedIndex) {

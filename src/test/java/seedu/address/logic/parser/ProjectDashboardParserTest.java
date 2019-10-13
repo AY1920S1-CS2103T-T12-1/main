@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
@@ -23,22 +22,38 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+<<<<<<< HEAD:src/test/java/seedu/address/logic/parser/AddressBookParserTest.java
+import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Person;
+import seedu.address.testutil.EditPersonDescriptorBuilder;
+import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.PersonUtil;
+//import seedu.address.logic.commands.AddCommand;
+=======
 import seedu.address.model.task.NameContainsKeywordsPredicate;
 import seedu.address.model.task.Task;
 import seedu.address.testutil.EditTaskDescriptorBuilder;
 import seedu.address.testutil.TaskBuilder;
 import seedu.address.testutil.TaskUtil;
+>>>>>>> 19e676164d33a2eb96ba8396c7bae020bf49f7b7:src/test/java/seedu/address/logic/parser/ProjectDashboardParserTest.java
 
 public class ProjectDashboardParserTest {
 
     private final ProjectDasboardParser parser = new ProjectDasboardParser();
 
-    @Test
+    /*@Test
     public void parseCommand_add() throws Exception {
+<<<<<<< HEAD:src/test/java/seedu/address/logic/parser/AddressBookParserTest.java
+        Person person = new PersonBuilder().build();
+        AddCommand command = (AddCommand) parser.parseCommand(PersonUtil.getAddCommand(person));
+        assertEquals(new AddCommand(person), command);
+    }*/
+=======
         Task task = new TaskBuilder().build();
         AddCommand command = (AddCommand) parser.parseCommand(TaskUtil.getAddCommand(task));
         assertEquals(new AddCommand(task), command);
     }
+>>>>>>> 19e676164d33a2eb96ba8396c7bae020bf49f7b7:src/test/java/seedu/address/logic/parser/ProjectDashboardParserTest.java
 
     @Test
     public void parseCommand_clear() throws Exception {

@@ -1,0 +1,36 @@
+package seedu.address.model.person;
+
+import static java.util.Objects.requireNonNull;
+
+/**
+ * Represents a Person's remarks in the address book.
+ */
+public class Remark {
+    public final String value;
+
+    /**
+     * Constructs an {@code Email}.
+     * @param remark A remark comment.
+     */
+    public Remark(String remark) {
+        requireNonNull(remark);
+        value = remark;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof seedu.address.model.person.Remark // instanceof handles nulls
+                && value.equals(((seedu.address.model.person.Remark) other).value)); // state check
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
+}

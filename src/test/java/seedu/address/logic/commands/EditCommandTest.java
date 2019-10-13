@@ -33,7 +33,7 @@ public class EditCommandTest {
 
     private Model model = new ModelManager(getTypicalProjectDashboard(), new UserPrefs());
 
-    @Test
+    /*@Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Task editedTask = new TaskBuilder().build();
         EditCommand.EditTaskDescriptor descriptor = new EditTaskDescriptorBuilder(editedTask).build();
@@ -45,7 +45,7 @@ public class EditCommandTest {
         expectedModel.setTask(model.getFilteredTasksList().get(0), editedTask);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
-    }
+    }*/
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
