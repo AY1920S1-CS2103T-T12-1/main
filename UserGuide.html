@@ -18,7 +18,8 @@
 <li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
 <li><a href="#calendar-commands">3.4. Calendar Commands</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
-<li><a href="#saving-the-data">3.6. Saving the data</a></li>
+<li><a href="#settings-commands">3.6. Settings Commands</a></li>
+<li><a href="#saving-the-data">3.7. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -149,31 +150,31 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="universal-commands"><a class="link" href="#universal-commands">3.1. Universal Commands</a></h3>
 <div class="sect3">
-<h4 id="accessing-project-dashboard-page-code-home-code-br"><a class="link" href="#accessing-project-dashboard-page-code-home-code-br">3.1.1. Accessing project dashboard page: <code>/home</code><br></a></h4>
+<h4 id="accessing-project-dashboard-page-code-home-code-br"><a class="link" href="#accessing-project-dashboard-page-code-home-code-br">3.1.1. Accessing project dashboard page: <code>home</code><br></a></h4>
 <div class="paragraph">
 <p>Returns to project dashboard page<br>
-Format: <code>/home</code></p>
+Format: <code>home</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="accessing-time-management-page-code-calendar-code-br"><a class="link" href="#accessing-time-management-page-code-calendar-code-br">3.1.2. Accessing time management page: <code>/calendar</code><br></a></h4>
+<h4 id="accessing-time-management-page-code-calendar-code-br"><a class="link" href="#accessing-time-management-page-code-calendar-code-br">3.1.2. Accessing time management page: <code>calendar</code><br></a></h4>
 <div class="paragraph">
 <p>Returns to time management page where calendar and meeting times are displayed<br>
-Format: <code>/calendar</code></p>
+Format: <code>calendar</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="accessing-inventory-management-page-code-inventory-code-br"><a class="link" href="#accessing-inventory-management-page-code-inventory-code-br">3.1.3. Accessing inventory management page: <code>/inventory</code><br></a></h4>
+<h4 id="accessing-settings-page-code-settings-code-br"><a class="link" href="#accessing-settings-page-code-settings-code-br">3.1.3. Accessing settings page: <code>settings</code><br></a></h4>
 <div class="paragraph">
-<p>Returns to inventory management page <br>
-Format: <code>/inventory</code></p>
+<p>Returns to settings page <br>
+Format: <code>settings</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-help-code-help-code-br"><a class="link" href="#view-help-code-help-code-br">3.1.4. View help: <code>/help</code><br></a></h4>
+<h4 id="view-help-code-help-code-br"><a class="link" href="#view-help-code-help-code-br">3.1.4. View help: <code>help</code><br></a></h4>
 <div class="paragraph">
 <p>Displays a list of possible commands for the user<br>
-Format: <code>/help</code></p>
+Format: <code>help</code></p>
 </div>
 <hr>
 </div>
@@ -181,7 +182,7 @@ Format: <code>/help</code></p>
 <div class="sect2">
 <h3 id="member-related-commands"><a class="link" href="#member-related-commands">3.2. Member-related Commands</a></h3>
 <div class="sect3">
-<h4 id="add-a-member-code-add-member-code-br"><a class="link" href="#add-a-member-code-add-member-code-br">3.2.1. Add a member: <code>add member</code><br></a></h4>
+<h4 id="add-a-member-code-add-member-code-br"><a class="link" href="#add-a-member-code-add-member-code-br">3.2.1. Add a member: <code>add-member</code><br></a></h4>
 <div class="paragraph">
 <p>Adds a team member to the list of team members<br>
 Format: <code>add member [m/MEMBER_NAME]</code></p>
@@ -201,17 +202,17 @@ Format: <code>add member [m/MEMBER_NAME]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.2. List existing members: <code>list members</code><br></a></h4>
+<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.2. List existing members: <code>list-members</code><br></a></h4>
 <div class="paragraph">
 <p>Shows a list of all team members in the dashboard<br>
-Format: <code>list members</code></p>
+Format: <code>list-members</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-member-code-remove-member-code-br"><a class="link" href="#remove-a-member-code-remove-member-code-br">3.2.3. Remove a member: <code>remove member</code><br></a></h4>
+<h4 id="remove-a-member-code-remove-member-code-br"><a class="link" href="#remove-a-member-code-remove-member-code-br">3.2.3. Remove a member: <code>remove-member</code><br></a></h4>
 <div class="paragraph">
 <p>Removes a team member from the dashboard, and removes the team member from associated tasks<br>
-Format: <code>remove member [mi/MEMBER_ID]</code></p>
+Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -219,7 +220,7 @@ Format: <code>remove member [mi/MEMBER_ID]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remove member mi/9</code><br>
+<p><code>remove-member mi/9</code><br>
 Removes the member with member ID 9 from the dashboard and removes her from associated tasks</p>
 </li>
 </ul>
@@ -271,7 +272,7 @@ Removes the task with ID 9 from the team member with ID 3</p>
 <p>Adds a task into project dashboard</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
+<p>Format: <code>add-task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -291,7 +292,7 @@ A new task will be added to the project dashboard</p>
 <p>Updates task status to ‘Doing’</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>doing task [ti/TASK_ID]</code></p>
+<p>Format: <code>doing-task [ti/TASK_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -299,7 +300,7 @@ A new task will be added to the project dashboard</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>doing task ti/3</code><br>
+<p><code>doing-task ti/3</code><br>
 Marks the status of task 3 as doing</p>
 </li>
 </ul>
@@ -311,7 +312,7 @@ Marks the status of task 3 as doing</p>
 <p>Updates task status to ‘Done’</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>done task [ti/TASK_ID]</code></p>
+<p>Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -319,7 +320,7 @@ Marks the status of task 3 as doing</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>done task ti/2</code></p>
+<p><code>done-task ti/2</code></p>
 </li>
 </ul>
 </div>
@@ -328,21 +329,21 @@ Marks the status of task 3 as doing</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-the-existing-tasks-code-list-tasks-code"><a class="link" href="#list-the-existing-tasks-code-list-tasks-code">3.3.4. List the existing tasks: <code>list tasks</code></a></h4>
+<h4 id="list-the-existing-tasks-code-list-tasks-code"><a class="link" href="#list-the-existing-tasks-code-list-tasks-code">3.3.4. List the existing tasks: <code>list-tasks</code></a></h4>
 <div class="paragraph">
 <p>List all the tasks on the dashboard</p>
 </div>
 <div class="paragraph">
-<p>Format: 'list tasks'</p>
+<p>Format: 'list-tasks'</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-a-task-remove-task"><a class="link" href="#remove-a-task-remove-task">3.3.5. Remove a task: remove task</a></h4>
+<h4 id="remove-a-task-remove-task"><a class="link" href="#remove-a-task-remove-task">3.3.5. Remove a task: remove-task</a></h4>
 <div class="paragraph">
 <p>Removes a task from the dashboard</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>remove task [ti/TASK_ID]</code></p>
+<p>Format: <code>remove-task [ti/TASK_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -350,19 +351,19 @@ Marks the status of task 3 as doing</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remove task 2</code><br>
+<p><code>remove-task 2</code><br>
 Removes the 2nd task in the dashboard</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-deadline-for-a-task-code-deadline-task-code"><a class="link" href="#set-deadline-for-a-task-code-deadline-task-code">3.3.6. Set deadline for a task: <code>deadline task</code></a></h4>
+<h4 id="set-deadline-for-a-task-code-deadline-task-code"><a class="link" href="#set-deadline-for-a-task-code-deadline-task-code">3.3.6. Set deadline for a task: <code>deadline-task</code></a></h4>
 <div class="paragraph">
 <p>Sets deadline for existing tasks on dashboard</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>deadline task [ti/TASK_ID] [at/DEADLINE] [at/ dd-mm-yy hh:mm]</code></p>
+<p>Format: <code>deadline-task [ti/TASK_ID] [at/DEADLINE] [at/ dd-mm-yy hh:mm]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -382,7 +383,7 @@ Remember to input using 24 hour time format
 <div class="ulist">
 <ul>
 <li>
-<p><code>deadline task ti/21 at/21-09-19 15:00</code> <br>
+<p><code>deadline-task ti/21 at/21-09-19 15:00</code> <br>
 Deadline for task 21 will be specified as 21/09/19 1500</p>
 </li>
 </ul>
@@ -405,7 +406,7 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 <div class="ulist">
 <ul>
 <li>
-<p>User first exports their .ics file from NUSmods</p>
+<p>User first exports their <code>.ics</code> file from NUSmods</p>
 </li>
 <li>
 <p>Then import it into their google calendar</p>
@@ -414,13 +415,13 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 <p>Add any weekly commitments to their google calendar</p>
 </li>
 <li>
-<p>Export .ics file again</p>
+<p>Export <code>.ics</code> file again</p>
 </li>
 <li>
 <p>Import all to our application</p>
 </li>
 <li>
-<p>generate timings</p>
+<p>enter command <code>generate-timings</code></p>
 </li>
 <li>
 <p>Choose the desired timing for the weekly meetings from the grid displayed</p>
@@ -433,7 +434,7 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 <div class="sect3">
 <h4 id="generate-free-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generate-free-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generate free time across all calendars uploaded: <code>generate timings</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>generate timings</code></p>
+<p>Format: <code>generate-timings</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -441,7 +442,7 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>generate timings</code><br>
+<p><code>generate-timings</code><br>
 Generates a grid showing the number of people who can make it for a particular time slot during the week (mock-up needed)</p>
 </li>
 </ul>
@@ -450,7 +451,7 @@ Generates a grid showing the number of people who can make it for a particular t
 <div class="sect3">
 <h4 id="add-a-meeting-code-add-meeting-code"><a class="link" href="#add-a-meeting-code-add-meeting-code">3.4.3. Add a meeting: <code>add meeting</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>Add meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
+<p>Format: <code>add-meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
 </div>
 <div class="paragraph">
 <p>to add a new meeting</p>
@@ -461,7 +462,7 @@ Generates a grid showing the number of people who can make it for a particular t
 <div class="ulist">
 <ul>
 <li>
-<p><code>add meeting at/10-10-2018 19:00 l/COM2-0204</code><br>
+<p><code>add-meeting at/10-10-2018 19:00 l/COM2-0204</code><br>
 User chooses the meeting time from the grid displayed from generate timings commands (3.4.2) . A meeting is added to the internal calendar of the application, which will be displayed on the dashboard.</p>
 </li>
 </ul>
@@ -472,12 +473,12 @@ User chooses the meeting time from the grid displayed from generate timings comm
 <div class="sect2">
 <h3 id="inventory-commands"><a class="link" href="#inventory-commands">3.5. Inventory Commands</a></h3>
 <div class="sect3">
-<h4 id="adding-an-inventory-code-add-inventory-code"><a class="link" href="#adding-an-inventory-code-add-inventory-code">3.5.1. Adding an inventory: <code>add inventory</code></a></h4>
+<h4 id="adding-an-inventory-code-add-inventory-code"><a class="link" href="#adding-an-inventory-code-add-inventory-code">3.5.1. Adding an inventory: <code>add-inventory</code></a></h4>
 <div class="paragraph">
 <p>Adds an inventory item bought or required for a specific project task.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add inventory [ti/TASK_ID] [i/ITEM_NAME] [mi/MEMBER_ID] [p/PRICE(optional)]</code></p>
+<p>Format: <code>add-inventory [ti/TASK_ID] [i/ITEM_NAME] [mi/MEMBER_ID] [p/PRICE(optional)]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -485,11 +486,11 @@ User chooses the meeting time from the grid displayed from generate timings comm
 <div class="ulist">
 <ul>
 <li>
-<p><code>add inventory ti/2 i/Mahjong Paper mi/3 p/8.50</code><br>
+<p><code>add-inventory ti/2 i/Mahjong Paper mi/3 p/8.50</code><br>
 Adds the item “Mahjong paper” for $8.50 to the inventory list. This item is tagged to task 2 and was paid for by member 3.</p>
 </li>
 <li>
-<p><code>add inventory ti/4 i/scissors mi/1</code><br>
+<p><code>add-inventory ti/4 i/scissors mi/1</code><br>
 Adds the item “scissors” to the inventory list. The item is tagged to task 4 and is provided by member 1 for no cost.</p>
 </li>
 </ul>
@@ -501,7 +502,7 @@ Adds the item “scissors” to the inventory list. The item is tagged to task 4
 <p>Deletes an inventory item.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete inventory [ii/ITEM_ID]</code></p>
+<p>Format: <code>delete-inventory [ii/ITEM_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -509,7 +510,7 @@ Adds the item “scissors” to the inventory list. The item is tagged to task 4
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete inventory ii/3</code><br>
+<p><code>delete-inventory ii/3</code><br>
 Deletes the third item from the inventory list</p>
 </li>
 </ul>
@@ -521,7 +522,7 @@ Deletes the third item from the inventory list</p>
 <p>Generates a PDF report containing all inventories grouped by tasks for easier sharing.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>generate inventory /task</code></p>
+<p>Format: <code>generate-inventory /task</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -529,7 +530,7 @@ Deletes the third item from the inventory list</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>generate inventory /task</code><br>
+<p><code>generate-inventory /task</code><br>
 File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
 </li>
 </ul>
@@ -541,7 +542,7 @@ File explorer pops up, triggering a message to allow the user to save the pdf fi
 <p>Generates a PDF report containing all inventories grouped by members for easier understanding of claims.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>generate inventory /person</code></p>
+<p>Format: <code>generate-inventory /person</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -549,7 +550,7 @@ File explorer pops up, triggering a message to allow the user to save the pdf fi
 <div class="ulist">
 <ul>
 <li>
-<p><code>generate inventory /person</code><br>
+<p><code>generate-inventory /person</code><br>
 File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
 </li>
 </ul>
@@ -558,9 +559,67 @@ File explorer pops up, triggering a message to allow the user to save the pdf fi
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.6. Saving the data</a></h3>
+<h3 id="settings-commands"><a class="link" href="#settings-commands">3.6. Settings Commands</a></h3>
+<div class="sect3">
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.6.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>Using this command, you can toggle the theme of +Work between light and dark to suit your viewing preferences.
+By default, the theme is set to dark.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>theme light</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme light</code><br>
+Switch to the light theme</p>
+</li>
+<li>
+<p><code>theme light</code><br>
+Switch to the dark theme</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switching-the-clock-of-work-code-clock-code"><a class="link" href="#switching-the-clock-of-work-code-clock-code">3.6.2. Switching the clock of +Work: <code>clock</code></a></h4>
+<div class="paragraph">
+<p>Using this command, you can toggle the clock format of +Work between 24 hour and 12 hour format.
+By default, the clock format is set to 24 hour.</p>
+</div>
+<div class="paragraph">
+<p>Note that this does not affect the input of deadlines
+for tasks. They still need to be entered in 24 hour format.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>clock twenty_four</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme twelve</code><br>
+Switches to the 12 hour clock</p>
+</li>
+<li>
+<p><code>theme twenty_four</code><br>
+Switches to the 24 hour clock</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.7. Saving the data</a></h3>
+<div class="paragraph">
+<p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
@@ -605,25 +664,25 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Project dashboard</strong>: <code>/home</code></p>
+<p><strong>Project dashboard</strong>: <code>home</code></p>
 </li>
 <li>
-<p><strong>Time management page</strong>: <code>/calendar</code></p>
+<p><strong>Time management page</strong>: <code>calendar</code></p>
 </li>
 <li>
-<p><strong>Inventory management page</strong>: <code>/inventory</code></p>
+<p><strong>Settings configuration page</strong>: <code>settings</code></p>
 </li>
 <li>
-<p><strong>Help</strong>: <code>/help</code></p>
+<p><strong>Help</strong>: <code>help</code></p>
 </li>
 <li>
-<p><strong>Add member</strong>: <code>add member [m/MEMBER_NAME]</code></p>
+<p><strong>Add member</strong>: <code>add-member [m/MEMBER_NAME]</code></p>
 </li>
 <li>
-<p><strong>List members</strong>: <code>list members</code></p>
+<p><strong>List members</strong>: <code>list-members</code></p>
 </li>
 <li>
-<p><strong>Remove member</strong>: <code>remove member [m/MEMBER_NAME]</code></p>
+<p><strong>Remove member</strong>: <code>remove-member [m/MEMBER_NAME]</code></p>
 </li>
 <li>
 <p><strong>Add task to member</strong>: <code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
@@ -632,42 +691,42 @@ There is no need to save manually.</p>
 <p><strong>Remove task from member</strong>: <code>fire [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
 </li>
 <li>
-<p><strong>Add task</strong>: <code>add task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
+<p><strong>Add task</strong>: <code>add-task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
 </li>
 <li>
-<p><strong>Doing task</strong>: <code>doing task [ti/TASK_ID]</code></p>
+<p><strong>Doing task</strong>: <code>doing-task [ti/TASK_ID]</code></p>
 </li>
 <li>
-<p><strong>Done task</strong>: <code>done task [ti/TASK_ID]</code></p>
+<p><strong>Done task</strong>: <code>done-task [ti/TASK_ID]</code></p>
 </li>
 <li>
-<p><strong>List tasks</strong>: <code>list tasks</code></p>
+<p><strong>List tasks</strong>: <code>list-tasks</code></p>
 </li>
 <li>
-<p><strong>Remove task</strong>: <code>remove task [ti/TASK_ID]</code></p>
+<p><strong>Remove task</strong>: <code>remove-task [ti/TASK_ID]</code></p>
 </li>
 <li>
-<p><strong>Deadline</strong>:  <code>deadline task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code></p>
+<p><strong>Deadline</strong>:  <code>deadline-task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code></p>
 </li>
 <li>
-<p><strong>Generate timings</strong>: <code>generate timings</code></p>
+<p><strong>Generate timings</strong>: <code>generate-timings</code></p>
 </li>
 <li>
-<p><strong>add meeting</strong>: <code>add meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code></p>
+<p><strong>add meeting</strong>: <code>add-meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code></p>
 </li>
 <li>
-<p><strong>Adding an inventory</strong>: <code>add inventory</code></p>
+<p><strong>Adding an inventory</strong>: <code>add-inventory</code></p>
 </li>
 <li>
-<p><strong>Deleting an inventory</strong>: <code>delete inventory</code></p>
+<p><strong>Deleting an inventory</strong>: <code>delete-inventory</code></p>
 </li>
 <li>
-<p><strong>Generating report of inventory by task</strong>: <code>generate inventory /task</code></p>
+<p><strong>Generating report of inventory by task</strong>: <code>generate-inventory /task</code></p>
 </li>
 <li>
-<p><strong>Generating report of inventory by person</strong>: <code>generate inventory /person</code></p>
+<p><strong>Generating report of inventory by person</strong>: <code>generate-inventory /person</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 05:57:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 12:14:23 UTC</div></div></div></body></html>
