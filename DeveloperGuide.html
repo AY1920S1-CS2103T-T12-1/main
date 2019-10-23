@@ -27,10 +27,11 @@
 <ul class="sectlevel2">
 <li><a href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></li>
 <li><a href="#proposed-settings-feature">2.2. [Proposed] Settings feature</a></li>
-<li><a href="#proposed-undo-redo-feature">2.3. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">2.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">2.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">2.6. Configuration</a></li>
+<li><a href="#statistics-feature">2.3. Statistics feature</a></li>
+<li><a href="#proposed-undo-redo-feature">2.4. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">2.5. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">3. Documentation</a></li>
@@ -112,7 +113,7 @@ The following class plays an important role at the architecture level:</p>
 <p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
 </li>
 <li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor, parses user input.</p>
 </li>
 <li>
 <p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
@@ -146,13 +147,13 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>add-member mn/Abhi</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>add-member mn/Abhi</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -270,7 +271,7 @@ The lifeline for <code>DeleteTaskCommandParser</code> should end at the destroy 
 <h3 id="Design-Model"><a class="link" href="#Design-Model">1.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagramNew.png" alt="ModelClassDiagramNew">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
@@ -289,7 +290,7 @@ The lifeline for <code>DeleteTaskCommandParser</code> should end at the destroy 
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes the unmodifiable <code>ObservableList&lt;Member&gt;</code>, <code>ObservableList&lt;Task&gt;</code>, <code>ObservableList&lt;Inventory&gt;</code> and <code>ObservableList&lt;Mapping&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -303,9 +304,9 @@ The lifeline for <code>DeleteTaskCommandParser</code> should end at the destroy 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Member</code> or 'Task' can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Member</code> or 'Task' needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+<span class="image"><img src="images/BetterModelClassDiagramNew.png" alt="BetterModelClassDiagramNew"></span>
 </td>
 </tr>
 </table>
@@ -651,9 +652,173 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.3. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.3. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.3.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">2.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The commands introduced by this statistics feature includes: <code>get-task-stats</code> and <code>get-member-stats</code>. These commands are faciliatated by the class 'Statistics' that resides within model. The 'Statistics' class implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Statistics#doCalculations()</code>&#8201;&#8212;&#8201;Calculates the statistics needed using existing list of tasks, members and mappings.</p>
+</li>
+<li>
+<p><code>Statistics#getPortionMembersByTasks()</code>&#8201;&#8212;&#8201;Retrives statistics of all the members and number of tasks completed by the each individual member.</p>
+</li>
+<li>
+<p><code>Statistics#getPortionMembersByItems()</code>&#8201;&#8212;&#8201;Retrives statistics of all the members and number of items purchased by the each individual member.</p>
+</li>
+<li>
+<p><code>Statistics#getPortionTasksByStatus()</code>&#8201;&#8212;&#8201;Retrives statistics of all existing tasks and number of tasks of each status.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#doCalculations</code>, and 'Model#getStatistics'.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To allow the <code>UI</code> to be responsive, one of the operations is similarly exposed in the <code>Logic</code> interface as `Logic#getStatistics()'
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the Statistics mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The 'Statistics' will be initialised based on the data previously saved.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Data previously saved refers to the statistics calculation done based on list of members, tasks and mappings saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>get-task-stats</code> command to retrieve statistics related to the tasks in the application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>get-task-stats</code> command calls <code>Model#getFilteredTasksList()</code>, <code>Model#getFilteredMembersList()</code> and <code>Model#getFilteredMappingsList()</code> after updating all the lists to show all tasks/members/mappings, to obtain lists of all the members, tasks and mappings saved in the application. Using the lists, a Statistics object is formed. 'Model#setStatistics' is called to updated the statistics in ProjectDashboard.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the 'get-member-stats' operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GetStatisticsSequenceDiagram.png" alt="GetStatisticsSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 10. Operational flow of 'GetStatisticsCommand'</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The 'get-member-stats' operation is similar to the one shown in figure 10.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GetStatisticsActivityDiagram.png" alt="GetStatisticsActivityDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-implement-statistics-class"><a class="link" href="#aspect-how-to-implement-statistics-class">Aspect: How to implement Statistics class</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> One statistics object for the entire ProjectDashboard</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, centralised class for all statistics</p>
+</li>
+<li>
+<p>Cons: May have performance issues due to calculations involving large amounts of tasks and members.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual statistic objects for members and tasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will ensure faster performance,</p>
+</li>
+<li>
+<p>Cons: Design of statistics object has to be very well-implemented, might not have enough time to implement it by v1.3</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-display-of-statistics-for-project-dashboard"><a class="link" href="#aspect-display-of-statistics-for-project-dashboard">Aspect: Display of Statistics for Project Dashboard</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a pie chart to represent information</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for workload comparison</p>
+</li>
+<li>
+<p>Cons: Less details of individual taks and members exposed in the statistiscs page.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use a list to represent information</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Includes more details for individual elements</p>
+</li>
+<li>
+<p>Cons: Decreases the ease of comparison between tasks and members</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.4. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.4.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -795,7 +960,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -865,20 +1030,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.4. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.5. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">2.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -909,7 +1074,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2111,4 +2276,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 15:07:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 17:01:46 UTC</div></div></div></body></html>
