@@ -25,10 +25,11 @@
 </li>
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">2.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">2.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">2.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">2.4. Configuration</a></li>
+<li><a href="#proposed-settings-feature">2.1. [Proposed] Settings feature</a></li>
+<li><a href="#proposed-undo-redo-feature">2.2. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">2.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">3. Documentation</a></li>
@@ -168,14 +169,31 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The <code>UI</code> consists of a <code>MainWindow</code> that is made up of static and non-static parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p><code>UserViewMain</code> is the component responsible for switching the user view. The controller class of <code>UserViewMain</code> is <code>UserViewController</code>. When the user enters a command, <code>UserViewUpdate</code> interacts
-with <code>UserViewMain</code> to switch the view of the user. <code>UserViewMain</code> then interacts with <code>UserViewUpdate</code>, which obtains the
+<p><strong>How non-static UI components are switched:</strong></p>
+</div>
+<div class="paragraph">
+<p><code>UserViewMain</code> is the component responsible for switching the user view. The controller class of <code>UserViewMain</code> is <code>UserViewController</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 1: User enters a command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>UserViewUpdate</code> parses said command and interacts with <code>UserViewMain</code> to display the requested layout.</p>
+</div>
+<div class="paragraph">
+<p>Step 3: <code>UserViewMain</code> interacts with <code>UserViewNavigator</code>, which obtains the
 relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code>. These <code>UiPart</code> components are the <code>MemberListPanel</code>,
-<code>ProjectDashBoardView</code> etc. This component is then passed to <code>UserViewController</code> to set the current view of
+<code>ProjectDashBoardView</code> etc.</p>
+</div>
+<div class="paragraph">
+<p>Step 4: This component is then passed to <code>UserViewController</code> to set the current view of
 <code>UserViewMain</code> component.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: Users view is then switched successfully.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -332,9 +350,195 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-settings-feature"><a class="link" href="#proposed-settings-feature">2.1. [Proposed] Settings feature</a></h3>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">2.1.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The commands introduced by this feature include; <code>theme light</code>, <code>theme dark</code>, <code>clock twenty_four</code> and <code>clock twelve</code>.
+The commands are facilitated by <code>UserSettings</code>. This component resides in model and contains the customisable settings available to
+the user, which include <code>theme</code> and <code>clockFormat</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Settings#getTheme()</code>&#8201;&#8212;&#8201;Retrieves the current theme applied to +Work.</p>
+</li>
+<li>
+<p><code>Settings#getClockFormat()</code>&#8201;&#8212;&#8201;Retrieves the current clock format applied to +Work.</p>
+</li>
+<li>
+<p><code>Settings#setDarkTheme()</code>&#8201;&#8212;&#8201;Sets the new theme of +Work to be <code>DARK</code>.</p>
+</li>
+<li>
+<p><code>Settings#setLightTheme()</code>&#8201;&#8212;&#8201;Sets the new theme of +Work to be <code>LIGHT</code>.</p>
+</li>
+<li>
+<p><code>Settings#setTwelveHourFormat()</code>&#8201;&#8212;&#8201;Sets the new clock format of +Work to be <code>TWELVE_HOUR</code>.</p>
+</li>
+<li>
+<p><code>Settings#setTwentyFourHourFormat()</code>&#8201;&#8212;&#8201;Sets the new clock format of +Work to be <code>TWENTY_FOUR</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getTheme()</code>, <code>Model#getClockFormat()</code>, <code>Model#setDarkTheme()</code>,
+<code>Model#setLightTheme()</code>, <code>Model#setTwelveHourFormat()</code>, <code>Model#setTwentyFourHourFormat()</code> respectively.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To allow the <code>UI</code> to be responsive, two of the operations are similarly exposed in the <code>Logic</code> interface as <code>Logic#getTheme()</code> and
+<code>Logic#getClockFormat()</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the various commands work.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application. The <code>UserSettings</code> will be initialised based on the
+saved <code>UserSettings</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Assume that the previous setting for <code>theme</code> is <code>LIGHT</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>theme dark</code> command to switch the theme of +Work to <code>DARK</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>Logic</code> calls <code>Model#setDarkTheme()</code>, which calls <code>UserSettings#setDarkTheme()</code>, which changes <code>theme</code> attribute to
+<code>DARK</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>DARK</code> theme has been applied to +Work, and the settings have been updated and stored in the save file.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>theme dark</code> operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram">
+</div>
+<div class="title">Figure 9. Operational flow of <code>ThemeCommand</code></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>ThemeCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>theme light</code> operation is similar to the one shown in figure 9. However, the method called is <code>setLightTheme</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The <code>clock twelve</code> and <code>clock twenty_four</code> have a similar operation to <code>theme dark</code> as well. There are two differences, <code>ClockCommand</code> replaces
+<code>ThemeCommand</code> and the associated methods called in <code>Model</code> are different.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-level-of-user-customisation-for-work-clock-format"><a class="link" href="#aspect-level-of-user-customisation-for-work-clock-format">Aspect: Level of user customisation for +Work clock format</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> User can change the display format of date and time only</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement in terms of storage.</p>
+</li>
+<li>
+<p>Cons: User has to remember to create new deadlines for tasks in 24 hour format only.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> User can change the input and display format of date and time</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User has greater flexibility in input of date and time.</p>
+</li>
+<li>
+<p>Cons: We must ensure that during load and save of storage, the formatting does not cause any errors.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-level-of-user-customisation-for-work-themes"><a class="link" href="#aspect-level-of-user-customisation-for-work-themes">Aspect: Level of user customisation for +Work themes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> User can change between light and dark only.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement and maintain UI components and css files to ensure theme cascades consistently.</p>
+</li>
+<li>
+<p>Cons: User is limited to two themes, which may affect their viewing preferences.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> User can import their own themes and use them.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User has greater flexibility in choosing themes for +Work.</p>
+</li>
+<li>
+<p>Cons: We must ensure that all UI components switch themes consistently. This may take a long time to test, due to large number of views
+offered by +Work. Furthermore the compatibility of the theme with JavaFx must be regarded as well.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.2. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -476,7 +680,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -546,20 +750,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">2.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -590,7 +794,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1792,4 +1996,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:36:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 12:09:51 UTC</div></div></div></body></html>
