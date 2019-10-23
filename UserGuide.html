@@ -16,7 +16,7 @@
 <li><a href="#universal-commands">3.1. Universal Commands</a></li>
 <li><a href="#member-related-commands">3.2. Member-related Commands</a></li>
 <li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
-<li><a href="#calendar-commands">3.4. Calendar Commands</a></li>
+<li><a href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#settings-commands-coming-in-v1-3">3.6. Settings Commands (Coming in v1.3)</a></li>
 <li><a href="#saving-the-data">3.7. Saving the data</a></li>
@@ -392,19 +392,14 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-commands"><a class="link" href="#calendar-commands">3.4. Calendar Commands</a></h3>
-<div class="sect3">
-<h4 id="add-a-member-s-calendar"><a class="link" href="#add-a-member-s-calendar">3.4.1. Add a member’s calendar</a></h4>
-<div class="paragraph">
-<p>Adds a calendar to the required member&#8217;s profile</p>
-</div>
+<h3 id="calendar-commands-coming-in-v1-3"><a class="link" href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Steps</p>
+<p>Suggested steps for you to follow</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>User first exports their <code>.ics</code> file from NUSmods</p>
 </li>
@@ -426,13 +421,35 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 <li>
 <p>Choose the desired timing for the weekly meetings from the grid displayed</p>
 </li>
-</ul>
-</div>
+<li>
+<p>Create a new <code>Meeting</code></p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate-free-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generate-free-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generate free time across all calendars uploaded: <code>generate timings</code></a></h4>
+<h4 id="add-a-member-s-calendar-code-import-calendar-code"><a class="link" href="#add-a-member-s-calendar-code-import-calendar-code">3.4.1. Add a member’s calendar: <code>import-calendar</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>You can add your project&#8217;s member John Doe&#8217;s <code>ics</code> file like this,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import-calendar mi/JD c/data/john_ics_file</code><br>
+Adds a calendar to John&#8217;s profile</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="generate-free-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generate-free-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generate free time across all calendars uploaded: <code>generate-timings</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>generate-timings</code></p>
 </div>
@@ -709,10 +726,13 @@ There is no need to save manually.</p>
 <p><strong>Deadline</strong>:  <code>deadline-task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code></p>
 </li>
 <li>
-<p><strong>Generate timings</strong>: <code>generate-timings</code></p>
+<p><strong>Import calendar</strong>: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code> (Coming in v1.3)</p>
 </li>
 <li>
-<p><strong>add meeting</strong>: <code>add-meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code></p>
+<p><strong>Generate timings</strong>: <code>generate-timings</code> (Coming in v1.3)</p>
+</li>
+<li>
+<p><strong>add meeting</strong>: <code>add-meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code> (Coming in v1.3)</p>
 </li>
 <li>
 <p><strong>Adding an inventory</strong>: <code>add-inventory</code></p>
@@ -726,7 +746,19 @@ There is no need to save manually.</p>
 <li>
 <p><strong>Generating report of inventory by person</strong>: <code>generate-inventory /person</code></p>
 </li>
+<li>
+<p><strong>Switch to light theme</strong>: <code>theme light</code> (Coming in v1.3)</p>
+</li>
+<li>
+<p><strong>Switch to dark theme</strong>: <code>theme dark</code> (Coming in v1.3)</p>
+</li>
+<li>
+<p><strong>Switch to 12 hour clock</strong>: <code>clock twelve</code> (Coming in v1.3)</p>
+</li>
+<li>
+<p><strong>Switch to 24 hour clock</strong>: <code>clock twenty_four</code> (Coming in v1.3)</p>
+</li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 12:09:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:00:15 UTC</div></div></div></body></html>

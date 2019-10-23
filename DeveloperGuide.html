@@ -25,11 +25,12 @@
 </li>
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-settings-feature">2.1. [Proposed] Settings feature</a></li>
-<li><a href="#proposed-undo-redo-feature">2.2. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">2.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">2.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">2.5. Configuration</a></li>
+<li><a href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></li>
+<li><a href="#proposed-settings-feature">2.2. [Proposed] Settings feature</a></li>
+<li><a href="#proposed-undo-redo-feature">2.3. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">2.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">3. Documentation</a></li>
@@ -350,9 +351,123 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-settings-feature"><a class="link" href="#proposed-settings-feature">2.1. [Proposed] Settings feature</a></h3>
+<h3 id="proposed-calendar-feature"><a class="link" href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></h3>
 <div class="sect3">
 <h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">2.1.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The commands introduced by this feature include; <code>generate-timings</code>, <code>ics</code> import and commands.
+The commands are facilitated by <code>ProjectCalendar</code>. The various <code>ics</code> files of the members are parsed in this component.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ProjectCalendar#generateTimings()</code>&#8201;&#8212;&#8201;Generates the free times after on syncing <code>ics</code> calendars of members.</p>
+</li>
+<li>
+<p><code>ProjectCalendar#getAvailableTimings()</code>&#8201;&#8212;&#8201;Retrieves the available timings of members.</p>
+</li>
+<li>
+<p><code>ProjectCalendar#importCalendar()</code>&#8201;&#8212;&#8201;Import the member&#8217;s calendar.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#generateTimings()</code>, <code>Model#getAvailableTimings()</code> and
+<code>Model#importCalendar()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the various commands work.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application. The <code>ProjectCalendar</code> will be initialised based on the
+saved <code>ProjectCalendar</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user imports members' calendars by executing <code>impport-calendar</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>generate-timings</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. +Work displays available meeting times for the project members.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-importing-and-storing-calendars-of-users"><a class="link" href="#aspect-importing-and-storing-calendars-of-users">Aspect: Importing and storing calendars of users</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> User specifies file path of <code>ics</code> file in command line.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, files can be stored in application.</p>
+</li>
+<li>
+<p>Cons: User must enter file path, which is error prone.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Upon execution of <code>import-calendar</code> a file chooser pops up to allow user to browse and upload file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can use UI to upload instead.</p>
+</li>
+<li>
+<p>Cons: Due to constraints of application, a ui based upload may not be feasible (Possibly in v2.0)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-flexibility-in-syncing-calendars"><a class="link" href="#aspect-flexibility-in-syncing-calendars">Aspect: Flexibility in syncing calendars</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> +Work syncs all calendars uploaded when <code>generate-timings</code> is executed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement.</p>
+</li>
+<li>
+<p>Cons: User may be finding a suitable time for an event where only specific members are required, in which case timings
+may not help as much.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> User can specify which members calendars to sync</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can find more suitable timings for events which involve only specific members.</p>
+</li>
+<li>
+<p>Cons: Association between members and their respective calendars must be rigorously tested to ensure accuracy of timings.
+May introduce complexity into storage and dependencies among components.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-settings-feature"><a class="link" href="#proposed-settings-feature">2.2. [Proposed] Settings feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The commands introduced by this feature include; <code>theme light</code>, <code>theme dark</code>, <code>clock twenty_four</code> and <code>clock twelve</code>.
 The commands are facilitated by <code>UserSettings</code>. This component resides in model and contains the customisable settings available to
@@ -465,7 +580,7 @@ The <code>clock twelve</code> and <code>clock twenty_four</code> have a similar 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-level-of-user-customisation-for-work-clock-format"><a class="link" href="#aspect-level-of-user-customisation-for-work-clock-format">Aspect: Level of user customisation for +Work clock format</a></h5>
 <div class="ulist">
@@ -536,9 +651,9 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.2. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.3. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.2.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.3.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -680,7 +795,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -750,20 +865,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">2.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -794,7 +909,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1996,4 +2111,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 12:09:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:00:15 UTC</div></div></div></body></html>
