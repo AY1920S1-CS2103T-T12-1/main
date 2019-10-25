@@ -31,7 +31,9 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>+Work is a project management tool that allows the project leader of a small group (less than 20 people) to manage this group to achieve their objectives for a single project. To increase efficiency of the group we help the group manage their meeting times, task allocation as well as personal claims for equipment purchased. Enjoy!</p>
+<p>+Work is a project management tool that allows NUS project leaders in charge of a small group (less than 20 people) to successfully achieve their objectives for their project.
++Work is a one-stop application to help the leader manage their members, meeting times, task allocation as well as personal claims for any equipment purchased.
++Work is perfect for those who prefer to work with a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). Happy working!</p>
 </div>
 </div>
 </div>
@@ -66,16 +68,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>add member</code></strong><code>Abhinav Ramnath</code> : Adds member m/Abhinav Ramnath</p>
+<p><strong><code>add-member m/Abhinav Ramnath</code></strong> : Adds a member with name "Abhinav Ramnath" to the project.</p>
 </li>
 <li>
-<p><strong><code>add task</code></strong><code>t/Finish up milestone setting mi/1</code> : adds a task called 'Finish up milestone' and and assigns it to the first member, Gabriel Seow.</p>
+<p><strong><code>add-task tn/Finish up milestone setting</code></strong> : Adds a task with name "Finish up milestone" to the project.</p>
 </li>
 <li>
-<p><strong><code>assign</code></strong><code>ti/5 m/3</code> : assigns the 3rd member, Seah Lynn, to the 5th task</p>
+<p><strong><code>assign-member ti/5 mi/SL</code></strong> : Assigns the project member "Seah Lynn" (With member id "SL"), to the fifth task.</p>
 </li>
 <li>
-<p><strong><code>doing task</code></strong><code>ti/3</code> : changes status of task 3 from 'to be done&#8217;to 'doing'</p>
+<p><strong><code>doing-task ti/3</code></strong> : Changes status of task three to <code>doing</code>:</p>
 </li>
 </ul>
 </div>
@@ -102,7 +104,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Example: in <code>remove member [mi/MEMBER_ID]</code>, remove member is the type of command</p>
+<p>Example: in <code>remove-member [mi/MEMBER_ID]</code>, remove member is the type of command</p>
 </li>
 </ul>
 </div>
@@ -112,7 +114,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Example: In <code>add member [m/MEMBER_NAME]</code>, MEMBER_NAME is the input specified by the user, such as: add member m/Gabriel Seow</p>
+<p>Example: In <code>add-member [m/MEMBER_NAME]</code>, MEMBER_NAME is the input specified by the user, such as: add member m/Gabriel Seow</p>
 </li>
 </ul>
 </div>
@@ -122,7 +124,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Example: In <code>add task [t/TASK_NAME] [m/MEMBER_NAME]</code>, the user inputs the name of the task after t/ and inputs the name of the member after m/, such as:<br>
+<p>Example: In <code>add-task [t/TASK_NAME] [m/MEMBER_NAME]</code>, the user inputs the name of the task after t/ and inputs the name of the member after m/, such as:<br>
 <code>add task t/Finish Project Draft m/Elsa Koh</code></p>
 </li>
 </ul>
@@ -152,21 +154,21 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect3">
 <h4 id="accessing-project-dashboard-page-code-home-code-br"><a class="link" href="#accessing-project-dashboard-page-code-home-code-br">3.1.1. Accessing project dashboard page: <code>home</code><br></a></h4>
 <div class="paragraph">
-<p>Returns to project dashboard page<br>
+<p>This brings you to the project dashboard page<br>
 Format: <code>home</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="accessing-time-management-page-code-calendar-code-br"><a class="link" href="#accessing-time-management-page-code-calendar-code-br">3.1.2. Accessing time management page: <code>calendar</code><br></a></h4>
 <div class="paragraph">
-<p>Returns to time management page where calendar and meeting times are displayed<br>
+<p>This brings you to the time management page where calendar and meeting times are displayed<br>
 Format: <code>calendar</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="accessing-settings-page-code-settings-code-coming-in-v1-3-br"><a class="link" href="#accessing-settings-page-code-settings-code-coming-in-v1-3-br">3.1.3. Accessing settings page: <code>settings</code> (Coming in v1.3)<br></a></h4>
 <div class="paragraph">
-<p>Returns to settings page <br>
+<p>This brings you to the settings page <br>
 Format: <code>settings</code></p>
 </div>
 </div>
@@ -372,7 +374,7 @@ Removes the 2nd task in the dashboard</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Remember to input using 24 hour time format
+Remember to input using the 24 hour time format
 </td>
 </tr>
 </table>
@@ -384,7 +386,7 @@ Remember to input using 24 hour time format
 <ul>
 <li>
 <p><code>deadline-task ti/21 at/21-09-19 15:00</code> <br>
-Deadline for task 21 will be specified as 21/09/19 1500</p>
+Deadline for task 21 will be specified as <code>21-09-19 15:00</code></p>
 </li>
 </ul>
 </div>
@@ -429,7 +431,7 @@ Deadline for task 21 will be specified as 21/09/19 1500</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-member-s-calendar-code-import-calendar-code"><a class="link" href="#add-a-member-s-calendar-code-import-calendar-code">3.4.1. Add a member’s calendar: <code>import-calendar</code></a></h4>
+<h4 id="add-a-members-calendar-code-import-calendar-code"><a class="link" href="#add-a-members-calendar-code-import-calendar-code">3.4.1. Add a members calendar: <code>import-calendar</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code></p>
 </div>
@@ -580,8 +582,19 @@ File explorer pops up, triggering a message to allow the user to save the pdf fi
 <div class="sect3">
 <h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.6.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
-<p>Using this command, you can toggle the theme of +Work between light and dark to suit your viewing preferences.
-By default, the theme is set to dark.</p>
+<p>This command toggles the theme of +Work between light and dark to suit your viewing preferences.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+By default, the theme is set to dark.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Format: <code>theme light</code></p>
@@ -593,24 +606,32 @@ By default, the theme is set to dark.</p>
 <ul>
 <li>
 <p><code>theme light</code><br>
-Switch to the light theme</p>
+Switches to the light theme</p>
 </li>
 <li>
 <p><code>theme light</code><br>
-Switch to the dark theme</p>
+Switches to the dark theme</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-the-clock-of-work-code-clock-code"><a class="link" href="#switching-the-clock-of-work-code-clock-code">3.6.2. Switching the clock of +Work: <code>clock</code></a></h4>
+<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.6.2. Switching the clock format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
-<p>Using this command, you can toggle the clock format of +Work between 24 hour and 12 hour format.
+<p>This command toggles the clock format of +Work between 24 hour and 12 hour format.
 By default, the clock format is set to 24 hour.</p>
 </div>
-<div class="paragraph">
-<p>Note that this does not affect the input of deadlines
-for tasks. They still need to be entered in 24 hour format.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This does not affect the input format of deadlines for tasks. They still need to be entered in 24 hour format!.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Format: <code>clock twenty_four</code></p>
@@ -621,11 +642,11 @@ for tasks. They still need to be entered in 24 hour format.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>theme twelve</code><br>
+<p><code>clock twelve</code><br>
 Switches to the 12 hour clock</p>
 </li>
 <li>
-<p><code>theme twenty_four</code><br>
+<p><code>clock twenty_four</code><br>
 Switches to the 24 hour clock</p>
 </li>
 </ul>
@@ -681,84 +702,84 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Project dashboard</strong>: <code>home</code></p>
+<p><code>add-inventory [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Add an inventory</strong></p>
 </li>
 <li>
-<p><strong>Time management page</strong>: <code>calendar</code></p>
+<p><code>add-meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code>: (Coming in v1.3) <strong>Add a meeting</strong></p>
 </li>
 <li>
-<p><strong>Settings configuration page</strong>: <code>settings</code></p>
+<p><code>add-member [mn/MEMBER_NAME] [mi/MEMBER_ID] [mt/MEMBER_TAG]</code>: <strong>Add a member</strong></p>
 </li>
 <li>
-<p><strong>Help</strong>: <code>help</code></p>
+<p><code>add-task [t/TASK_NAME]  [m/MEMBER_NAME]</code>: <strong>Add a task</strong></p>
 </li>
 <li>
-<p><strong>Add member</strong>: <code>add-member [m/MEMBER_NAME]</code></p>
+<p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Add a task to a member</strong></p>
 </li>
 <li>
-<p><strong>List members</strong>: <code>list-members</code></p>
+<p><code>calendar</code>: <strong>Switch to the time management page</strong></p>
 </li>
 <li>
-<p><strong>Remove member</strong>: <code>remove-member [m/MEMBER_NAME]</code></p>
+<p><code>clock twelve</code>: (Coming in v1.3) <strong>Switch to the 12 hour clock</strong></p>
 </li>
 <li>
-<p><strong>Add task to member</strong>: <code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+<p><code>clock twenty_four</code>: (Coming in v1.3) <strong>Switch to the 24 hour clock</strong></p>
 </li>
 <li>
-<p><strong>Remove task from member</strong>: <code>fire [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+<p><code>deadline-task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code>: <strong>Assign a deadline to a task</strong></p>
 </li>
 <li>
-<p><strong>Add task</strong>: <code>add-task [t/TASK_NAME]  [m/MEMBER_NAME]</code></p>
+<p><code>delete-inventory [ii/ITEM_ID]</code>: <strong>Delete an inventory</strong></p>
 </li>
 <li>
-<p><strong>Doing task</strong>: <code>doing-task [ti/TASK_ID]</code></p>
+<p><code>doing-task [ti/TASK_ID]</code>: <strong>Mark a task as <code>doing</code></strong></p>
 </li>
 <li>
-<p><strong>Done task</strong>: <code>done-task [ti/TASK_ID]</code></p>
+<p><code>done-task [ti/TASK_ID]</code>: <strong>Mark a task as <code>done</code></strong></p>
 </li>
 <li>
-<p><strong>List tasks</strong>: <code>list-tasks</code></p>
+<p><code>fire-member [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Remove a task from a member</strong></p>
 </li>
 <li>
-<p><strong>Remove task</strong>: <code>remove-task [ti/TASK_ID]</code></p>
+<p><code>generate-inventory /task</code>: <strong>Generate report of inventory by task</strong></p>
 </li>
 <li>
-<p><strong>Deadline</strong>:  <code>deadline-task [ti/TASK_ID] [at/ dd-mm-yy hh:mm]</code></p>
+<p><code>generate-inventory /person</code>: <strong>Generate report of inventory by person</strong></p>
 </li>
 <li>
-<p><strong>Import calendar</strong>: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code> (Coming in v1.3)</p>
+<p><code>generate-timings</code>: (Coming in v1.3) <strong>Generate free times among members</strong></p>
 </li>
 <li>
-<p><strong>Generate timings</strong>: <code>generate-timings</code> (Coming in v1.3)</p>
+<p><code>home</code>: <strong>Switch to the project dashboard</strong></p>
 </li>
 <li>
-<p><strong>add meeting</strong>: <code>add-meeting [at/ dd-mm-yyyy hh:mm - hh:mm]  [l/LOCATION]</code> (Coming in v1.3)</p>
+<p><code>help</code>: <strong>Access the help window</strong></p>
 </li>
 <li>
-<p><strong>Adding an inventory</strong>: <code>add-inventory</code></p>
+<p><code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code>: (Coming in v1.3) <strong>Import a calendar</strong></p>
 </li>
 <li>
-<p><strong>Deleting an inventory</strong>: <code>delete-inventory</code></p>
+<p><code>list-members</code>: <strong>List all members</strong></p>
 </li>
 <li>
-<p><strong>Generating report of inventory by task</strong>: <code>generate-inventory /task</code></p>
+<p><code>list-tasks</code>: <strong>List all tasks</strong></p>
 </li>
 <li>
-<p><strong>Generating report of inventory by person</strong>: <code>generate-inventory /person</code></p>
+<p><code>remove-member [mi/MEMBER_ID]</code>: <strong>Remove a member</strong></p>
 </li>
 <li>
-<p><strong>Switch to light theme</strong>: <code>theme light</code> (Coming in v1.3)</p>
+<p><code>remove-task [ti/TASK_ID]</code>: <strong>Remove a task</strong></p>
 </li>
 <li>
-<p><strong>Switch to dark theme</strong>: <code>theme dark</code> (Coming in v1.3)</p>
+<p><code>settings</code>: <strong>Switch to the settings configuration page</strong></p>
 </li>
 <li>
-<p><strong>Switch to 12 hour clock</strong>: <code>clock twelve</code> (Coming in v1.3)</p>
+<p><code>theme dark</code>: (Coming in v1.3) <strong>Switch to the dark theme</strong></p>
 </li>
 <li>
-<p><strong>Switch to 24 hour clock</strong>: <code>clock twenty_four</code> (Coming in v1.3)</p>
+<p><code>theme light</code>: (Coming in v1.3) <strong>Switch to the light theme</strong></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 18:03:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-25 09:25:05 UTC</div></div></div></body></html>
