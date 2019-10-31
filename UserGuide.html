@@ -11,7 +11,20 @@
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a></li>
+<li><a href="#Features">3. Features</a>
+<ul class="sectlevel2">
+<li><a href="#universal-commands">3.1. Universal Commands</a></li>
+<li><a href="#member-related-commands">3.2. Member-related Commands</a></li>
+<li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
+<li><a href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></li>
+<li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
+<li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
+<li><a href="#saving-the-data">3.7. Saving the data</a></li>
+<li><a href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></li>
+</ul>
+</li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -21,7 +34,7 @@
 <div class="paragraph">
 <p>+Work is a project management tool that allows you to successfully achieve your objectives for your project.
 It is aimed at NUS project leaders who are in charge of a small project group of less than 20 people.
-+Work is a one-stop application to help you manage your members, meeting times, task allocations as well as personal claims for equipment purchased.
++Work is a one-stop application to help you manage your members, meeting times, task allocations as well as equipment purchased.
 Take full advantage of our Command Line Interface (CLI) while still having the all the benefits of a Graphical User Interface (GUI).
 Happy working!</p>
 </div>
@@ -36,7 +49,7 @@ Happy working!</p>
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>+Work.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/releases">here</a>.</p>
+<p>Download the latest <code>pluswork.jar</code> <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your +Work.</p>
@@ -45,7 +58,7 @@ Happy working!</p>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/QuickStart.png" alt="QuickStart" width="790">
+<img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
 </li>
@@ -54,7 +67,7 @@ Happy working!</p>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
+<p>Here are some commands you can try to get you started!:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -158,20 +171,15 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p>Date and Time is specified in the format <code>dd-mm-yyyy hh:mm</code></p>
-</li>
-</ul>
+</div>
 </div>
 <hr>
+<div class="sect2">
+<h3 id="universal-commands"><a class="link" href="#universal-commands">3.1. Universal Commands</a></h3>
+<div class="sect3">
+<h4 id="accessing-project-dashboard-page-code-home-code-br"><a class="link" href="#accessing-project-dashboard-page-code-home-code-br">3.1.1. Accessing project dashboard page: <code>home</code><br></a></h4>
 <div class="paragraph">
-<p>=== Universal Commands</p>
-</div>
-<div class="paragraph">
-<p>==== Accessing project dashboard page: <code>home</code><br>
-This command brings you to the project dashboard page, where tasks are displayed.<br></p>
+<p>This command brings you to the project dashboard page, where tasks are displayed.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>home</code><br></p>
@@ -184,9 +192,11 @@ This command brings you to the project dashboard page, where tasks are displayed
 <img src="images/Home.png" alt="Home" width="790">
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="accessing-time-management-page-code-calendar-code-br"><a class="link" href="#accessing-time-management-page-code-calendar-code-br">3.1.2. Accessing time management page: <code>calendar</code><br></a></h4>
 <div class="paragraph">
-<p>==== Accessing time management page: <code>calendar</code><br>
-This command brings you to the time management page where calendar and meeting times are displayed<br></p>
+<p>This command brings you to the time management page where calendar and meeting times are displayed<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>calendar</code><br></p>
@@ -201,9 +211,11 @@ image::Calendar.png[width=790]</p>
 <div class="paragraph">
 <p>+</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="accessing-settings-page-code-settings-code-coming-in-v1-3-br"><a class="link" href="#accessing-settings-page-code-settings-code-coming-in-v1-3-br">3.1.3. Accessing settings page: <code>settings</code> (Coming in v1.3)<br></a></h4>
 <div class="paragraph">
-<p>==== Accessing settings page: <code>settings</code> (Coming in v1.3)<br>
-This command brings you to the settings page <br></p>
+<p>This command brings you to the settings page <br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>settings</code><br></p>
@@ -218,9 +230,11 @@ image::Settings.png[width=790]</p>
 <div class="paragraph">
 <p>+</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="view-help-code-help-code-br"><a class="link" href="#view-help-code-help-code-br">3.1.4. View help: <code>help</code><br></a></h4>
 <div class="paragraph">
-<p>==== View help: <code>help</code><br>
-This command displays a list of possible commands that you can execute<br></p>
+<p>This command displays a list of possible commands that you can execute<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code><br></p>
@@ -235,26 +249,30 @@ image::Help.png[width=790]</p>
 <div class="paragraph">
 <p>+</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="accessing-settings-page-code-settings-code-br"><a class="link" href="#accessing-settings-page-code-settings-code-br">3.1.5. Accessing settings page: <code>settings</code><br></a></h4>
 <div class="paragraph">
-<p>==== Accessing settings page: <code>settings</code><br>
-This brings you to the settings page <br>
+<p>This brings you to the settings page <br>
 Format: <code>settings</code></p>
 </div>
-<div class="paragraph">
-<p>==== Viewing help: <code>help</code><br></p>
 </div>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code-br"><a class="link" href="#viewing-help-code-help-code-br">3.1.6. Viewing help: <code>help</code><br></a></h4>
 <div class="paragraph">
 <p>Displays a list of possible commands for the user<br>
 You can toggle through the command list (either through up down keys or mouse) and it will paste the correct syntax into the command line.<br>
 Format: <code>help</code></p>
 </div>
 <hr>
-<div class="paragraph">
-<p>=== Member-related Commands</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="member-related-commands"><a class="link" href="#member-related-commands">3.2. Member-related Commands</a></h3>
+<div class="sect3">
+<h4 id="adding-a-member-code-add-member-code-br"><a class="link" href="#adding-a-member-code-add-member-code-br">3.2.1. Adding a member: <code>add-member</code><br></a></h4>
 <div class="paragraph">
-<p>==== Adding a member: <code>add-member</code><br>
-To add a member to the list of team members in +Work, use the command 'add-member' following the format below.<br>
+<p>To add a member to the list of team members in +Work, use the command 'add-member' following the format below.<br>
 Format: <code>add-member mn/MEMBER_NAME mi/MEMBER_ID mt/TAGS</code></p>
 </div>
 <div class="paragraph">
@@ -290,9 +308,11 @@ It is possible to add a member with multiple tags following this format:<br>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="set-image-for-member-code-set-image-code-br"><a class="link" href="#set-image-for-member-code-set-image-code-br">3.2.2. Set image for member: <code>set-image</code><br></a></h4>
 <div class="paragraph">
-<p>==== Set image for member: <code>set-image</code><br>
-To set a profile picture for a member in +Work, use the command <code>set-image</code> following the format below.<br>
+<p>To set a profile picture for a member in +Work, use the command <code>set-image</code> following the format below.<br>
 Format: <code>set-image mi/MEMBER_ID im/IMAGE_URL</code><br></p>
 </div>
 <div class="paragraph">
@@ -315,9 +335,11 @@ Image URL refers to the folder path of the image stored in your computer, and sh
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.3. List existing members: <code>list-members</code><br></a></h4>
 <div class="paragraph">
-<p>==== List existing members: <code>list-members</code><br>
-To get a list of all members added to +Work, used the command <code>list-members</code> following the format below.<br>
+<p>To get a list of all members added to +Work, used the command <code>list-members</code> following the format below.<br>
 Format: <code>list-members</code><br></p>
 </div>
 <div class="paragraph">
@@ -328,9 +350,11 @@ Format: <code>list-members</code><br></p>
 <img src="images/ListMembers.png" alt="ListMembers" width="790">
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-member-code-remove-member-code-br"><a class="link" href="#removing-a-member-code-remove-member-code-br">3.2.4. Removing a member: <code>remove-member</code><br></a></h4>
 <div class="paragraph">
-<p>==== Removing a member: <code>remove-member</code><br>
-To remove a member from the project, and subsequently remove him from associated tasks, use the 'remove-member' command in the format below.<br>
+<p>To remove a member from the project, and subsequently remove him from associated tasks, use the 'remove-member' command in the format below.<br>
 Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 </div>
 <div class="paragraph">
@@ -344,14 +368,11 @@ Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 <div class="paragraph">
 <p>As seen from above, the member 'New Member' with member ID 'NM' has been removed from the project.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Example: 'remove-member mi/GS'</p>
 </div>
+<div class="sect3">
+<h4 id="assign-a-task-to-a-member-code-assign-code-br"><a class="link" href="#assign-a-task-to-a-member-code-assign-code-br">3.2.5. Assign a task to a member: <code>assign</code><br></a></h4>
 <div class="paragraph">
-<p>==== Assign a task to a member: <code>assign</code><br>
-To assign a task to a specific team member, use the <code>assign</code> command in the format below.<br></p>
+<p>To assign a task to a specific team member, use the <code>assign</code> command in the format below.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>assign ti/TASK_ID mi/MEMBER_ID</code><br></p>
@@ -369,9 +390,11 @@ image::AssignTask.png[width="790"]</p>
 <div class="paragraph">
 <p>This indicates that the task TASK NAME with task id 1 has been assigned to team member 'GABRIEL SEOW' with member id 'GS'.<br></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-task-from-a-member-code-fire-code-br"><a class="link" href="#removing-a-task-from-a-member-code-fire-code-br">3.2.6. Removing a task from a member: <code>fire</code><br></a></h4>
 <div class="paragraph">
-<p>==== Removing a task from a member: <code>fire</code><br>
-To remove a task from a specific team member, use the 'fire' command in the format below.<br></p>
+<p>To remove a task from a specific team member, use the 'fire' command in the format below.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>fire ti/TASK_ID mi/MEMBER_ID</code><br></p>
@@ -384,18 +407,19 @@ To remove a task from a specific team member, use the 'fire' command in the form
 image::FireTask.png[width="790"]</p>
 </div>
 <div class="paragraph">
-<p>+</p>
-</div>
-<div class="paragraph">
-<p>This indicates that the task TASK NAME with task id 1 has been removed from its assignment to team member 'GABRIEL SEOW' with member id 'GS'.<br></p>
+<p>+
+This indicates that the task TASK NAME with task id 1 has been removed from its assignment to team member 'GABRIEL SEOW' with member id 'GS'.<br></p>
 </div>
 <hr>
 <div class="paragraph">
-<p>=== Task-related Commands</p>
+<p>tag::task[]</p>
 </div>
-<div class="paragraph">
-<p>==== Adding a task: <code>add task</code></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="task-related-commands"><a class="link" href="#task-related-commands">3.3. Task-related Commands</a></h3>
+<div class="sect3">
+<h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add task</code></a></h4>
 <div class="paragraph">
 <p>To add a task to the project, use the 'add-task' command in the format below.<br>
 Format: <code>add-task [t/TASK_NAME]</code><br>
@@ -412,9 +436,9 @@ A new task will be added to the project dashboard</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Removing a task: remove-task</p>
 </div>
+<div class="sect3">
+<h4 id="removing-a-task-remove-task"><a class="link" href="#removing-a-task-remove-task">3.3.2. Removing a task: remove-task</a></h4>
 <div class="paragraph">
 <p>Removes a task from the dashboard</p>
 </div>
@@ -432,9 +456,9 @@ Removes the 2nd task in the dashboard</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Listing all existing tasks: <code>list-tasks</code></p>
 </div>
+<div class="sect3">
+<h4 id="listing-all-existing-tasks-code-list-tasks-code"><a class="link" href="#listing-all-existing-tasks-code-list-tasks-code">3.3.3. Listing all existing tasks: <code>list-tasks</code></a></h4>
 <div class="paragraph">
 <p>To list all the tasks created for the project, use the <code>list-tasks</code> command in the format below.<br>
 Format: 'list-tasks'</p>
@@ -457,9 +481,9 @@ Format: 'list-tasks'</p>
 <img src="images/list-tasks.png" alt="list tasks">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Setting a task&#8217;s status to <code>done</code>: <code>done-task</code></p>
 </div>
+<div class="sect3">
+<h4 id="setting-a-task-s-status-to-code-done-code-code-done-task-code"><a class="link" href="#setting-a-task-s-status-to-code-done-code-code-done-task-code">3.3.4. Setting a task&#8217;s status to <code>done</code>: <code>done-task</code></a></h4>
 <div class="paragraph">
 <p>To update the task status to <code>done</code>, use the <code>done-task</code> command in the format below.<br>
 Format: <code>done-task [ti/TASK_ID]</code></p>
@@ -503,9 +527,9 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 <img src="images/done-task-result-dashboard.png" alt="done task result dashboard">
 </div>
 </div>
-<div class="paragraph">
-<p>==== Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></p>
 </div>
+<div class="sect3">
+<h4 id="setting-a-task-s-status-to-code-doing-code-code-doing-task-code"><a class="link" href="#setting-a-task-s-status-to-code-doing-code-code-doing-task-code">3.3.5. Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></a></h4>
 <div class="paragraph">
 <p>To update the task status to <code>doing</code>, use the <code>doing-task</code> command in the format below.<br>
 Format: <code>doing-task [ti/TASK_ID]</code></p>
@@ -533,14 +557,14 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-deadline-for-a-task-code-set-deadline-code"><a class="link" href="#setting-a-deadline-for-a-task-code-set-deadline-code">3.3.6. Setting a deadline for a task: <code>set-deadline</code></a></h4>
 <div class="paragraph">
-<p>==== Setting a deadline for a task: <code>deadline-task</code></p>
+<p>This sets a deadline for an existing task in your project.</p>
 </div>
 <div class="paragraph">
-<p>Sets deadline for existing tasks on dashboard</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>deadline-task [ti/TASK_ID] [at/DEADLINE] [at/dd/mm/yy hh:mm]</code></p>
+<p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd/mm/yy hh:mm]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -560,22 +584,22 @@ Remember to input using the 24 hour time format of dd/mm/yy hh:mm
 <div class="ulist">
 <ul>
 <li>
-<p>To set a deadline for the task "Shirts for Freshman Open Day" shown below first navigate to task list view using <code>list-tasks</code>.</p>
+<p>To set a deadline for the task "Shirts for Freshman Open Day" shown below, first navigate to the task list view using <code>list-tasks</code>.</p>
 </li>
 </ul>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/QuickStart.png" alt="QuickStart">
+<img src="images/Ui.png" alt="Ui">
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Assuming the deadline is on the 10th of November 2019, type <code>deadline-task ti/5 at/10-11-19 18:00</code> into the command box.</p>
+<p>Suppose the deadline is on the 10th of November 2019 at 6pm, type <code>deadline-task ti/5 at/10-11-19 18:00</code> into the command box.</p>
 </li>
 <li>
-<p>Hit the <kbd>Enter</kbd> key and you will see that a deadline has been set! You should see a window similar to the one below.</p>
+<p>Hit the <kbd>Enter</kbd> key and you will see that a deadline has been set!.</p>
 </li>
 </ul>
 </div>
@@ -600,14 +624,16 @@ Remember to input using the 24 hour time format of dd/mm/yy hh:mm
 </td>
 <td class="content">
 The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in less than two weeks.
+end::task[]
 </td>
 </tr>
 </table>
 </div>
 <hr>
-<div class="paragraph">
-<p>=== Calendar Commands (Coming in v1.3)</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="calendar-commands-coming-in-v1-3"><a class="link" href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -643,9 +669,8 @@ The "Upcoming deadlines" sidebar (right side of above picture) helps you keep tr
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>==== Adding a members calendar: <code>import-calendar</code></p>
-</div>
+<div class="sect3">
+<h4 id="adding-a-members-calendar-code-import-calendar-code"><a class="link" href="#adding-a-members-calendar-code-import-calendar-code">3.4.1. Adding a members calendar: <code>import-calendar</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code></p>
 </div>
@@ -663,9 +688,9 @@ Adds a calendar to John&#8217;s profile</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Generating time across all calendars uploaded: <code>generate-timings</code></p>
 </div>
+<div class="sect3">
+<h4 id="generating-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generating-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generating time across all calendars uploaded: <code>generate-timings</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>generate-timings</code></p>
 </div>
@@ -680,9 +705,9 @@ Generates a grid showing the number of people who can make it for a particular t
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Adding a meeting: <code>add meeting</code></p>
 </div>
+<div class="sect3">
+<h4 id="adding-a-meeting-code-add-meeting-code"><a class="link" href="#adding-a-meeting-code-add-meeting-code">3.4.3. Adding a meeting: <code>add meeting</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>add-meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
 </div>
@@ -701,17 +726,17 @@ User chooses the meeting time from the grid displayed from generate timings comm
 </ul>
 </div>
 <hr>
-<div class="paragraph">
-<p>=== Inventory Commands</p>
 </div>
-<div class="paragraph">
-<p>==== Adding an inventory: <code>add-inventory</code></p>
 </div>
+<div class="sect2">
+<h3 id="inventory-commands"><a class="link" href="#inventory-commands">3.5. Inventory Commands</a></h3>
+<div class="sect3">
+<h4 id="adding-an-inventory-code-add-inv-code"><a class="link" href="#adding-an-inventory-code-add-inv-code">3.5.1. Adding an inventory: <code>add-inv</code></a></h4>
 <div class="paragraph">
 <p>Adds an inventory item bought or required for a specific project task.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add-inventory [ti/TASK_ID] [i/ITEM_NAME] [mi/MEMBER_ID] [p/PRICE(optional)]</code></p>
+<p>Format: <code>add-inv [i/ITEM_NAME] [p/PRICE(optional)] [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -719,23 +744,23 @@ User chooses the meeting time from the grid displayed from generate timings comm
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-inventory ti/2 i/Mahjong Paper mi/3 p/8.50</code><br>
-Adds the item “Mahjong paper” for $8.50 to the inventory list. This item is tagged to task 2 and was paid for by member 3.</p>
+<p><code>add-inv i/Mahjong Paper p/8.50 ti/2 mi/AR</code><br>
+Adds the item “Mahjong paper” for $8.50 to the inventory list. This item is tagged to task 2 and was paid for by member AR.</p>
 </li>
 <li>
-<p><code>add-inventory ti/4 i/scissors mi/1</code><br>
-Adds the item “scissors” to the inventory list. The item is tagged to task 4 and is provided by member 1 for no cost.</p>
+<p><code>add-inv i/scissors ti/4 mi/GS</code><br>
+Adds the item “scissors” to the inventory list. The item is tagged to task 4 and is provided by member GS for no cost.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Deleting an inventory: <code>delete inventory</code></p>
 </div>
+<div class="sect3">
+<h4 id="deleting-an-inventory-code-delete-inv-code"><a class="link" href="#deleting-an-inventory-code-delete-inv-code">3.5.2. Deleting an inventory: <code>delete-inv</code></a></h4>
 <div class="paragraph">
 <p>Deletes an inventory item.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete-inventory [ii/ITEM_ID]</code></p>
+<p>Format: <code>delete-inv [ITEM_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -743,58 +768,19 @@ Adds the item “scissors” to the inventory list. The item is tagged to task 4
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete-inventory ii/3</code><br>
+<p><code>delete-inv 3</code><br>
 Deletes the third item from the inventory list</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics-commands"><a class="link" href="#statistics-commands">3.6. Statistics Commands</a></h3>
+<div class="sect3">
+<h4 id="getting-statistics-of-members-code-member-stats-code-br"><a class="link" href="#getting-statistics-of-members-code-member-stats-code-br">3.6.1. Getting statistics of members: <code>member-stats</code><br></a></h4>
 <div class="paragraph">
-<p>==== Generating a report of inventory by task: <code>generate inventory /task</code></p>
-</div>
-<div class="paragraph">
-<p>Generates a PDF report containing all inventories grouped by tasks for easier sharing.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>generate-inventory /task</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>generate-inventory /task</code><br>
-File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>==== Generating a report of inventory by people: <code>generate inventory /person</code></p>
-</div>
-<div class="paragraph">
-<p>Generates a PDF report containing all inventories grouped by members for easier understanding of claims.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>generate-inventory /person</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>generate-inventory /person</code><br>
-File explorer pops up, triggering a message to allow the user to save the pdf file in the computer.</p>
-</li>
-</ul>
-</div>
-<hr>
-<div class="paragraph">
-<p>=== Statistics Commands</p>
-</div>
-<div class="paragraph">
-<p>==== Getting statistics of members: <code>member-stats</code><br>
-To get statistics relating to the members in +Work, use the statistics command following the format below.<br></p>
+<p>To get statistics relating to the members in +Work, use the statistics command following the format below.<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>member-stats</code><br></p>
@@ -807,9 +793,11 @@ To get statistics relating to the members in +Work, use the statistics command f
 <img src="images/MemberStats.png" alt="MemberStats" width="790">
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="getting-statistics-of-tasks-code-task-stats-code-br"><a class="link" href="#getting-statistics-of-tasks-code-task-stats-code-br">3.6.2. Getting statistics of tasks: <code>task-stats</code><br></a></h4>
 <div class="paragraph">
-<p>==== Getting statistics of tasks: <code>task-stats</code><br>
-To get statistics relating to the tasks in +Work, use the statistics command following the format below.<br>
+<p>To get statistics relating to the tasks in +Work, use the statistics command following the format below.<br>
 Format: <code>task-stats</code><br></p>
 </div>
 <div class="paragraph">
@@ -822,11 +810,12 @@ Format: <code>task-stats</code><br></p>
 </div>
 <hr>
 <div class="paragraph">
-<p>=== Settings Commands</p>
+<p>tag::settings[]
+=== Settings Commands</p>
 </div>
-<div class="paragraph">
-<p>==== Switching the theme of +Work: <code>theme</code></p>
 </div>
+<div class="sect3">
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.6.3. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>This command toggles the theme of +Work between light and dark to suit your viewing preferences.</p>
 </div>
@@ -875,14 +864,13 @@ By default, the theme is set to dark.
 <div class="ulist">
 <ul>
 <li>
-<p><code>theme dark</code><br>
-Switches to the dark theme</p>
+<p>Similarly, <code>theme dark</code> switches to the dark theme</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Switching the clock format of +Work: <code>clock</code></p>
 </div>
+<div class="sect3">
+<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.6.4. Switching the clock format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
 <p>This command toggles the clock format of +Work between 24 hour and 12 hour format.
 By default, the clock format is set to 24 hour.</p>
@@ -917,24 +905,31 @@ Switches to the 24 hour clock</p>
 </li>
 </ul>
 </div>
-<hr>
 <div class="paragraph">
-<p>=== Saving the data</p>
+<p>end::settings[]</p>
 </div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.7. Saving the data</a></h3>
 <div class="paragraph">
 <p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
-<div class="paragraph">
-<p>=== Command Line Autocomplete</p>
 </div>
+<div class="sect2">
+<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></h3>
 <div class="paragraph">
 <p>+Work will automatically prompt you on the various possible commands based on input and help you paste the correct command format into the command line if chosen.<br>
 For example, when you type <code>add-mem</code> into the command-line, +Work will prompt you to select <code>add-member</code> from the drop down and paste <code>add-member mn/ mi/ mt/</code> into your command-line automatically.</p>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: Can I use file formats other than ics for the calendar feature?<br>
 <strong>A</strong>: No, the file format has to be in ics folder, downloaded either from NUSmods or Google Calendar.</p>
@@ -963,9 +958,11 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><strong>Q</strong>: What happens when a task has been completed?<br>
 <strong>A</strong>: You can mark the task as ‘Done’, which will move the task to the bottom of the task list. In the case where you do not want to keep the task in the list, using ‘Remove Task’ will delete it.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1049,8 +1046,4 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 07:21:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 16:05:52 UTC</div></div></div></body></html>
