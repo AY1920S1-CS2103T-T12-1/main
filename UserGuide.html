@@ -19,8 +19,9 @@
 <li><a href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
-<li><a href="#saving-the-data">3.7. Saving the data</a></li>
-<li><a href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></li>
+<li><a href="#settings-commands">3.7. Settings Commands</a></li>
+<li><a href="#saving-the-data">3.8. Saving the data</a></li>
+<li><a href="#command-line-autocomplete">3.9. Command Line Autocomplete</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -77,7 +78,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>add-task tn/Finish up milestone setting</code></strong> : Adds a task with name "Finish up milestone" to the project.</p>
 </li>
 <li>
-<p><strong><code>assign-member ti/1 mi/AS</code></strong> : Assigns the project member "Adam Smith" (With member id "AS"), to the task "Finish up milestone setting".</p>
+<p><strong><code>assign ti/1 mi/AS</code></strong> : Assigns the project member "Adam Smith" (With member id "AS"), to the task "Finish up milestone setting".</p>
 </li>
 <li>
 <p><strong><code>doing-task ti/1</code></strong> : Changes status of task "Finish up milestone setting"  to <code>doing</code>:</p>
@@ -158,19 +159,41 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <td class="tableblock halign-left valign-top"><p class="tableblock">Member tag</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tn/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Image URL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">im/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image Path</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">im/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tn/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Task name</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">s/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Task status</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tt/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Task tag</p></td>
+</tr>
 </tbody>
 </table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Tags</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tags are the only non-compulsary parameter mentioned in commands (unless otherwise stated).</p>
+</li>
+<li>
+<p>When tags are mentioned as a parameter, it is taken for granted that you can input multiple tags
+using the format <code>mt/&#8230;&#8203; mt/&#8230;&#8203; mt/&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <hr>
@@ -221,6 +244,18 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <img src="images/Settings.png" alt="Settings" width="790">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can refer to section 3.7 on specific settings-related commands to apply.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code-br"><a class="link" href="#viewing-help-code-help-code-br">3.1.4. Viewing help: <code>help</code><br></a></h4>
@@ -242,28 +277,55 @@ Format: <code>help</code></p>
 <div class="sect3">
 <h4 id="adding-a-member-code-add-member-code-br"><a class="link" href="#adding-a-member-code-add-member-code-br">3.2.1. Adding a member: <code>add-member</code><br></a></h4>
 <div class="paragraph">
-<p>To add a member to the list of team members in +Work, use the command 'add-member' following the format below.<br>
-Format: <code>add-member mn/MEMBER_NAME mi/MEMBER_ID mt/TAGS</code></p>
+<p>To add a member to the list of team members in +Work, use the command 'add-member' following the format below.</p>
 </div>
 <div class="paragraph">
-<p>Example: <code>add-member mn/New Member mi/NM mt/UG</code> will result in the following:</p>
+<p>Format: <code>add-member mn/MEMBER_NAME mi/MEMBER_ID mt/TAGS</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>add-member mn/New Member mi/NM mt/UG</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> +Work initially contains a list of 6 project members, as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddMember.png" alt="AddMember" width="790">
+<img src="images/BeforeAdd.png" alt="BeforeAdd" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p>As seen from the above, a new member with name 'New Member', member id 'NM' and tag 'UG' is added to +Work.</p>
+<p><strong>Step 2:</strong> To add a new project member into +Work, you enter the command <code>add-member mn/New Member mi/NM mt/UG</code> into the
+command prompt box.</p>
 </div>
-<div class="admonitionblock note">
+<div class="imageblock">
+<div class="content">
+<img src="images/DuringAdd.png" alt="DuringAdd" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> After you hit <kbd>Enter</kbd>, the  result box will display the message "New member added", and a new member with name 'New Member', member ID 'NM' and tag 'UG' is added to +Work.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DoneAdd.png" alt="DoneAdd" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>The addition of a new member can also be seen from the list of members as shown down below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListAdd.png" alt="ListAdd" width="790">
+</div>
+</div>
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Adding a member tag is optional in the adding of a new member.
+Member ID is an alphanumeric ID set by you, and cannot be changed once the member is created.
 </td>
 </tr>
 </table>
@@ -275,8 +337,17 @@ Adding a member tag is optional in the adding of a new member.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to add a member with multiple tags following this format:<br>
-<code>add-member mn/New Member mi/NM mt/UG mt/DG mt/&#8230;&#8203;</code>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding a member tag is optional in the adding of a new member.</p>
+</li>
+<li>
+<p>It is possible to add a member with multiple tags following this format:<br>
+<code>add-member mn/New Member mi/NM mt/UG mt/DG mt/&#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
@@ -285,19 +356,34 @@ It is possible to add a member with multiple tags following this format:<br>
 <div class="sect3">
 <h4 id="set-image-for-member-code-set-image-code-br"><a class="link" href="#set-image-for-member-code-set-image-code-br">3.2.2. Set image for member: <code>set-image</code><br></a></h4>
 <div class="paragraph">
-<p>To set a profile picture for a member in +Work, use the command <code>set-image</code> following the format below.<br>
-Format: <code>set-image mi/MEMBER_ID im/IMAGE_PATH</code><br></p>
+<p>To set a profile picture for a member in +Work, use the command <code>set-image</code> following the format below.</p>
 </div>
 <div class="paragraph">
-<p>Example: <code>set-image mi/NM im/C:\Users\Lynn\Desktop\Y2S1\CS2103T\tP\NewUserImage.png</code> will result in the following:</p>
+<p>Format: <code>set-image mi/MEMBER_ID im/IMAGE_PATH</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>set-image mi/NM im/C:\Users\Lynn\Desktop\Y2S1\CS2103T\tP\NewUserImage.png</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> +Work initially contains a list of project members with default profile pictures, as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BeforeSet.png" alt="BeforeSet" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> To update the profile picture of the project member with member ID 'NM' in +Work to a specified image, you
+enter the command <code>set-image mi/NM im/C:\Users\Lynn\Desktop\Y2S1\CS2103T\tP\NewUserImage.png</code> into the command prompt box.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> After you <kbd>Enter</kbd> the command, the member 'New Member' with member ID 'NM' has a new profile
+picture, specified by the image path you entered.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SetImage.png" alt="SetImage" width="790">
 </div>
-</div>
-<div class="paragraph">
-<p>As seen from the above, the specified image is set as the profile picture of the member with member id 'NM'.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -311,42 +397,124 @@ Image Path refers to the folder path of the image stored in your computer, and s
 </tr>
 </table>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If you shift the image&#8217;s location in your computer, +Work will be unable to find the image to display. It
+is recommended that you store all the images in a central folder to prevent this from happening.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.3. List existing members: <code>list-members</code><br></a></h4>
+<h4 id="editing-a-member-code-edit-member-code"><a class="link" href="#editing-a-member-code-edit-member-code">3.2.3. Editing a member : <code>edit-member</code></a></h4>
+<div class="paragraph">
+<p>To edit a member in +Work, using the command <code>edit-member</code> following the format below.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit-member mi/MEMBER_ID mn/MEMBER_NAME mt/MEMBER_TAG</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the member at the specified <code>mi/MEMBER_ID</code>.</p>
+</li>
+<li>
+<p>In this command, all the fields apart from <code>mi/MEMBER_ID</code> is optional. However, at least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+<li>
+<p>When editing tags, the existing tags of the member will be removed i.e adding of tags is not cumulative.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>edit-member mi/NM mn/No Longer New mt/edited</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> +Work initially contains a list of 7 project members, as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/BeforeEdit.png" alt="BeforeEdit" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> To edit the member name and tag of 'New Member' with member ID 'NM', you enter the command
+<code>edit-member mi/NM mn/No Longer New mt/edited</code> into the command prompt box.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> After you <kbd>Enter</kbd> the command, the member with member ID 'NM' and tag 'UG' is edited,
+with a new member name 'No Longer New' and new tag 'edited'.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AfterEdit.png" alt="AfterEdit" width="790">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-existing-members-code-list-members-code-br"><a class="link" href="#list-existing-members-code-list-members-code-br">3.2.4. List existing members: <code>list-members</code><br></a></h4>
 <div class="paragraph">
 <p>To get a list of all members added to +Work, used the command <code>list-members</code> following the format below.<br>
 Format: <code>list-members</code><br></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>list-members</code> will result in the following:</p>
+<p>Example: Entering <code>list-members</code> into the command prompt will result in the following:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ListMembers.png" alt="ListMembers" width="790">
 </div>
 </div>
+<div class="paragraph">
+<p>As seen from the above, all existing project members in +Work will be listed.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-member-code-remove-member-code-br"><a class="link" href="#removing-a-member-code-remove-member-code-br">3.2.4. Removing a member: <code>remove-member</code><br></a></h4>
+<h4 id="removing-a-member-code-remove-member-code-br"><a class="link" href="#removing-a-member-code-remove-member-code-br">3.2.5. Removing a member: <code>remove-member</code><br></a></h4>
 <div class="paragraph">
 <p>To remove a member from the project, and subsequently remove him from associated tasks, use the 'remove-member' command in the format below.<br>
 Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>remove-member mi/GS</code> will result in the following:</p>
+<p>Example: <code>remove-member mi/GS</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> +Work now contains a list of 7 project members, as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/RemoveMember.png" alt="RemoveMember" width="790">
+<img src="images/BeforeRemove.png" alt="BeforeRemove" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p>As seen from above, the member 'New Member' with member ID 'NM' has been removed from the project.</p>
+<p><strong>Step 2:</strong> To remove project member 'No Longer New', with member ID 'NM' from +Work, you enter the command
+<code>remove-member mi/NM</code> into the command prompt box.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> After you <kbd>Enter</kbd> the command, the member 'No Longer New' is no longer a project member in +Work, as
+seen from the list of members below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AfterRemove.png" alt="AfterRemove" width="790">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="assign-a-task-to-a-member-code-assign-code-br"><a class="link" href="#assign-a-task-to-a-member-code-assign-code-br">3.2.5. Assign a task to a member: <code>assign</code><br></a></h4>
+<h4 id="assign-a-task-to-a-member-code-assign-code-br"><a class="link" href="#assign-a-task-to-a-member-code-assign-code-br">3.2.6. Assign a task to a member: <code>assign</code><br></a></h4>
 <div class="paragraph">
 <p>To assign a task to a specific team member, use the <code>assign</code> command in the format below.<br></p>
 </div>
@@ -354,19 +522,30 @@ Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 <p>Format: <code>assign ti/TASK_ID mi/MEMBER_ID</code><br></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>assign ti/1 mi/GS</code> will result in the following:</p>
+<p>Example: <code>assign ti/1 mi/GS</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> From the list of tasks shown below, you decide to assign the task 'Review Budget' to project member
+'Gabriel Seow' with member ID 'GS'. The task 'Review Budget' has task ID 1, prompting you to enter the command
+<code>assign ti/1 mi/GS</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Assign.png" alt="Assign" width="790">
+<img src="images/BeforeAssign.png" alt="BeforeAssign" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p>As seen from the above, the task 'Review Budget' with task id 1 has been added under member 'John Doe' with member id 'JD'.</p>
+<p><strong>Step 2:</strong> After you <kbd>Enter</kbd> the command, the task 'Review Budget' with task ID '1' is added under member
+'Gabriel Seow' with member id 'GS', as seen from the image below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AfterAssign.png" alt="AfterAssign" width="790">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-task-from-a-member-code-fire-code-br"><a class="link" href="#removing-a-task-from-a-member-code-fire-code-br">3.2.6. Removing a task from a member: <code>fire</code><br></a></h4>
+<h4 id="removing-a-task-from-a-member-code-fire-code-br"><a class="link" href="#removing-a-task-from-a-member-code-fire-code-br">3.2.7. Removing a task from a member: <code>fire</code><br></a></h4>
 <div class="paragraph">
 <p>To remove a task from a specific team member, use the 'fire' command in the format below.<br></p>
 </div>
@@ -374,20 +553,28 @@ Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 <p>Format: <code>fire ti/TASK_ID mi/MEMBER_ID</code><br></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>fire ti/1 mi/GS</code> will result in the following:</p>
+<p>Example: <code>fire ti/1 mi/GS</code> can be executed as follows:</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> From the list of tasks shown below, you decide to remove project member 'Gabriel Seow' with member ID 'GS'
+from being assigned to task 'Review Budget'. The task 'Review Budget' has task ID 1, prompting you to enter the command
+<code>fire ti/1 mi/GS</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Fire.png" alt="Fire" width="790">
+<img src="images/BeforeFire.png" alt="BeforeFire" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p>This indicates that the task 'Review Budget' with task id 1 has been removed from its assignment to team member 'John Doe' with member id 'JD'.<br></p>
+<p><strong>Step 2:</strong> After you <kbd>Enter</kbd> the command, the task 'Review Budget' with  task id 1 is removed from member
+'Gabriel Seow' with member id 'GS'  as seen from the image below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AfterFireMember.png" alt="AfterFireMember" width="790">
+</div>
 </div>
 <hr>
-<div class="paragraph">
-<p>tag::task[]</p>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -405,7 +592,7 @@ Optional Parameters: <code>[s/STATUS]</code> <code>[t/TAG]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add task t/Finish up milestone setting</code><br>
+<p><code>add-task t/Finish up milestone setting</code><br>
 A new task will be added to the project dashboard</p>
 </li>
 </ul>
@@ -760,12 +947,25 @@ Deletes the third item from the inventory list</p>
 <p>Format: <code>member-stats</code><br></p>
 </div>
 <div class="paragraph">
-<p>Calling the <code>member-stats</code> command will result in the statistics being display as follows:</p>
+<p>Calling the <code>member-stats</code> command will result in the statistics being displayed as follows:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/MemberStats.png" alt="MemberStats" width="790">
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The resultant statistics displayed shows the proportion and number of tasks and inventory items allocated to each
+project member in +Work.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -782,14 +982,26 @@ Format: <code>task-stats</code><br></p>
 <img src="images/TaskStats.png" alt="TaskStats" width="790">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The resultant statistics displayed shows the proportion of tasks that are undone, in progress and completed,
+as well as the time taken for each inputted tasks in +Work.
+</td>
+</tr>
+</table>
+</div>
 <hr>
-<div class="paragraph">
-<p>tag::settings[]
-=== Settings Commands</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="settings-commands"><a class="link" href="#settings-commands">3.7. Settings Commands</a></h3>
 <div class="sect3">
-<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.6.3. Switching the theme of +Work: <code>theme</code></a></h4>
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.7.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>This command toggles the theme of +Work between light and dark to suit your viewing preferences.</p>
 </div>
@@ -844,7 +1056,7 @@ By default, the theme is set to dark.
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.6.4. Switching the clock format of +Work: <code>clock</code></a></h4>
+<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.7.2. Switching the clock format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
 <p>This command toggles the clock format of +Work between 24 hour and 12 hour format.
 By default, the clock format is set to 24 hour.</p>
@@ -886,14 +1098,14 @@ Switches to the 24 hour clock</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.7. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.8. Saving the data</a></h3>
 <div class="paragraph">
 <p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></h3>
+<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.9. Command Line Autocomplete</a></h3>
 <div class="paragraph">
 <p>+Work will automatically prompt you on the various possible commands based on input and help you paste the correct command format into the command line if chosen.<br>
 For example, when you type <code>add-mem</code> into the command-line, +Work will prompt you to select <code>add-member</code> from the drop down and paste <code>add-member mn/ mi/ mt/</code> into your command-line automatically.</p>
@@ -1020,4 +1232,4 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 04:58:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 05:20:46 UTC</div></div></div></body></html>
