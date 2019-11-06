@@ -65,6 +65,9 @@ make the feature more robust.</p>
 <li>
 <p>Tracked and helped to fix bugs found during developer testing using issues (Issue <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/issues/82">#82</a>)</p>
 </li>
+<li>
+<p>Added additional tests for the repository to bump coverage up &#8230;&#8203;.</p>
+</li>
 </ul>
 </div>
 </li>
@@ -109,6 +112,13 @@ make the feature more robust.</p>
 </li>
 <li>
 <p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added test coverage tool Coveralls to the team repo (Pull request <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/pull/149">#149</a>)</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -133,6 +143,313 @@ make the feature more robust.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="task-related-commands"><a class="link" href="#task-related-commands">Task-related Commands</a></h3>
+<div class="sect3">
+<h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">Adding a task: <code>add task</code></a></h4>
+<div class="paragraph">
+<p>To add a task to the project, use the 'add-task' command in the format below.<br>
+Format: <code>add-task [tn/TASK_NAME]</code><br>
+Optional Parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-task tn/Finish up milestone setting</code><br>
+A new task will be added to the project dashboard</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-task-remove-task"><a class="link" href="#removing-a-task-remove-task">Removing a task: remove-task</a></h4>
+<div class="paragraph">
+<p>Removes a task from the dashboard</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>remove-task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remove-task 2</code><br>
+Removes the 2nd task in the dashboard</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-existing-tasks-code-list-tasks-code"><a class="link" href="#listing-all-existing-tasks-code-list-tasks-code">Listing all existing tasks: <code>list-tasks</code></a></h4>
+<div class="paragraph">
+<p>To list all the tasks created for the project, use the <code>list-tasks</code> command in the format below.<br>
+Format: 'list-tasks'</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>list-tasks</code> in the command box.</p>
+</li>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see all your tasks! You should see a window similar to the one below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/list-tasks.png" alt="list tasks">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-task-s-status-to-code-done-code-code-done-task-code"><a class="link" href="#setting-a-task-s-status-to-code-done-code-code-done-task-code">Setting a task&#8217;s status to <code>done</code>: <code>done-task</code></a></h4>
+<div class="paragraph">
+<p>To update the task status to <code>done</code>, use the <code>done-task</code> command in the format below.<br>
+Format: <code>done-task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After finishing the task "Shirts for Freshman Open Day" shown below, you would want to mark it as completed. To do so, first navigate to task list view using <code>list-tasks</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/done-tasks-dashboard-command.png" alt="done tasks dashboard command">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>done-task ti/5</code> into the command box as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/done-task-list-command.png" alt="done task list command">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the task has been marked as <code>done</code>! You should see a window similar to the one below when you navigate back to <code>home</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/done-task-result-dashboard.png" alt="done task result dashboard">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-task-s-status-to-code-doing-code-code-doing-task-code"><a class="link" href="#setting-a-task-s-status-to-code-doing-code-code-doing-task-code">Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></a></h4>
+<div class="paragraph">
+<p>To update the task status to <code>doing</code>, use the <code>doing-task</code> command in the format below.<br>
+Format: <code>doing-task [ti/TASK_ID]</code></p>
+</div>
+<div class="paragraph">
+<p>Example: <code>doing-task ti/1</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>doing-task ti/3</code><br>
+This sets the status of task 3 to <code>doing</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Usage of this command is very similar to setting a task status to <code>doing</code> as explained above.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-a-deadline-for-a-task-code-set-deadline-code"><a class="link" href="#setting-a-deadline-for-a-task-code-set-deadline-code">Setting a deadline for a task: <code>set-deadline</code></a></h4>
+<div class="paragraph">
+<p>This sets a deadline for an existing task in your project.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd-mm-yyyy hh:mm]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To set a deadline for the task "Shirts for Freshman Open Day" shown below, first navigate to the task list view using <code>list-tasks</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose the deadline for your task is on the 10th of November 2019 at 6pm, enter <code>set-deadline ti/5 at/10-11-2019 18:00</code> into the command box.</p>
+</li>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that a deadline has been set!.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/set-deadline-list-result.png" alt="set deadline list result">
+</div>
+</div>
+<div class="paragraph">
+<p>Now, navigate to the dashboard by entering <code>home</code>. Hit the <kbd>Enter</kbd> key and you will see that the deadline can be seen! You should see a window similar to the one below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/set-deadline-res-dashboard.png" alt="set deadline res dashboard">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in less than two weeks.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">Switching the theme of +Work: <code>theme</code></a></h4>
+<div class="paragraph">
+<p>This command helps you toggle the theme of +Work between light and dark to suit your viewing preferences.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+By default, the theme is set to dark.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>theme light</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>theme light</code> as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/theme-light-command.png" alt="theme light command">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and +Work switches to the light theme!</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/theme_light.png" alt="theme light">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Similarly, <code>theme dark</code> switches to the dark theme, and your choice is highlighted.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">Switching the clock format of +Work: <code>clock</code></a></h4>
+<div class="paragraph">
+<p>This command helps you toggle the clock format of +Work between 24 hour and 12 hour format.<br>
+The clock format is set to 24 hour is set to 24 hour by default.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This does not affect the input format of deadlines for tasks, you still need to be enter them in the 24 hour format!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>clock twenty_four</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clock twelve</code><br>
+Switches to the 12 hour clock</p>
+</li>
+<li>
+<p><code>clock twenty_four</code><br>
+Switches to the 24 hour clock</p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -214,4 +531,4 @@ relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:44:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:47:13 UTC</div></div></div></body></html>

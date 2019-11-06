@@ -26,6 +26,12 @@
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#upcoming-features">6. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud integration <code>[coming in v2.0]</code></a></li>
+<li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable user profiles <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -33,7 +39,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>+Work is a project management tool that allows you to successfully achieve your objectives for your project.
+<p>+Work is a project management tool that allows students to successfully achieve your objectives for their project.
 It is aimed at NUS project leaders who are in charge of a small project group of less than 20 people.
 +Work is a one-stop application to help you manage your members, meeting times, task allocations as well as equipment purchased.
 Take full advantage of our Command Line Interface (CLI) while still having the all the benefits of a Graphical User Interface (GUI).
@@ -135,18 +141,59 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. List of Prefixes</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
+<th class="tableblock halign-left valign-top">Command Type</th>
 <th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Description
-* Parameters can be given in any order</th>
+<th class="tableblock halign-left valign-top">Description + Parameters can be given in any order</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Calendars</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fp/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">File path</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Inventories</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inventory name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Price</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ii/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inventory tag</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ty/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF type</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Meetings</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meeting/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Meeting index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hours/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration of meeting</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Members</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mn/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Member name</p></td>
 </tr>
@@ -160,11 +207,20 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">im/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Image Path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Image path</p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top" rowspan="5"><p class="tableblock">Tasks</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tn/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Task name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ti/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Task index</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">at/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Task deadline</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">s/</p></td>
@@ -237,7 +293,7 @@ using the format <code>mt/&#8230;&#8203; mt/&#8230;&#8203; mt/&#8230;&#8203;</co
 <p>Format: <code>settings</code><br></p>
 </div>
 <div class="paragraph">
-<p>Calling the <code>settings</code> command will bring you to the following page:</p>
+<p>Entering the <code>settings</code> command will bring you to the following page:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -584,8 +640,8 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 <h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add task</code></a></h4>
 <div class="paragraph">
 <p>To add a task to the project, use the 'add-task' command in the format below.<br>
-Format: <code>add-task [t/TASK_NAME]</code><br>
-Optional Parameters: <code>[s/STATUS]</code> <code>[t/TAG]</code></p>
+Format: <code>add-task [tn/TASK_NAME]</code><br>
+Optional Parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -593,7 +649,7 @@ Optional Parameters: <code>[s/STATUS]</code> <code>[t/TAG]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-task t/Finish up milestone setting</code><br>
+<p><code>add-task tn/Finish up milestone setting</code><br>
 A new task will be added to the project dashboard</p>
 </li>
 </ul>
@@ -726,7 +782,7 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 <p>This sets a deadline for an existing task in your project.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd/mm/yy hh:mm]</code></p>
+<p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd-mm-yyyy hh:mm]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -735,7 +791,7 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Remember to input using the 24 hour time format of dd/mm/yy hh:mm
+Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
 </td>
 </tr>
 </table>
@@ -758,7 +814,7 @@ Remember to input using the 24 hour time format of dd/mm/yy hh:mm
 <div class="ulist">
 <ul>
 <li>
-<p>Suppose the deadline is on the 10th of November 2019 at 6pm, type <code>deadline-task ti/5 at/10-11-19 18:00</code> into the command box.</p>
+<p>Suppose the deadline for your task is on the 10th of November 2019 at 6pm, enter <code>set-deadline ti/5 at/10-11-2019 18:00</code> into the command box.</p>
 </li>
 <li>
 <p>Hit the <kbd>Enter</kbd> key and you will see that a deadline has been set!.</p>
@@ -786,7 +842,6 @@ Remember to input using the 24 hour time format of dd/mm/yy hh:mm
 </td>
 <td class="content">
 The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in less than two weeks.
-end::task[]
 </td>
 </tr>
 </table>
@@ -1004,7 +1059,7 @@ as well as the time taken for each task inputted into +Work.
 <div class="sect3">
 <h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.7.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
-<p>This command toggles the theme of +Work between light and dark to suit your viewing preferences.</p>
+<p>This command helps you toggle the theme of +Work between light and dark to suit your viewing preferences.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1051,7 +1106,7 @@ By default, the theme is set to dark.
 <div class="ulist">
 <ul>
 <li>
-<p>Similarly, <code>theme dark</code> switches to the dark theme</p>
+<p>Similarly, <code>theme dark</code> switches to the dark theme, and your choice is highlighted.</p>
 </li>
 </ul>
 </div>
@@ -1059,8 +1114,8 @@ By default, the theme is set to dark.
 <div class="sect3">
 <h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.7.2. Switching the clock format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
-<p>This command toggles the clock format of +Work between 24 hour and 12 hour format.
-By default, the clock format is set to 24 hour.</p>
+<p>This command helps you toggle the clock format of +Work between 24 hour and 12 hour format.<br>
+The clock format is set to 24 hour is set to 24 hour by default.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1069,7 +1124,7 @@ By default, the clock format is set to 24 hour.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This does not affect the input format of deadlines for tasks, they still need to be entered in 24 hour format!.
+This does not affect the input format of deadlines for tasks, you still need to be enter them in the 24 hour format!
 </td>
 </tr>
 </table>
@@ -1091,9 +1146,6 @@ Switches to the 12 hour clock</p>
 Switches to the 24 hour clock</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>end::settings[]</p>
 </div>
 <hr>
 </div>
@@ -1143,7 +1195,7 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: What happens when a task has been completed?<br>
-<strong>A</strong>: You can mark the task as ‘Done’, which will move the task to the bottom of the task list. In the case where you do not want to keep the task in the list, using ‘Remove Task’ will delete it.</p>
+<strong>A</strong>: You can mark the task as <code>done</code>, which will move the task to the bottom of the task list. In the case where you do not want to keep the task in the list, using ‘Remove Task’ will delete it.</p>
 </div>
 </div>
 </div>
@@ -1156,13 +1208,13 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>add-inventory [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Adds an inventory</strong></p>
 </li>
 <li>
-<p><code>add-meeting [at/ dd/mm/yyyy hh:mm - hh:mm] [l/LOCATION]</code>: <strong>Adds a meeting</strong></p>
+<p><code>add-meeting [at/dd-mm-yyyy hh:mm - hh:mm] [l/LOCATION]</code>: <strong>Adds a meeting</strong></p>
 </li>
 <li>
 <p><code>add-member [mn/MEMBER_NAME] [mi/MEMBER_ID] [mt/MEMBER_TAG]</code>: <strong>Adds a member</strong></p>
 </li>
 <li>
-<p><code>add-task [t/TASK_NAME]  [m/MEMBER_NAME]</code>: <strong>Adds a task</strong></p>
+<p><code>add-task [tn/TASK_NAME] s/TASK_STATUS tt/TASK_TAG</code>: <strong>Adds a task</strong></p>
 </li>
 <li>
 <p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Adds a task to a member</strong></p>
@@ -1177,7 +1229,7 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>clock twenty_four</code>: <strong>Switches deadline display to the 24 hour clock format</strong></p>
 </li>
 <li>
-<p><code>deadline-task [ti/TASK_ID] [at/dd/mm/yy hh:mm]</code>: <strong>Assigns a deadline to a task</strong></p>
+<p><code>set-deadline [ti/TASK_ID] [at/dd-mm-yyyy hh:mm]</code>: <strong>Assigns a deadline to a task</strong></p>
 </li>
 <li>
 <p><code>delete-inventory [ii/ITEM_ID]</code>: <strong>Deletes an inventory</strong></p>
@@ -1233,4 +1285,21 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:44:19 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud integration <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Collaborate online with your teammates, and store your project details such as members calendars in the cloud.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customisable-user-profiles-code-coming-in-v2-0-code"><a class="link" href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable user profiles <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Create more detailed profiles for members and choose who has authority to change details of the project.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:47:13 UTC</div></div></div></body></html>
