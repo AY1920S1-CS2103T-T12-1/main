@@ -19,9 +19,10 @@
 <li><a href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
-<li><a href="#settings-commands">3.7. Settings Commands</a></li>
-<li><a href="#saving-the-data">3.8. Saving the data</a></li>
-<li><a href="#command-line-autocomplete">3.9. Command Line Autocomplete</a></li>
+<li><a href="#multiline-commands">3.7. Multiline Commands</a></li>
+<li><a href="#settings-commands">3.8. Settings Commands</a></li>
+<li><a href="#saving-the-data">3.9. Saving the data</a></li>
+<li><a href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -950,10 +951,23 @@ User chooses the meeting time from the grid displayed from generate timings comm
 <div class="sect3">
 <h4 id="adding-an-inventory-code-add-inv-code"><a class="link" href="#adding-an-inventory-code-add-inv-code">3.5.1. Adding an inventory: <code>add-inv</code></a></h4>
 <div class="paragraph">
-<p>Adds an inventory item bought or required for a specific project task.</p>
+<p>This command allows you to add an inventory bought or retrieved for a specific task by a specific member.This command allows you to add an inventory bought or retrieved for a specific task by a specific member.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>add-inv [i/ITEM_NAME] [p/PRICE(optional)] [ti/TASK_ID] [mi/MEMBER_ID]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The item name, task id and member id are compulsory inputs. An input without any price value will automatically set the price to $0.
+Ensure that an existing task id and member id (as displayed by list-tasks and list-members respectively) is being typed into the command box.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -961,23 +975,47 @@ User chooses the meeting time from the grid displayed from generate timings comm
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-inv i/Mahjong Paper p/8.50 ti/2 mi/AR</code><br>
-Adds the item “Mahjong paper” for $8.50 to the inventory list. This item is tagged to task 2 and was paid for by member AR.</p>
+<p><code>add-inv i/scissors ti/4 mi/GS</code><br>
+Entering this command adds the inventory “scissors” to the inventory list. The item is tagged to task with id as 4 (id is shown by list-tasks) and is provided by member with the member id “GS” for a price of $0.</p>
 </li>
 <li>
-<p><code>add-inv i/scissors ti/4 mi/GS</code><br>
-Adds the item “scissors” to the inventory list. The item is tagged to task 4 and is provided by member GS for no cost.</p>
+<p><code>add-inv i/eggs p/2.40 ti/2 mi/AR</code><br>
+Entering this command adds the item “eggs” for $2.40 to the inventory list. This item is tagged to task tagged to task with id as 2 (id is shown by list-tasks) and was paid for by the member with member id “AR”. The following pictures show how this command is to be executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, type <code>add-inv i/eggs p/2.40 ti/2 mi/AR</code> into the command box as shown below.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Add-inv_1.PNG" alt="Add inv 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Then, hit the <kbd>Enter</kbd> key and you will see that the inventory has been added! You should see a window like the one below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Add-inv_2.PNG" alt="Add inv 2">
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-an-inventory-code-delete-inv-code"><a class="link" href="#deleting-an-inventory-code-delete-inv-code">3.5.2. Deleting an inventory: <code>delete-inv</code></a></h4>
 <div class="paragraph">
-<p>Deletes an inventory item.</p>
+<p>This command allows you to delete an inventory.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete-inv [ITEM_ID]</code></p>
+<p>Format: <code>delete-inv [ii/ITEM_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -985,11 +1023,178 @@ Adds the item “scissors” to the inventory list. The item is tagged to task 4
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete-inv 3</code><br>
-Deletes the third item from the inventory list</p>
+<p><code>delete-inv ii/3</code><br>
+This command deletes the third item from the inventory list. The following pictures show how this command is to be executed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, find the index of inventory that you want to delete, by navigating to inventory list view using list-inv.</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Delete-inv_1.PNG" alt="Delete inv 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Then, type delete-inv ii/6 into the command box as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Delete-inv_2.PNG" alt="Delete inv 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the inventory has been deleted! You should see a window like the one below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Delete-inv_3.PNG" alt="Delete inv 3">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-existing-inventories-code-list-inv-code-br"><a class="link" href="#list-existing-inventories-code-list-inv-code-br">3.5.3. List existing inventories: <code>list-inv</code><br></a></h4>
+<div class="paragraph">
+<p>To get a list of all inventories added to +Work, used the command <code>list-inv</code> following the format below.<br>
+Format: <code>list-inv</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example: Entering <code>list-inv</code> into the command prompt will result in the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/list-inv.png" alt="list inv">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-inventory-code-edit-inv-code"><a class="link" href="#editing-a-inventory-code-edit-inv-code">3.5.4. Editing a inventory: <code>edit-inv</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to edit the details of an existing inventory.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit-inv [ii/ITEM_ID] (i/ITEM_NAME) (p/PRICE) (ti/TASK_ID) (mi/MEMBER_ID)</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Multiple attributes can be changed at the same time, but at least one of the inventory attributes must be changed.
+Therefore, this command is invalid: <code>edit-inv ii/4</code>
+However, this command is valid: <code>edit-inv ii/4 i/toys ti/4 mi/AR</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit-inv ii/4 i/toys ti/4 mi/AR</code><br>
+This command edits the 4th inventory from the inventory list as shown by list-inv. It changes the inventory name to toys, the task attached to 4, and the member attached to the member with member ID “AR”. The following pictures show how this command is to be executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, type edit-inv ii/4 i/toys ti/4 mi/AR into the command box as shown below.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Edit-inv_1.PNG" alt="Edit inv 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the 4th inventory has been edited! The name has been changed to toys, task has been changed to the task with index 4, and finally member has been changed to member with index “AR”. You should see a window like the one below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Edit-inv_2.PNG" alt="Edit inv 2">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-a-report-of-inventories-code-pdf-code"><a class="link" href="#creating-a-report-of-inventories-code-pdf-code">3.5.5. Creating a report of inventories: <code>pdf</code></a></h4>
+<div class="paragraph">
+<p>This command allows you to create a PDF report of the existing inventories classified either by the member attached or by the task attached.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>pdf [ty/TYPE]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The only two attributes for TYPE are <code>members</code> and <code>tasks</code>. Other inputs will not work.
+If a PDF created and is currently open, it has to be closed before another pdf can be created.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pdf ty/members</code><br>
+This command creates and opens a pdf file of inventories that is classified according to the member attached. The following pictures show how this command is to be executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, type <code>pdf ty/members</code> into the command box as shown below.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pdf-inv_1.PNG" alt="pdf inv 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the default PDF viewer will open to show the PDF report. You should see a report like the one below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pdf-inv_2.PNG" alt="pdf inv 2">
+</div>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
@@ -1055,9 +1260,229 @@ as well as the time taken for each task inputted into +Work.
 </div>
 </div>
 <div class="sect2">
-<h3 id="settings-commands"><a class="link" href="#settings-commands">3.7. Settings Commands</a></h3>
+<h3 id="multiline-commands"><a class="link" href="#multiline-commands">3.7. Multiline Commands</a></h3>
 <div class="sect3">
-<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.7.1. Switching the theme of +Work: <code>theme</code></a></h4>
+<h4 id="adding-a-task-code-add-task-code-2"><a class="link" href="#adding-a-task-code-add-task-code-2">3.7.1. Adding a task: <code>add-task</code></a></h4>
+<div class="paragraph">
+<p>As mentioned in the earlier part of user guide, to add a task to the project, use the add-task command in the format below. This will result in a series of questions that allow you to add deadline and a member to the task. The following flowchart shows this series of feedbacks from the application and user inputs.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_1.PNG" alt="ml task 1">
+</div>
+</div>
+<div class="paragraph">
+<p>Format (to add task): <code>add-task [t/TASK_NAME]</code><br>
+Format (for yes): <code>yes</code><br>
+Format (for no): <code>no</code><br>
+Format (to add deadline and member): <code>add-d [at/DEADLINE] [mi/MEMBER_ID]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>add-d</code> command does not work unless it is typed after <code>add-task</code> and <code>yes</code>.<br>
+Either deadline or member or both can be added using the <code>add-d</code> command. However at least one attribute must be present.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-task tn/Finish Portfolio s/unbegun tt/Education</code> <br>
+A new task will be added to the project dashboard, which prompts a sequence of questions, as shown in the following pictures</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, type the add-task command</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_1.PNG" alt="ml task 2 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This prompts the feedback asking for your choice to add deadline and member</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_2.PNG" alt="ml task 2 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type yes to add deadline or member</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_3.PNG" alt="ml task 2 3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This prompts to add the details</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_4.PNG" alt="ml task 2 4">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>add-d at/10/12/2019 18:00 mi/AR</code> to set deadline at 10/10/2019 18:00 and assign the member with member id “AR” to the task.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_5.PNG" alt="ml task 2 5">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This sets the deadline and assigns the member successfully! You should see a window like this.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_2_6.PNG" alt="ml task 2 6">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="changing-a-task-status-to-done-code-done-task-code-br"><a class="link" href="#changing-a-task-status-to-done-code-done-task-code-br">3.7.2. Changing a task status to done: <code>done-task</code><br></a></h4>
+<div class="paragraph">
+<p>(for tasks that are tagged “Inventory”)</p>
+</div>
+<div class="paragraph">
+<p>As mentioned in the earlier part of user guide, to change the task status to “done”, use the done-task command in the format below. If the task is tagged as <kbd>Inventory</kbd>, this will result in a series of questions that allow you to add the task as an inventory. The following flowchart shows this series of feedbacks from the application and user inputs.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_3.PNG" alt="ml task 3">
+</div>
+</div>
+<div class="paragraph">
+<p>Format (for done task): <code>done-task [ti/TASK_ID]</code><br>
+Format (for yes): <code>yes</code><br>
+Format (for no): <code>no</code><br>
+Format (to add price and member): <code>add-i [p/PRICE] [mi/MEMBER_ID]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>add-i</code> command does not work unless it is typed after <code>done-task</code> and <code>yes</code>.<br>
+Unlike <code>add-task</code>, in this case both attributes price and member id are required.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>done-task ti/8</code><br>
+The task with index 8 will have its task status changed to done. Since the task is tagged as “Inventory”, this will prompt a series of questions, as shown in the pictures below.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, type done-task ti/8</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_4_1.PNG" alt="ml task 4 1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This prompts the feedback asking for your choice to add it as an inventory.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_4_2.PNG" alt="ml task 4 2">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After typing <code>yes</code> as the user input, feedback will prompt you to add the details.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_4_3.PNG" alt="ml task 4 3">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>add-i p/5.50 mi/AB</code> to set the price at $5.50 and to assign the member with member id “AB” to the inventory</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_4_4.PNG" alt="ml task 4 4">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This sets the price and assigns the member successfully! You should see a window like this.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ml-task_4_5.PNG" alt="ml task 4 5">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="settings-commands"><a class="link" href="#settings-commands">3.8. Settings Commands</a></h3>
+<div class="sect3">
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.8.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>This command helps you toggle the theme of +Work between light and dark to suit your viewing preferences.</p>
 </div>
@@ -1112,7 +1537,7 @@ By default, the theme is set to dark.
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.7.2. Switching the clock format of +Work: <code>clock</code></a></h4>
+<h4 id="switching-the-clock-format-of-work-code-clock-code"><a class="link" href="#switching-the-clock-format-of-work-code-clock-code">3.8.2. Switching the clock format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
 <p>This command helps you toggle the clock format of +Work between 24 hour and 12 hour format.<br>
 The clock format is set to 24 hour is set to 24 hour by default.</p>
@@ -1151,14 +1576,14 @@ Switches to the 24 hour clock</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.8. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
 <div class="paragraph">
 <p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.9. Command Line Autocomplete</a></h3>
+<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></h3>
 <div class="paragraph">
 <p>+Work will automatically prompt you on the various possible commands based on input and help you paste the correct command format into the command line if chosen.<br>
 For example, when you type <code>add-mem</code> into the command-line, +Work will prompt you to select <code>add-member</code> from the drop down and paste <code>add-member mn/ mi/ mt/</code> into your command-line automatically.</p>
@@ -1302,4 +1727,4 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 16:27:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 17:30:23 UTC</div></div></div></body></html>
