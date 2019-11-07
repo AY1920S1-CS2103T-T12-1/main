@@ -26,9 +26,9 @@
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></li>
-<li><a href="#settings-feature">2.2. Settings feature</a></li>
-<li><a href="#statistics-feature">2.3. Statistics feature</a></li>
-<li><a href="#member-feature">2.4. Member Feature</a></li>
+<li><a href="#statistics-feature">2.2. Statistics feature</a></li>
+<li><a href="#member-feature">2.3. Member Feature</a></li>
+<li><a href="#inventory-feature">2.4. Inventory feature</a></li>
 <li><a href="#proposed-undo-redo-feature">2.5. [Proposed] Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">2.6. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">2.7. Logging</a></li>
@@ -320,6 +320,22 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Project Dashb
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">1.5. Storage component</a></h3>
+<div class="paragraph">
+<p>The Storage component serves the following purposes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It can save UserPref objects in json format and read it back.</p>
+</li>
+<li>
+<p>It can save the +Work data in json format and read it back.</p>
+</li>
+<li>
+<p>It can also save the user settings in json format and read it back.</p>
+</li>
+</ul>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -328,19 +344,6 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Project Dashb
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Storage</code> component,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
-</li>
-<li>
-<p>can save the Address Book data in json format and read it back.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -468,13 +471,10 @@ May introduce complexity into storage and dependencies among components.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>_**=== Settings feature
+==== Proposed Implementation</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="settings-feature"><a class="link" href="#settings-feature">2.2. Settings feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to customise their experience when using +Work.</p>
 </div>
@@ -586,8 +586,9 @@ The <code>clock twelve</code> and <code>clock twenty_four</code> have a similar 
 </table>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.1.3. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section explores how the design can affect the level of customisation available to the user through the settings feature in +Work.</p>
 </div>
@@ -669,9 +670,9 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.3. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.2. Statistics feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">2.3.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">2.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The commands introduced by this statistics feature includes: <code>get-task-stats</code> and <code>get-member-stats</code>. These commands are faciliatated by the class 'Statistics' that resides within model. The 'Statistics' class implements the following operations:</p>
 </div>
@@ -687,12 +688,11 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 <p><code>Statistics#getPortionMembersByItems()</code>&#8201;&#8212;&#8201;Retrieves statistics of all the members and number of items purchased by the each individual member.</p>
 </li>
 <li>
-<p><code>Statistics#getPortionTasksByStatus()</code>&#8201;&#8212;&#8201;Retrieves statistics of all existing tasks and number of tasks of each status.</p>
+<p><code>Statistics#getPortionTasksByStatus()</code>&#8201;&#8212;&#8201;Retrieves statistics of all existing tasks and number of tasks of each status.
+**_
+These operations are exposed in the <code>Model</code> interface as <code>Model#doCalculations</code>, and 'Model#getStatistics'.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#doCalculations</code>, and 'Model#getStatistics'.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -763,7 +763,7 @@ The 'get-member-stats' operation is similar to the one shown in figure 10.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-implement-statistics-class"><a class="link" href="#aspect-how-to-implement-statistics-class">Aspect: How to implement Statistics class</a></h5>
 <div class="ulist">
@@ -833,9 +833,9 @@ The 'get-member-stats' operation is similar to the one shown in figure 10.
 </div>
 </div>
 <div class="sect2">
-<h3 id="member-feature"><a class="link" href="#member-feature">2.4. Member Feature</a></h3>
+<h3 id="member-feature"><a class="link" href="#member-feature">2.3. Member Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">2.4.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">2.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The member feature introduces the ability for +Work to deal with project members, in the same way it deals with project tasks. Apart from the typical commands ('add-member', 'delete-member', 'find-member') involved in such a central class, the member features also introduce a 'set-image' command. The set-image command allows users to set an image in their computer as the profile picture of a member in +Work.
 To accomodate the set-image command, the 'Member' class has an alternative constructor that takes in the image url as a parameter to save it as an attribute to the member object, when 'set-image' command is called. Additionally, to support the 'set-image' command, the 'Member' class implements the following operation:</p>
@@ -909,7 +909,7 @@ The image&#8217;s file path will be stored in the Member object. If the image is
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-save-image-under-member-url-or-image-object"><a class="link" href="#aspect-how-to-save-image-under-member-url-or-image-object">Aspect: How to save image under Member (url or image object)</a></h5>
 <div class="ulist">
@@ -1002,6 +1002,152 @@ The image&#8217;s file path will be stored in the Member object. If the image is
 </li>
 <li>
 <p>Cons: Decreases the ease of comparison between tasks and members</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory-feature"><a class="link" href="#inventory-feature">2.4. Inventory feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.4.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>This feature was implemented to allow users to add inventories when using +Work.</p>
+</div>
+<div class="paragraph">
+<p>The commands introduced by this feature include; <code>add-inv</code>, <code>delete-inv</code>, <code>edit-inv</code>, <code>list-inv</code>.
+The commands are facilitated by UniqueInventoryList class which resides in Model.
+The UniqueInventoryList class implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueInventoryList #add(Inventory toAdd)</code> — This command adds the Inventory toAdd to the inventory list of +Work.</p>
+</li>
+<li>
+<p><code>UniqueInventoryList #remove(Inventory toAdd)</code> —  This command removes the Inventory toAdd from the inventory list of +Work.</p>
+</li>
+<li>
+<p><code>UniqueInventoryList #setInventory (Inventory target, Inventory editedInventory)</code> — This command replaces the target Inventory with the new editedInventory.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the Model interface as
+<code>Model#addInventory(Inventory inventory)</code>,
+<code>Model#deleteInventory(Inventory target)</code>,
+<code>Model#setInventory(Inventory target, Inventory editedInventory)</code>
+respectively.</p>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarises the process of executing an <code>add-inv</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddInvActivityDiagram.png" alt="AddInvActivityDiagram">
+</div>
+<div class="title">Figure 11. Activity diagram of <code>add-inv</code> command execution.</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how add-inv command behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application. The inventories will be initiated by Model based on the inventories previously saved.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>add-inv</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>Logic#execute()</code> calls <code>Model#addInventory(Inventory inventory)</code>, which calls <code>UniqueInventoryList #add(Inventory toAdd)</code>. This adds the inventory to UniqueInventoryList.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The UI will be updated to reflect the changes. This can be viewed using the <code>list-inv</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The settings have been updated and stored in projectdashboard.json.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add-inv command works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddInvSequenceDiagram.png" alt="AddInvSequenceDiagram">
+</div>
+<div class="title">Figure 12. Operational flow of <code>AddInventoryCommand</code></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">2.4.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section explores how the design can affect the inventory features in +Work.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-storage-of-an-inventory"><a class="link" href="#aspect-storage-of-an-inventory">Aspect: Storage of an inventory</a></h5>
+<div class="paragraph">
+<p>Within a specific setting, each option has data that helps yield a specific behaviour. Currently the available settings are
+represented as enumerations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong> : Each inventory only stores the inventory name and price. The task and member attached to each inventory is stored in UniqueMappingManager.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Better design as it is more modular. If task or member is deleted, it only needs to be changed in UniqueMappingManager for the expected behaviour to be achieved.</p>
+</li>
+<li>
+<p>Cons: Retrieving of the mappings (task and member attached) is more difficult and may result in bugs if not implemented accurately.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Each inventory also contains the attribute for task attached and member attached.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Retrieving the mappings is easier and faster.</p>
+</li>
+<li>
+<p>Cons: When a task or member is deleted, all the inventories need to be checked and updated. This would be a very slow method.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-display-of-inventories-list"><a class="link" href="#aspect-display-of-inventories-list">Aspect: Display of inventories list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: The inventories are listed without any classification and is not sorted  by any attributes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This would be easier to implement and maintain UI components.</p>
+</li>
+<li>
+<p>Cons: User must use the pdf method to see any statistics, making for a less user-friendly experience.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: More statistics, classifications and sorting methods available to customize the inventories list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The inventories list is more user-friendly and more provides more details.</p>
+</li>
+<li>
+<p>Cons: Implementation is harder, and we have to ensure minimal errors or bugs.</p>
 </li>
 </ul>
 </div>
@@ -1156,7 +1302,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">2.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">2.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -2472,4 +2618,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 09:07:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-07 10:05:19 UTC</div></div></div></body></html>
