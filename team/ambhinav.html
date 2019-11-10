@@ -81,11 +81,10 @@ display of task deadlines format of the app between 24hr and 12hr.</p>
 handle the increasing complexity additional features may bring.</p>
 </li>
 <li>
-<p>Highlights: As of the latest release, this enhancement affects any command that deals with time sensitive data. It required an in-depth analysis of design alternatives.<br>
+<p>Highlights: As of the latest release, this enhancement affects any command that deals with time sensitive data.
 The implementation was moderately difficult as I was able to adapt the integration of the
 <code>UserSettings</code> component based on existing components. The more difficult aspect was to design the component in such a way where it would be easy to extend its functionality
-in the event more user settings are to be added. I tried to incorporate as much of the OOP principles as possible so as to
-make the feature more robust.</p>
+in the event more user settings are to be added.</p>
 </li>
 <li>
 <p>Credits: I adapted some code that does responsive highlighting for the settings panel in +Work from a course mate.</p>
@@ -231,7 +230,7 @@ By default, the theme is set to <code>dark</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/theme-light-preview.png" alt="theme light preview" width="500">
+<img src="../images/theme-light-preview.png" alt="theme light preview" width="400">
 </div>
 </div>
 <div class="ulist">
@@ -243,7 +242,7 @@ By default, the theme is set to <code>dark</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/theme-light-res.png" alt="theme light res" width="500">
+<img src="../images/theme-light-res.png" alt="theme light res" width="400">
 </div>
 </div>
 <div class="ulist">
@@ -298,7 +297,7 @@ This does not affect the input format of deadlines for tasks, you still need to 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/clock-twelve-preview.png" alt="clock twelve preview" width="500">
+<img src="../images/clock-twelve-preview.png" alt="clock twelve preview" width="400">
 </div>
 </div>
 <div class="ulist">
@@ -310,7 +309,7 @@ This does not affect the input format of deadlines for tasks, you still need to 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/clock-twelve-res-settings.png" alt="clock twelve res settings" width="500">
+<img src="../images/clock-twelve-res-settings.png" alt="clock twelve res settings" width="400">
 </div>
 </div>
 <div class="ulist">
@@ -323,7 +322,7 @@ back to the dashboard by entering <code>home</code> you should see a window simi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/clock-twelve-res-dashboard.png" alt="clock twelve res dashboard" width="500">
+<img src="../images/clock-twelve-res-dashboard.png" alt="clock twelve res dashboard" width="400">
 </div>
 </div>
 <div class="ulist">
@@ -394,7 +393,7 @@ To allow <code>Ui</code> to be responsive to updates in the settings, two of the
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="300">
+<img src="../images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="200">
 </div>
 <div class="title">Figure 1. Activity diagram of settings command execution.</div>
 </div>
@@ -426,7 +425,7 @@ This changes the <code>theme</code> attribute in <code>UserSettings</code> to <c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram" width="600">
+<img src="../images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram" width="400">
 </div>
 <div class="title">Figure 2. Operational flow of <code>ThemeCommand</code></div>
 </div>
@@ -602,7 +601,7 @@ The diagram omits objects involving the <code>Ui</code> component as well as spe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram" width="700">
+<img src="../images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram" width="600">
 </div>
 <div class="title">Figure 3. Snapshot of objects involved in populating the dashboard with data</div>
 </div>
@@ -618,7 +617,7 @@ The diagram omits objects involving the <code>Ui</code> component as well as spe
 <ul>
 <li>
 <p><strong>Alternative 1 (current choice):</strong> All tasks are stored in a single <code>UniqueTaskList</code> in <code>ProjectDashboard</code> with <code>TaskStatus</code> attribute.
-When the enters <code>home</code> to view the dashboard, the tasks are split by <code>TaskStatus</code> and deadline in <code>ProjectDashboard</code> and dispatched to the <code>Ui</code>.</p>
+When the user enters <code>home</code> to view the dashboard, the tasks are split by <code>TaskStatus</code> and deadline in <code>ProjectDashboard</code> and dispatched to the <code>Ui</code>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -655,4 +654,4 @@ benefit the dashboard greatly it would cause almost all other components and vie
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:22:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:49:42 UTC</div></div></div></body></html>
