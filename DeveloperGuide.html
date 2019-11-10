@@ -744,7 +744,7 @@ The lifeline for <code>ThemeCommand</code> should end at the destroy marker (X) 
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>theme light</code> operation is similar to the one shown in figure 9. However, the method called is <code>setLightTheme</code>.</p>
+<p>The <code>theme light</code> operation is similar to the one shown in figure above. However, the method called is <code>UserSettings#setLightTheme()</code>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -784,20 +784,20 @@ when the user wishes to toggle between them.</p>
 data is to be changed, it only needs to be changed in one component for the expected behaviour to be achieved.</p>
 </li>
 <li>
-<p>Cons: User cannot customise the data directly due to the nature of <code>Enum</code>.</p>
+<p>Cons: User cannot customise the data directly due to the nature of <code>Enum</code> classes.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> The data is stored in the <code>UserSettings</code> interface as <code>static</code> fields.</p>
+<p><strong>Alternative 2:</strong> The data is stored in the <code>UserSettings</code> component as <code>static</code> fields.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: This exposes the data of each option of all settings to the <code>Model</code>. If the user requests to customise that data, it would be possible in this design.</p>
+<p>Pros: This exposes the data of each option fore each settings to the <code>Model</code> component. If the user requests to customise that data, it would be possible in this design.</p>
 </li>
 <li>
-<p>Cons: The <code>UserSettings</code> interface changes whenever the data related to a particular settings option is updated. <code>UserSettings</code> should only be aware of the various settings the user
+<p>Cons: <code>UserSettings</code> would change whenever the data related to a particular settings option is updated. Ideadlly, <code>UserSettings</code> should only be aware of the various settings the user
 is able to customise.</p>
 </li>
 </ul>
@@ -806,8 +806,8 @@ is able to customise.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>We decided to opt for design option one, so as to be in line with the Single Responsibility principle. This would make it easier to extend the functionality
-of the settings feature which would allow developers to extend its functionality in a more safe and modular manner.</p>
+<p>We decided to opt for design option one, so as to be in line with the Single Responsibility principle. This would make it easier
+for future developers to extend the functionality of <code>UserSettings</code> in a more modular manner.</p>
 </div>
 </div>
 </div>
@@ -2829,4 +2829,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:23:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 15:50:29 UTC</div></div></div></body></html>
