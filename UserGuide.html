@@ -1640,7 +1640,7 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-inventory [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Adds an inventory</strong></p>
+<p><code>add-inv [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Adds an inventory</strong></p>
 </li>
 <li>
 <p><code>add-meeting [at/dd-mm-yyyy hh:mm - hh:mm] [l/LOCATION]</code>: <strong>Adds a meeting</strong></p>
@@ -1652,10 +1652,19 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>add-task [tn/TASK_NAME] s/TASK_STATUS tt/TASK_TAG</code>: <strong>Adds a task</strong></p>
 </li>
 <li>
+<p><code>edit-member [mi/MEMBER_ID] mn/MEMBER_NAME mt/MEMBER_TAG</code>: <strong>Edits a member</strong></p>
+</li>
+<li>
+<p><code>edit-inv [ii/ITEM_ID] i/ITEM_NAME p/PRICE ti/TASK_ID mi/MEMBER_ID</code>: <strong>Edits a inventory</strong></p>
+</li>
+<li>
 <p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Adds a task to a member</strong></p>
 </li>
 <li>
 <p><code>calendar</code>: <strong>Switches to the time management page</strong></p>
+</li>
+<li>
+<p><code>pdf [ty/TYPE]</code>: <strong>Creates a PDF document of inventory list</strong></p>
 </li>
 <li>
 <p><code>clock twelve</code>: <strong>Switches deadline display to the 12 hour clock format</strong></p>
@@ -1667,7 +1676,7 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>set-deadline [ti/TASK_ID] [at/dd-mm-yyyy hh:mm]</code>: <strong>Assigns a deadline to a task</strong></p>
 </li>
 <li>
-<p><code>delete-inventory [ii/ITEM_ID]</code>: <strong>Deletes an inventory</strong></p>
+<p><code>delete-inv [ii/ITEM_ID]</code>: <strong>Deletes an inventory</strong></p>
 </li>
 <li>
 <p><code>doing-task [ti/TASK_ID]</code>: <strong>Marks a task as <code>doing</code></strong></p>
@@ -1701,6 +1710,9 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </li>
 <li>
 <p><code>list-tasks</code>: <strong>Lists all tasks</strong></p>
+</li>
+<li>
+<p><code>list-inv</code>: <strong>Lists all inventories</strong></p>
 </li>
 <li>
 <p><code>remove-member [mi/MEMBER_ID]</code>: <strong>Removes a member</strong></p>
@@ -1737,4 +1749,4 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:21:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:11:38 UTC</div></div></div></body></html>
