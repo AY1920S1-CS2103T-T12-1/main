@@ -21,7 +21,7 @@
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
 <li><a href="#multiline-commands">3.7. Multiline Commands</a></li>
 <li><a href="#settings-commands">3.8. Settings Commands</a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
+<li><a href="#saving-data">3.9. Saving Data</a></li>
 <li><a href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></li>
 </ul>
 </li>
@@ -29,8 +29,8 @@
 <li><a href="#command-summary">5. Command Summary</a></li>
 <li><a href="#upcoming-features">6. Upcoming Features</a>
 <ul class="sectlevel2">
-<li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud integration <code>[coming in v2.0]</code></a></li>
-<li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable user profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></li>
+<li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -240,7 +240,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Tags are the only non-compulsary parameter mentioned in commands (unless otherwise stated).</p>
+<p>Tags are the only non-compulsory parameter mentioned in commands (unless otherwise stated).</p>
 </li>
 <li>
 <p>When tags are mentioned as a parameter, it is taken for granted that you can input multiple tags
@@ -269,7 +269,7 @@ using the format <code>mt/&#8230;&#8203; mt/&#8230;&#8203; mt/&#8230;&#8203;</co
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Home.png" alt="Home" width="400">
+<img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
 </div>
@@ -485,7 +485,7 @@ It is recommended that you store all the images in a central folder to prevent t
 <p>Edits the member at the specified <code>mi/MEMBER_ID</code>.</p>
 </li>
 <li>
-<p>In this command, all the fields apart from <code>mi/MEMBER_ID</code> is optional. However, at least one of the optional fields must be provided.</p>
+<p>In this command, all the fields apart from <code>mi/MEMBER_ID</code> are optional. However, at least one of the optional fields must be provided.</p>
 </li>
 <li>
 <p>Existing values will be updated to the input values.</p>
@@ -640,9 +640,21 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 <div class="sect3">
 <h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add task</code></a></h4>
 <div class="paragraph">
-<p>To add a task to the project, use the 'add-task' command in the format below.<br>
+<p>To add a task to the project, use the <code>add-task</code> command in the format below.<br>
 Format: <code>add-task [tn/TASK_NAME]</code><br>
-Optional Parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
+Optional parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a status is not given for the task, +Work will assign it as <code>unbegun</code> or "Not Started" by default.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -650,37 +662,46 @@ Optional Parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-task tn/Finish up milestone setting</code><br>
-A new task will be added to the project dashboard</p>
+<p>Suppose you want to add a task called "Finish up milestones settings" to your project. First type <code>add-task tn/Finish up milestone setting</code>
+as show below.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add-task-preview.png" alt="add task preview">
 </div>
-<div class="sect3">
-<h4 id="removing-a-task-remove-task"><a class="link" href="#removing-a-task-remove-task">3.3.2. Removing a task: remove-task</a></h4>
-<div class="paragraph">
-<p>Removes a task from the dashboard</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>remove-task [ti/TASK_ID]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remove-task 2</code><br>
-Removes the 2nd task in the dashboard</p>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the task is added to the project!<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The prompt displayed as a result of performing <code>add-task</code> is further explained in <a href="#multiline-commands">Section 3.7, &#8220;Multiline Commands&#8221;</a>.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/add-task-res-list.png" alt="add task res list">
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="listing-all-existing-tasks-code-list-tasks-code"><a class="link" href="#listing-all-existing-tasks-code-list-tasks-code">3.3.3. Listing all existing tasks: <code>list-tasks</code></a></h4>
+<h4 id="deleting-a-task-delete-task"><a class="link" href="#deleting-a-task-delete-task">3.3.2. Deleting a task: delete-task</a></h4>
 <div class="paragraph">
-<p>To list all the tasks created for the project, use the <code>list-tasks</code> command in the format below.<br>
-Format: 'list-tasks'</p>
+<p>To delete a task from your project, use the <code>delete-task</code> command in the format below.<br>
+Format: <code>delete-task [ti/TASK_ID]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -688,8 +709,100 @@ Format: 'list-tasks'</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Type <code>list-tasks</code> in the command box.</p>
+<p>Suppose you want to remove the second task in your list. First type <code>delete-task ti/2</code> into the command
+box as shown below.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete-task-preview.png" alt="delete task preview">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the task is removed from your project!</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/delete-task-res-list.png" alt="delete task res list">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-task-code-edit-task-code"><a class="link" href="#editing-a-task-code-edit-task-code">3.3.3. Editing a task: <code>edit-task</code></a></h4>
+<div class="paragraph">
+<p>To edit a task currently in your project, use the <code>edit-task</code> command in the format below.<br>
+Format: <code>edit-task [ti/TASK_ID] [FIELD(S)_TO_EDIT]</code><br>
+Optional parameters: <code>[tn/TASK_NAME]</code> <code>[s/STATUS]</code> <code>[tt/TAG]</code> <code>[at/dd-mm-yyyy hh:mm]</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+At least one of the optional parameter must be provided in the command for a task to be edited successfully.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you wanted to update the task name of the fourth task in the diagram below to become "Update event website".<br>
+Type <code>edit-task ti/4 tn/Update event website</code> into the command box as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edit-task-preview.png" alt="edit task preview">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the task name has been edited!</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/edit-task-res-list.png" alt="edit task res list">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-all-existing-tasks-code-list-tasks-code"><a class="link" href="#listing-all-existing-tasks-code-list-tasks-code">3.3.4. Listing all existing tasks: <code>list-tasks</code></a></h4>
+<div class="paragraph">
+<p>To list all the tasks created for the project, use the <code>list-tasks</code> command in the format below from any view you are in.<br>
+Format: <code>list-tasks</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type <code>list-tasks</code> in the command box as shown below.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/list-tasks-preview.png" alt="list tasks preview">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Hit the <kbd>Enter</kbd> key and you will see all your tasks! You should see a window similar to the one below.</p>
 </li>
@@ -702,7 +815,7 @@ Format: 'list-tasks'</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-task-s-status-to-code-done-code-code-done-task-code"><a class="link" href="#setting-a-task-s-status-to-code-done-code-code-done-task-code">3.3.4. Setting a task&#8217;s status to <code>done</code>: <code>done-task</code></a></h4>
+<h4 id="setting-a-task-s-status-to-code-done-code-code-done-task-code"><a class="link" href="#setting-a-task-s-status-to-code-done-code-code-done-task-code">3.3.5. Setting a task&#8217;s status to <code>done</code>: <code>done-task</code></a></h4>
 <div class="paragraph">
 <p>To update the task status to <code>done</code>, use the <code>done-task</code> command in the format below.<br>
 Format: <code>done-task [ti/TASK_ID]</code></p>
@@ -719,7 +832,7 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/done-tasks-dashboard-command.png" alt="done tasks dashboard command">
+<img src="images/list-tasks-preview.png" alt="list tasks preview">
 </div>
 </div>
 <div class="ulist">
@@ -731,13 +844,14 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/done-task-list-command.png" alt="done task list command">
+<img src="images/done-task-preview-list.png" alt="done task preview list">
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Hit the <kbd>Enter</kbd> key and you will see that the task has been marked as <code>done</code>! You should see a window similar to the one below when you navigate back to <code>home</code>.</p>
+<p>Hit the <kbd>Enter</kbd> key and the task will been marked as <code>done</code>! You should see a window similar to the one below when you navigate back to <code>home</code>.
+Notice that "Shirts for freshman open day" has been moved to <code>done</code>.</p>
 </li>
 </ul>
 </div>
@@ -748,13 +862,13 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-task-s-status-to-code-doing-code-code-doing-task-code"><a class="link" href="#setting-a-task-s-status-to-code-doing-code-code-doing-task-code">3.3.5. Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></a></h4>
+<h4 id="setting-a-task-s-status-to-code-doing-code-code-doing-task-code"><a class="link" href="#setting-a-task-s-status-to-code-doing-code-code-doing-task-code">3.3.6. Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></a></h4>
 <div class="paragraph">
 <p>To update the task status to <code>doing</code>, use the <code>doing-task</code> command in the format below.<br>
 Format: <code>doing-task [ti/TASK_ID]</code></p>
 </div>
 <div class="paragraph">
-<p>Example: <code>doing-task ti/1</code></p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -778,21 +892,21 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-a-deadline-for-a-task-code-set-deadline-code"><a class="link" href="#setting-a-deadline-for-a-task-code-set-deadline-code">3.3.6. Setting a deadline for a task: <code>set-deadline</code></a></h4>
+<h4 id="setting-a-deadline-for-a-task-code-set-deadline-code"><a class="link" href="#setting-a-deadline-for-a-task-code-set-deadline-code">3.3.7. Setting a deadline for a task: <code>set-deadline</code></a></h4>
 <div class="paragraph">
 <p>This sets a deadline for an existing task in your project.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd-mm-yyyy hh:mm]</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
+The deadline you enter has to be at a future date!
 </td>
 </tr>
 </table>
@@ -809,14 +923,23 @@ Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui">
+<img src="images/list-tasks-preview.png" alt="list tasks preview">
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Suppose the deadline for your task is on the 10th of November 2019 at 6pm, enter <code>set-deadline ti/5 at/10-11-2019 18:00</code> into the command box.</p>
+<p>Suppose the deadline for your task is on the 20th of November 2019 at 6pm, enter <code>set-deadline ti/5 at/10-11-2019 18:00</code> into the command box as shown below.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/set-deadline-list-preview.png" alt="set deadline list preview">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Hit the <kbd>Enter</kbd> key and you will see that a deadline has been set!.</p>
 </li>
@@ -824,7 +947,7 @@ Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/set-deadline-list-result.png" alt="set deadline list result">
+<img src="images/set-deadline-res-list.png" alt="set deadline res list">
 </div>
 </div>
 <div class="paragraph">
@@ -842,7 +965,7 @@ Remember to input using the 24 hour time format of dd-mm-yyyy hh:mm
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in less than two weeks.
+The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in two weeks or less.
 </td>
 </tr>
 </table>
@@ -1586,7 +1709,7 @@ Switches to the 24 hour clock</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">3.9. Saving Data</a></h3>
 <div class="paragraph">
 <p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1652,19 +1775,10 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>add-task [tn/TASK_NAME] s/TASK_STATUS tt/TASK_TAG</code>: <strong>Adds a task</strong></p>
 </li>
 <li>
-<p><code>edit-member [mi/MEMBER_ID] mn/MEMBER_NAME mt/MEMBER_TAG</code>: <strong>Edits a member</strong></p>
-</li>
-<li>
-<p><code>edit-inv [ii/ITEM_ID] i/ITEM_NAME p/PRICE ti/TASK_ID mi/MEMBER_ID</code>: <strong>Edits a inventory</strong></p>
-</li>
-<li>
 <p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Adds a task to a member</strong></p>
 </li>
 <li>
 <p><code>calendar</code>: <strong>Switches to the time management page</strong></p>
-</li>
-<li>
-<p><code>pdf [ty/TYPE]</code>: <strong>Creates a PDF document of inventory list</strong></p>
 </li>
 <li>
 <p><code>clock twelve</code>: <strong>Switches deadline display to the 12 hour clock format</strong></p>
@@ -1683,6 +1797,15 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </li>
 <li>
 <p><code>done-task [ti/TASK_ID]</code>: <strong>Marks a task as <code>done</code></strong></p>
+</li>
+<li>
+<p><code>edit-inv [ii/ITEM_ID] i/ITEM_NAME p/PRICE ti/TASK_ID mi/MEMBER_ID</code>: <strong>Edits a inventory</strong></p>
+</li>
+<li>
+<p><code>edit-member [mi/MEMBER_ID] mn/MEMBER_NAME mt/MEMBER_TAG</code>: <strong>Edits a member</strong></p>
+</li>
+<li>
+<p><code>edit-task [ti/TASk_ID] [FIELDS_TO_EDIT]</code>: <strong>Edits a task</strong></p>
 </li>
 <li>
 <p><code>fire-member [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Removes a task from a member</strong></p>
@@ -1715,6 +1838,9 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>list-inv</code>: <strong>Lists all inventories</strong></p>
 </li>
 <li>
+<p><code>pdf [ty/TYPE]</code>: <strong>Creates a PDF document of inventory list</strong></p>
+</li>
+<li>
 <p><code>remove-member [mi/MEMBER_ID]</code>: <strong>Removes a member</strong></p>
 </li>
 <li>
@@ -1737,16 +1863,16 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud integration <code>[coming in v2.0]</code></a></h3>
+<h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Collaborate online with your teammates, and store your project details such as members calendars in the cloud.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="customisable-user-profiles-code-coming-in-v2-0-code"><a class="link" href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable user profiles <code>[coming in v2.0]</code></a></h3>
+<h3 id="customisable-user-profiles-code-coming-in-v2-0-code"><a class="link" href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Create more detailed profiles for members and choose who has authority to change details of the project.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:43:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:59:33 UTC</div></div></div></body></html>

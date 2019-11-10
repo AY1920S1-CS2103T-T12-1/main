@@ -26,13 +26,15 @@
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></li>
-<li><a href="#statistics-feature">2.2. Statistics feature</a></li>
-<li><a href="#member-feature">2.3. Member Feature</a></li>
-<li><a href="#inventory-feature">2.4. Inventory feature</a></li>
-<li><a href="#proposed-undo-redo-feature">2.5. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">2.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">2.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">2.8. Configuration</a></li>
+<li><a href="#dashboard-feature">2.2. Dashboard feature</a></li>
+<li><a href="#settings-feature">2.3. Settings feature</a></li>
+<li><a href="#statistics-feature">2.4. Statistics feature</a></li>
+<li><a href="#member-feature">2.5. Member Feature</a></li>
+<li><a href="#inventory-feature">2.6. Inventory feature</a></li>
+<li><a href="#proposed-undo-redo-feature">2.7. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">2.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">3. Documentation</a></li>
@@ -159,12 +161,28 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
-<div class="paragraph">
-<p>tag::ui[]</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">1.2. UI component</a></h3>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">1.2.1. Overview</a></h4>
+<div class="paragraph">
+<p>The <code>UI</code> consists of the <code>MainWindow</code> that is made up of static and non-static parts
+e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The non-static <code>Ui</code> component, <code>UserViewMain</code> is responsive to user commands. Its functionality will be
+further explained using a separate diagram.
+</td>
+</tr>
+</table>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -174,15 +192,25 @@ The following class plays an important role at the architecture level:</p>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="functionality-of-code-userviewmain-code"><a class="link" href="#functionality-of-code-userviewmain-code">1.2.2. Functionality of <code>UserViewMain</code></a></h4>
 <div class="paragraph">
-<p>The <code>UI</code> consists of a <code>MainWindow</code> that is made up of static and non-static parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p><code>UserViewMain</code> is the component responsible for switching the user view. As it fetches data from <code>Logic</code>, it is associated
+with <code>Logic</code>, hence Figure 5 below shows an association between <code>UserViewMain</code> and <code>Logic</code>. The controller class of <code>UserViewMain</code> is <code>UserViewController</code>.<br>
+<code>UserViewController</code> and <code>UserViewNavigator</code> both contain references to the various <code>UiPart</code> views offered in +Work in order to switch between them successfully.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Functionality of <code>UserView</code> classes:</strong></p>
+<p>The diagram below shows how <code>UserViewMain</code> integrates with <code>Logic</code>, <code>Model</code> and <code>UiPart</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UserViewMainClassDiagram.png" alt="UserViewMainClassDiagram">
+</div>
+<div class="title">Figure 5. UserViewMain integration with UI component</div>
 </div>
 <div class="paragraph">
-<p><code>UserViewMain</code> is the component responsible for switching the user view. As it needs fetch data from the <code>Model</code>, it contains
-a reference to <code>Logic</code>, hence Figure 4 shows an association between <code>UserViewMain</code> and <code>Logic</code>. The controller class of <code>UserViewMain</code> is <code>UserViewController</code>.</p>
+<p>Below is a guide to how <code>UserViewMain</code> switches the users view.</p>
 </div>
 <div class="paragraph">
 <p>Step 1: User enters a command.</p>
@@ -203,7 +231,7 @@ relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code
 <p>Step 5: Users view is then switched successfully.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses the JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -211,13 +239,13 @@ relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code
 <div class="ulist">
 <ul>
 <li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
+<p>Parses and executes user commands to show user the right view using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.
-end::ui[]</p>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -226,7 +254,7 @@ end::ui[]</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -258,7 +286,7 @@ end::ui[]</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -279,7 +307,7 @@ The lifeline for <code>DeleteTaskCommandParser</code> should end at the destroy 
 <div class="content">
 <img src="images/ModelClassDiagramNew.png" alt="ModelClassDiagramNew">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
@@ -340,7 +368,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Project Dashb
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -471,10 +499,156 @@ May introduce complexity into storage and dependencies among components.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>_**=== Settings feature
-==== Proposed Implementation</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dashboard-feature"><a class="link" href="#dashboard-feature">2.2. Dashboard feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">2.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature was implemented to allow users to view the status of the tasks in their project, upcoming deadlines and upcoming meetings
+at a glance.</p>
+</div>
+<div class="paragraph">
+<p>The command introduced by this feature is <code>home</code> and displays data affected by <code>Task</code> and <code>Meeting</code> commands such as <code>add-task</code>, <code>edit-task</code>
+and <code>add-meeting</code>.
+The commands are facilitated by <code>ProjectDasboard</code>. This component resides in <code>Model</code> and contains the in-memory data of the application which is
+retrieved when the user switches to <code>Home</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ProjectDashboard#getTasksNotStarted()</code>&#8201;&#8212;&#8201;Retrieves the current list of tasks with status <code>unbegun</code> in +Work.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#getTasksDoing()</code>&#8201;&#8212;&#8201;Retrieves the current list of tasks with status <code>doing</code> in +Work.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#getTasksDone()</code>&#8201;&#8212;&#8201;Retrieves the current list of tasks with status <code>done</code> in +Work.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#getTasksByDeadline()</code>&#8201;&#8212;&#8201;Retrieves the current list of tasks with nearing deadlines in +Work.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#getMeetingList()</code>&#8201;&#8212;&#8201;Retrieves the current list of meetings in +Work.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#splitTaksByStatus()</code>&#8201;&#8212;&#8201;Processes the current list of tasks and stores the tasks by status.</p>
+</li>
+<li>
+<p><code>ProjectDashboard#splitTaksByDeadline()</code>&#8201;&#8212;&#8201;Processes the current list of tasks and stores the tasks based on nearing deadlines.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#getFilteredTasksNotStarted()</code>, <code>Model#getFilteredTasksDoing()</code>,
+<code>Model#getFilteredTasksDone()</code>, <code>Model#getFilteredTasksByDeadline()</code> and <code>Model#getFilteredMeetingList()</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To allow <code>Ui</code> to be responsive to updates in the settings, all of the operations are similarly exposed in the <code>Logic</code> interface
+<code>Logic#getFilteredTasksNotStarted()</code>, <code>Logic#getFilteredTasksDoing()</code>,
+<code>Logic#getFilteredTasksDone()</code>, <code>Logic#getFilteredTasksByDeadline()</code> and <code>Logic#getFilteredMeetingList()</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the <code>home</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>Logic</code> executes <code>Logic#getFilteredTasksNotStarted()</code>, <code>Logic#getFilteredTasksDoing()</code>,
+<code>Logic#getFilteredTasksDone()</code>, <code>Logic#getFilteredTasksByDeadline()</code> and <code>Logic#getFilteredMeetingList()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This calls <code>Model#getFilteredTasksNotStarted()</code>, <code>Model#getFilteredTasksDoing()</code>, <code>Model#getFilteredTasksDone()</code>, <code>Model#getFilteredTasksByDeadline()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. This executes <code>ProjectDashboard#splitTasksByStatus()</code>, to populate <code>tasksNotStarted</code>, <code>tasksDoing</code> and <code>tasksDone</code>.<br>
+Similarly, <code>ProjectDashBoard#splitTasksByDeadline()</code> is called to populate <code>tasksByDeadline</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The various <code>FilteredList</code> objects are updated, since their backing lists are stored in <code>ProjectDashboard</code>. (refer to Figure 9)</p>
+</div>
+<div class="paragraph">
+<p>The object diagram below shows a snapshot of the various objects involved when the user views the dashboard.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The diagram omits objects involving the <code>Ui</code> component as well as specific <code>Task</code> objects for brevity.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram">
+</div>
+<div class="title">Figure 10. Snapshot of objects involved in populating the dashboard with data</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.2.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section explores how the design of the dashboard can affect it&#8217;s responsiveness and integration with other data in the application.</p>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-used-to-store-code-task-code-objects"><a class="link" href="#aspect-data-structure-used-to-store-code-task-code-objects">Aspect: Data structure used to store <code>Task</code> objects.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> All tasks are stored in a single <code>UniqueTaskList</code> in <code>ProjectDashboard</code> with <code>TaskStatus</code> attribute.
+When the enters <code>home</code> to view the dashboard, the tasks are split by <code>TaskStatus</code> and deadline in <code>ProjectDashboard</code> and dispatched to the <code>Ui</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement in terms of storage and retrieval. By storing only one list and splitting the tasks in memory there is less data saved.</p>
+</li>
+<li>
+<p>Cons: The constant processing of task data may tax the memory of the application, as it is storing the same tasks in multiple data structures. This may affect performance
+for large number of tasks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The <code>Task</code> objects will only contain attributes which are not filtered in the dashboard. They can be stored in a <code>HashMap</code> as values and the keys are filtered attributes such as <code>TaskStatus</code> and deadline.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Memory usage of _Work is more efficient, as <code>ProjectDashboard</code> does not have to store multiple references of the same <code>Task</code> objects in memory. Also, due to the mappings between <code>TaskStatus</code> and the <code>Task</code> assigned those statuses, they can be retrieved and displayed more efficiently.</p>
+</li>
+<li>
+<p>Cons: Due to the requirements of +Work, <code>Task</code> objects are coupled to <code>Member</code> and <code>Inventory</code>. The method of storing these tasks, other components would have to
+iterate through all keys to obtain all the <code>Task</code> objects and manipulate their mappings. This would render the <code>HashMap</code> useless.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We decided to opt for design option one so as to enable <code>Task</code> to integrate with other components of +Work in the most efficient way possible. Although design option two would
+benefit the dashboard greatly it would cause almost all other components and views to become inefficient.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="settings-feature"><a class="link" href="#settings-feature">2.3. Settings feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">2.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to customise their experience when using +Work.</p>
 </div>
@@ -523,7 +697,7 @@ To allow <code>Ui</code> to be responsive to updates in the settings, two of the
 <div class="content">
 <img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
 </div>
-<div class="title">Figure 9. Activity diagram of settings command execution.</div>
+<div class="title">Figure 11. Activity diagram of settings command execution.</div>
 </div>
 <div class="paragraph">
 <p>Assume that the current <code>theme</code> is <code>LIGHT</code> and <code>clockFormat</code> is <code>TWENTY_FOUR</code>.</p>
@@ -549,13 +723,13 @@ This changes the <code>theme</code> attribute in <code>UserSettings</code> to <c
 <p>Step 5. The settings have been updated and stored in <code>plusworksettings.json</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the <code>theme dark</code> operation works.</p>
+<p>The following sequence diagram shows how the <code>theme dark</code> operation works with reference to steps 2 and 3 above.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram">
 </div>
-<div class="title">Figure 10. Operational flow of <code>ThemeCommand</code></div>
+<div class="title">Figure 12. Operational flow of <code>ThemeCommand</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -586,22 +760,21 @@ The <code>clock twelve</code> and <code>clock twenty_four</code> have a similar 
 </table>
 </div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.1.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.3.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section explores how the design can affect the level of customisation available to the user through the settings feature in +Work.</p>
 </div>
 <div class="sect4">
-<h5 id="aspect-storage-of-the-required-settings-data"><a class="link" href="#aspect-storage-of-the-required-settings-data">Aspect: Storage of the required settings data</a></h5>
+<h5 id="aspect-storage-of-the-various-options-in-settings-data"><a class="link" href="#aspect-storage-of-the-various-options-in-settings-data">Aspect: Storage of the various options in settings data</a></h5>
 <div class="paragraph">
-<p>Within a specific setting, each option has data that helps yield a specific behaviour. Currently the available settings are
-represented as enumerations.</p>
+<p>Within a specific setting stored in <code>Model</code>, each option has data that helps yield a specific behaviour. Currently the available settings are
+represented as <code>Enum</code>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> The relevant data is stored within the enum class itself.<br>
+<p><strong>Alternative 1 (current choice):</strong> The relevant data is stored within the class itself.<br>
 For example <code>ClockFormat</code> has two constants <code>TWENTY_FOUR</code> and <code>TWELVE</code> that contain <code>DateTimeFormatters</code> which are retrieved
 when the user wishes to toggle between them.</p>
 <div class="ulist">
@@ -611,7 +784,7 @@ when the user wishes to toggle between them.</p>
 data is to be changed, it only needs to be changed in one component for the expected behaviour to be achieved.</p>
 </li>
 <li>
-<p>Cons: User cannot customise the data.</p>
+<p>Cons: User cannot customise the data directly due to the nature of <code>Enum</code>.</p>
 </li>
 </ul>
 </div>
@@ -624,7 +797,7 @@ data is to be changed, it only needs to be changed in one component for the expe
 <p>Pros: This exposes the data of each option of all settings to the <code>Model</code>. If the user requests to customise that data, it would be possible in this design.</p>
 </li>
 <li>
-<p>Cons: This violates the Single Responsibility principle, as the interface changes whenever the data related to a particular settings option is updated. <code>UserSettings</code> should only be aware of the various settings the user
+<p>Cons: The <code>UserSettings</code> interface changes whenever the data related to a particular settings option is updated. <code>UserSettings</code> should only be aware of the various settings the user
 is able to customise.</p>
 </li>
 </ul>
@@ -632,51 +805,21 @@ is able to customise.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="aspect-level-of-user-customisation-for-work-themes"><a class="link" href="#aspect-level-of-user-customisation-for-work-themes">Aspect: Level of user customisation for +Work themes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> User can change between light and dark only.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easier to implement and maintain UI components and css files to ensure theme cascades consistently.</p>
-</li>
-<li>
-<p>Cons: User is limited to two themes, which may affect their viewing preferences.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> User can import their own themes and use them.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: User has greater flexibility in choosing themes for +Work.</p>
-</li>
-<li>
-<p>Cons: We must ensure that all UI components switch themes consistently. This may take a long time to test, due to large number of views
-offered by +Work. Furthermore the compatibility of the theme with JavaFx must be regarded as well.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="paragraph">
+<p>We decided to opt for design option one, so as to be in line with the Single Responsibility principle. This would make it easier to extend the functionality
+of the settings feature which would allow developers to extend its functionality in a more safe and modular manner.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.2. Statistics feature</a></h3>
+<h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.4. Statistics feature</a></h3>
 <div class="paragraph">
 <p>The Statistics feature allows users to retrieve statistics relating to members and tasks in +Work, so that users can get a
 broad overview of the project&#8217;s and member&#8217;s project.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">2.2.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">2.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The commands introduced by this statistics feature includes: <code>task-stats</code> and <code>member-stats</code>. These commands are facilitated by the class 'Statistics'
 that resides within model. The 'Statistics' class implements the following operations:</p>
@@ -800,7 +943,7 @@ To allow the <code>UI</code> to be responsive, <code>getStatistics()</code> is s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.4.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the pros and cons of the current and other alternative implementations of the Statistics class in +Work,
 as well as the display of statistics in +Work.</p>
@@ -885,13 +1028,13 @@ more than Alternative 2 does.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="member-feature"><a class="link" href="#member-feature">2.3. Member Feature</a></h3>
+<h3 id="member-feature"><a class="link" href="#member-feature">2.5. Member Feature</a></h3>
 <div class="paragraph">
 <p>The member feature introduces the ability for +Work to deal with project members, in the same way it deals with project tasks.
 This makes +Work a more comprehensive application because project tasks and members can be kept track of together.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">2.3.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">2.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>+Work&#8217;s members and their related commands are supported by a <code>Member</code> class that resides within model.
 The following class diagram exposes the structure of the Member class, and shows how the different components relating to the Member class works together.</p>
@@ -997,7 +1140,7 @@ name and tags are displayed, since this is very similar to how AB3 originally di
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">2.5.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section describes the pros and cons of the current and other alternative implementations of the image attribute under members,
 as well as the display of members in +Work.</p>
@@ -1080,9 +1223,9 @@ being final and unchangeable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="inventory-feature"><a class="link" href="#inventory-feature">2.4. Inventory feature</a></h3>
+<h3 id="inventory-feature"><a class="link" href="#inventory-feature">2.6. Inventory feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.4.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.6.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to add inventories when using +Work.</p>
 </div>
@@ -1118,7 +1261,7 @@ respectively.</p>
 <div class="content">
 <img src="images/AddInvActivityDiagram.png" alt="AddInvActivityDiagram">
 </div>
-<div class="title">Figure 11. Activity diagram of <code>add-inv</code> command execution.</div>
+<div class="title">Figure 13. Activity diagram of <code>add-inv</code> command execution.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how add-inv command behaves at each step:</p>
@@ -1145,11 +1288,11 @@ respectively.</p>
 <div class="content">
 <img src="images/AddInvSequenceDiagram.png" alt="AddInvSequenceDiagram">
 </div>
-<div class="title">Figure 12. Operational flow of <code>AddInventoryCommand</code></div>
+<div class="title">Figure 14. Operational flow of <code>AddInventoryCommand</code></div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">2.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">2.6.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>This section explores how the design can affect the inventory features in +Work.</p>
 </div>
@@ -1226,9 +1369,9 @@ represented as enumerations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.5. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.7. [Proposed] Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.5.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.7.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1370,7 +1513,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">2.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">2.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1440,20 +1583,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.6. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">2.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1484,7 +1627,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2686,4 +2829,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:43:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:59:33 UTC</div></div></div></body></html>
