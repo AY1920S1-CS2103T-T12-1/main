@@ -593,7 +593,7 @@ The diagram omits objects involving the <code>Ui</code> component as well as spe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram" width="600">
+<img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram" width="800">
 </div>
 <div class="title">Figure 10. Snapshot of objects involved in populating the dashboard with data</div>
 </div>
@@ -695,7 +695,7 @@ To allow <code>Ui</code> to be responsive to updates in the settings, two of the
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="200">
+<img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="400">
 </div>
 <div class="title">Figure 11. Activity diagram of settings command execution.</div>
 </div>
@@ -727,7 +727,7 @@ This changes the <code>theme</code> attribute in <code>UserSettings</code> to <c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram" width="400">
+<img src="images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram">
 </div>
 <div class="title">Figure 12. Operational flow of <code>ThemeCommand</code></div>
 </div>
@@ -822,7 +822,7 @@ broad overview of the project&#8217;s and member&#8217;s project.</p>
 <h4 id="implementation-4"><a class="link" href="#implementation-4">2.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The commands introduced by this statistics feature includes: <code>task-stats</code> and <code>member-stats</code>. These commands are facilitated by the class 'Statistics'
-that resides within model. The 'Statistics' class implements the following operations:</p>
+that resides within model. The <code>Statistics</code> class implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -850,7 +850,7 @@ that resides within model. The 'Statistics' class implements the following opera
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To allow the <code>UI</code> to be responsive, one of the operations is similarly exposed in the <code>Logic</code> interface as `Logic#getStatistics()'
+To allow the <code>UI</code> to be responsive, one of the operations is similarly exposed in the <code>Logic</code> interface as <code>Logic#getStatistics()</code>.
 </td>
 </tr>
 </table>
@@ -859,7 +859,7 @@ To allow the <code>UI</code> to be responsive, one of the operations is similarl
 <p>Given below is an example usage scenario and how the Statistics mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1.</strong> The user launches the application for the first time. The 'Statistics' object stored by ProjectDashboard is initialised based on the data previously saved.</p>
+<p><strong>Step 1.</strong> The user launches the application for the first time. The <code>Statistics</code> object stored by ProjectDashboard is initialised based on the data previously saved.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -881,7 +881,7 @@ Data previously saved refers to the statistics calculation done based on list of
 Using the lists, a Statistics object is formed. <code>Model#setStatistics</code> is called to updated the statistics in ProjectDashboard.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 10) shows how the 'task-stats' operation works.</p>
+<p>The following sequence diagram (Figure 10) shows how the <code>task-stats</code> operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -914,13 +914,13 @@ The <code>member-stats</code> operation is similar to the one shown in figure 10
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To allow the <code>UI</code> to be responsive, <code>getStatistics()</code> is similarly exposed in the <code>Logic</code> interface as `Logic#getStatistics()'
+To allow the <code>UI</code> to be responsive, <code>getStatistics()</code> is similarly exposed in the <code>Logic</code> interface as <code>Logic#getStatistics()</code>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram (Figure 11) shows how calling the 'task-stats' operation leads to the comprehensive UI display of task statistics.</p>
+<p>The following sequence diagram (Figure 11) shows how calling the <code>task-stats</code> operation leads to the comprehensive UI display of task statistics.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1078,7 +1078,7 @@ A new member object is formed, with all the same parameters as the specified mem
 <code>Model#setMember</code> is called to replace the old member object with the new one in +Work.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the 'set-image' operation works.</p>
+<p>The following sequence diagram shows how the <code>set-image</code> operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1086,7 +1086,7 @@ A new member object is formed, with all the same parameters as the specified mem
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 14. Operational flow of 'SetImageCommand'</p>
+<p>Figure 14. Operational flow of <code>SetImageCommand</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2829,4 +2829,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 17:49:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:22:48 UTC</div></div></div></body></html>
