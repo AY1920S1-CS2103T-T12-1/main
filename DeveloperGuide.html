@@ -671,10 +671,15 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 </div>
 <div class="sect2">
 <h3 id="statistics-feature"><a class="link" href="#statistics-feature">2.2. Statistics feature</a></h3>
+<div class="paragraph">
+<p>The Statistics feature allows users to retrieve statistics relating to members and tasks in +Work, so that users can get a
+broad overview of the project&#8217;s and member&#8217;s project.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">2.2.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The commands introduced by this statistics feature includes: <code>get-task-stats</code> and <code>get-member-stats</code>. These commands are faciliatated by the class 'Statistics' that resides within model. The 'Statistics' class implements the following operations:</p>
+<p>The commands introduced by this statistics feature includes: <code>task-stats</code> and <code>member-stats</code>. These commands are facilitated by the class 'Statistics'
+that resides within model. The 'Statistics' class implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -688,11 +693,12 @@ offered by +Work. Furthermore the compatibility of the theme with JavaFx must be
 <p><code>Statistics#getPortionMembersByItems()</code>&#8201;&#8212;&#8201;Retrieves statistics of all the members and number of items purchased by the each individual member.</p>
 </li>
 <li>
-<p><code>Statistics#getPortionTasksByStatus()</code>&#8201;&#8212;&#8201;Retrieves statistics of all existing tasks and number of tasks of each status.
-**_
-These operations are exposed in the <code>Model</code> interface as <code>Model#doCalculations</code>, and 'Model#getStatistics'.</p>
+<p><code>Statistics#getPortionTasksByStatus()</code>&#8201;&#8212;&#8201;Retrieves statistics of all existing tasks and number of tasks of each status.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#doCalculations</code>, and <code>Model#getStatistics</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -710,7 +716,7 @@ To allow the <code>UI</code> to be responsive, one of the operations is similarl
 <p>Given below is an example usage scenario and how the Statistics mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The 'Statistics' will be initialised based on the data previously saved.</p>
+<p><strong>Step 1.</strong> The user launches the application for the first time. The 'Statistics' object stored by ProjectDashboard is initialised based on the data previously saved.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -725,13 +731,14 @@ Data previously saved refers to the statistics calculation done based on list of
 </table>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>get-task-stats</code> command to retrieve statistics related to the tasks in the application.</p>
+<p><strong>Step 2.</strong> The user executes the <code>task-stats</code> command to retrieve statistics related to the tasks in the application.</p>
 </div>
 <div class="paragraph">
-<p>The <code>get-task-stats</code> command calls <code>Model#getFilteredTasksList()</code>, <code>Model#getFilteredMembersList()</code> and <code>Model#getFilteredMappingsList()</code> after updating all the lists to show all tasks/members/mappings, to obtain lists of all the members, tasks and mappings saved in the application. Using the lists, a Statistics object is formed. 'Model#setStatistics' is called to updated the statistics in ProjectDashboard.</p>
+<p>The <code>task-stats</code> command calls <code>Model#getFilteredTasksList()</code>, <code>Model#getFilteredMembersList()</code> and <code>Model#getFilteredMappingsList()</code> to obtain lists of all the members, tasks and mappings saved in the application.
+Using the lists, a Statistics object is formed. <code>Model#setStatistics</code> is called to updated the statistics in ProjectDashboard.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the 'get-member-stats' operation works.</p>
+<p>The following sequence diagram (Figure 10) shows how the 'task-stats' operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -739,7 +746,7 @@ Data previously saved refers to the statistics calculation done based on list of
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 10. Operational flow of 'GetStatisticsCommand'</p>
+<p>Figure 10. Operational flow of <code>GetStatisticsCommand</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -748,24 +755,58 @@ Data previously saved refers to the statistics calculation done based on list of
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The 'get-member-stats' operation is similar to the one shown in figure 10.
+The <code>member-stats</code> operation is similar to the one shown in figure 10.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>Step 3. In order for task statistics to be displayed in a comprehensive manner, when the <code>task-stats</code> command is called,
+<code>TaskStatisticsView</code> class is also called to display the task stats.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To allow the <code>UI</code> to be responsive, <code>getStatistics()</code> is similarly exposed in the <code>Logic</code> interface as `Logic#getStatistics()'
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram (Figure 11) shows how calling the 'task-stats' operation leads to the comprehensive UI display of task statistics.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GetStatisticsUISequenceDiagram.png" alt="GetStatisticsUISequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 11. Operational flow of displaying statistics in +Work</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes the <code>task-stats</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/GetStatisticsActivityDiagram.png" alt="GetStatisticsActivityDiagram">
 </div>
 </div>
+<div class="paragraph">
+<p>Figure 12. Operational flow during execution of <code>task-stats</code> command</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.2.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>This section describes the pros and cons of the current and other alternative implementations of the Statistics class in +Work,
+as well as the display of statistics in +Work.</p>
+</div>
 <div class="sect4">
-<h5 id="aspect-how-to-implement-statistics-class"><a class="link" href="#aspect-how-to-implement-statistics-class">Aspect: How to implement Statistics class</a></h5>
+<h5 id="aspect-implementation-of-statistics-class"><a class="link" href="#aspect-implementation-of-statistics-class">Aspect: Implementation of Statistics class</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -786,19 +827,25 @@ The 'get-member-stats' operation is similar to the one shown in figure 10.
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will ensure faster performance,</p>
+<p>Pros: Ensures faster performance, more detailed statistics can be included</p>
 </li>
 <li>
-<p>Cons: Design of statistics object has to be very well-implemented, might not have enough time to implement it by v1.3</p>
+<p>Cons: Complicates the implementation of the statistics class, might not have enough time to implement it by v1.4</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 1</strong> was chosen given the time constraint in implementing the features in time for +Work Version 1.4.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="aspect-display-of-statistics-for-project-dashboard"><a class="link" href="#aspect-display-of-statistics-for-project-dashboard">Aspect: Display of Statistics for Project Dashboard</a></h5>
+<div class="paragraph">
+<p>This section describes the pros and cons of the current and other alternative implementations of displaying the calculate statistics in +Work.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -806,10 +853,10 @@ The 'get-member-stats' operation is similar to the one shown in figure 10.
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for workload comparison</p>
+<p>Pros: Increases the ease of workload comparison</p>
 </li>
 <li>
-<p>Cons: Less details of individual taks and members exposed in the statistiscs page.</p>
+<p>Cons: Decreases the amount of detail of individual tasks and members that are displayed</p>
 </li>
 </ul>
 </div>
@@ -829,24 +876,47 @@ The 'get-member-stats' operation is similar to the one shown in figure 10.
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Because the team came to a consensus that the main objective of the Statistics feature in +Work is to provide the user with
+an overview of all the project tasks and members, for ease of comparison, <strong>Alternative 1</strong> was chosen as it fits the purpose
+more than Alternative 2 does.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="member-feature"><a class="link" href="#member-feature">2.3. Member Feature</a></h3>
+<div class="paragraph">
+<p>The member feature introduces the ability for +Work to deal with project members, in the same way it deals with project tasks.
+This makes +Work a more comprehensive application because project tasks and members can be kept track of together.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">2.3.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The member feature introduces the ability for +Work to deal with project members, in the same way it deals with project tasks. Apart from the typical commands ('add-member', 'delete-member', 'find-member') involved in such a central class, the member features also introduce a 'set-image' command. The set-image command allows users to set an image in their computer as the profile picture of a member in +Work.
-To accomodate the set-image command, the 'Member' class has an alternative constructor that takes in the image url as a parameter to save it as an attribute to the member object, when 'set-image' command is called. Additionally, to support the 'set-image' command, the 'Member' class implements the following operation:</p>
+<p>+Work&#8217;s members and their related commands are supported by a <code>Member</code> class that resides within model.
+The following class diagram exposes the structure of the Member class, and shows how the different components relating to the Member class works together.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MemberClassDiagram.png" alt="MemberClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Diagram 13. Class diagram of Member package</p>
+</div>
+<div class="paragraph">
+<p>Apart from the typical commands (<code>add-member</code>, <code>delete-member</code>, <code>find-member</code>) involved in such a central class, the member features also introduce a <code>set-image</code> command.
+The <code>set-image</code> command allows users to set an image in their computer as the profile picture of a member in +Work.
+To accommodate the <code>set-image</code> command, the <code>Member</code> class has an alternative constructor that takes in the image filepath as a parameter to save it as an attribute to the member object, when <code>set-image</code> command is called.
+Additionally, to support the command, the <code>Member</code> class implements the following operation:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Member#getImageUrl()</code>&#8201;&#8212;&#8201;Retrieves the URL of the image stored in the user&#8217;s computer</p>
+<p><code>Member#getImagePath()</code>&#8201;&#8212;&#8201;Retrieves the filepath of the image stored in the user&#8217;s computer</p>
 </li>
 <li>
-<p><code>Member#getImage()</code>&#8201;&#8212;&#8201;Retrieves the member&#8217;s image using the image url</p>
+<p><code>Member#getImage()</code>&#8201;&#8212;&#8201;Retrieves the member&#8217;s image using the image filepath</p>
 </li>
 </ul>
 </div>
@@ -854,13 +924,15 @@ To accomodate the set-image command, the 'Member' class has an alternative const
 <p>Given below is an example usage scenario and how the set-image mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time, and adds a team member into +Work. The member is displayed with a default profile picture.</p>
+<p><strong>Step 1.</strong> The user launches the application for the first time, and adds a team member into +Work. The member is displayed with a default profile picture.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>set-image</code> command to set an image in their computer as the profile picture of a member in +Work..</p>
+<p><strong>Step 2.</strong> The user executes the <code>set-image</code> command to set an image in their computer as the profile picture of a member in +Work..</p>
 </div>
 <div class="paragraph">
-<p>The <code>set-image</code> command calls <code>Model#getFilteredMembersList()</code> to retrive the Member that is to be edited. A new member object is formed, with all the same parameters as the specified member object, and a new Image URL parameter. <code>Model#setMember</code> to replace the old member object with the new one in +Work.</p>
+<p>The <code>set-image</code> command calls <code>Model#getFilteredMembersList()</code> to retrieve the Member that is to be edited.
+A new member object is formed, with all the same parameters as the specified member object, and a new Image Filepath parameter.
+<code>Model#setMember</code> is called to replace the old member object with the new one in +Work.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the 'set-image' operation works.</p>
@@ -871,7 +943,7 @@ To accomodate the set-image command, the 'Member' class has an alternative const
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 10. Operational flow of 'SetImageCommand'</p>
+<p>Figure 14. Operational flow of 'SetImageCommand'</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -880,133 +952,129 @@ To accomodate the set-image command, the 'Member' class has an alternative const
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The image&#8217;s file path will be stored in the Member object. If the image is shifted to another location, the file path stored becomes invalid, and user will have to call the <code>set-image</code> command again, with the new file path.
+The image&#8217;s file path is stored in the Member object. If the image is shifted to another location, the file path stored becomes invalid, and the user has to call the <code>set-image</code> command again, with the new file path.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 3. When an operation is called to display a member, <code>Member#getImage</code> is called to display the image using Javafx&#8217;s ImageView.</p>
+<p><strong>Step 3.</strong> When an operation is called to display a member, <code>Member#getImage</code> is called to display the image using Javafx&#8217;s ImageView.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the image is called up and subsequently displayed in the UI for members.</p>
+<p>The following sequence diagram shows how the image is called up and subsequently displayed in the +Work for an individual member.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DisplayImage.png" alt="DisplayImage">
+<img src="images/DisplayMemberSequenceDiagram.png" alt="DisplayMemberSequenceDiagram">
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 10. Operational flow of displaying a member with image.</p>
+<p>Figure 15. Operational flow of displaying a member with his profile picture</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sequence diagram only shows how a member&#8217;s profile image is called up and displayed. It doesn&#8217;t show how the member&#8217;s
+name and tags are displayed, since this is very similar to how AB3 originally displays its <code>Person</code> name and tags.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>The following activity diagram summarizes what happens when a user executes the <code>set-image</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SetImageActivityDiagram.png" alt="SetImageActivityDiagram">
 </div>
 </div>
+<div class="paragraph">
+<p>Figure 16. Operational flow during execution of <code>set-image</code> command</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.3.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-to-save-image-under-member-url-or-image-object"><a class="link" href="#aspect-how-to-save-image-under-member-url-or-image-object">Aspect: How to save image under Member (url or image object)</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> One statistics object for the entire ProjectDashboard</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement, centralised class for all statistics</p>
-</li>
-<li>
-<p>Cons: May have performance issues due to calculations involving large amounts of tasks and members.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual statistic objects for members and tasks.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will ensure faster performance,</p>
-</li>
-<li>
-<p>Cons: Design of statistics object has to be very well-implemented, might not have enough time to implement it by v1.3</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<div class="paragraph">
+<p>This section describes the pros and cons of the current and other alternative implementations of the image attribute under members,
+as well as the display of members in +Work.</p>
 </div>
 <div class="sect4">
-<h5 id="aspect-store-image-as-final-or-changeable-basically-repalcing-the-whole-member-or-not"><a class="link" href="#aspect-store-image-as-final-or-changeable-basically-repalcing-the-whole-member-or-not">Aspect: Store image as (final or changeable) (basically repalcing the whole member or not)</a></h5>
+<h5 id="aspect-storage-of-image-under-member"><a class="link" href="#aspect-storage-of-image-under-member">Aspect: Storage of image under member</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a pie chart to represent information</p>
+<p><strong>Alternative 1:</strong> Storing the image filepath as a changeable attribute</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for workload comparison</p>
+<p>Pros: Editing a member&#8217;s profile picture involves accessing the member and changing its file path attribute</p>
 </li>
 <li>
-<p>Cons: Less details of individual taks and members exposed in the statistiscs page.</p>
+<p>Cons: The image file path attribute is exposed to the rest of the classes in +Work and may be unintentionally edited, causing
+the member&#8217;s profile picture to be edited without the intention to.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use a list to represent information</p>
+<p><strong>Alternative 2 (current choice):</strong> Storing the image filepath as a final attribute</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Includes more details for individual elements</p>
+<p>Pros: Ensures the member&#8217;s image filepath remains unchangeable and specific to the member</p>
 </li>
 <li>
-<p>Cons: Decreases the ease of comparison between tasks and members</p>
+<p>Cons: A new member object has to be created to replace the member being edited every time the member&#8217;s profile
+picture is updated</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2</strong> was chosen to keep in line with the original structure of the Person object in AB3, with all attributes
+being final and unchangeable.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-ui-display-of-members"><a class="link" href="#aspect-ui-display-of-members">Aspect: Ui Display of members</a></h5>
+<h5 id="aspect-display-of-members"><a class="link" href="#aspect-display-of-members">Aspect: Display of members</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a pie chart to represent information</p>
+<p><strong>Alternative 1:</strong> Display each member with only its member name, ID and profile picture</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for workload comparison</p>
+<p>Pros: Concise display of each member in +Work, with only the essential information being exposed</p>
 </li>
 <li>
-<p>Cons: Less details of individual taks and members exposed in the statistiscs page.</p>
+<p>Cons: Less details of individual members are displayed, making it difficult to draw links between members and the tasks they are involved in</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use a list to represent information</p>
+<p><strong>Alternative 2 (current choice):</strong> Display members with its member name, ID, profile picture and tasks assigned</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Includes more details for individual elements</p>
+<p>Pros: Includes more details for individual members, which increases the ease in which the user can identify a member&#8217;s responsibilities</p>
 </li>
 <li>
-<p>Cons: Decreases the ease of comparison between tasks and members</p>
+<p>Cons: Display of members is cluttered, and may expose unnecessary information in certain situations</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Alternative 2</strong> was chosen because it is more in line with +Work&#8217;s objective of drawing easy comparison between project members and tasks.</p>
 </div>
 </div>
 </div>
@@ -2618,4 +2686,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 10:11:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:43:38 UTC</div></div></div></body></html>
