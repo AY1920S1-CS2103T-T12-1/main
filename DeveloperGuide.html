@@ -49,8 +49,10 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-task">G.2. Deleting a task</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#task-commands">G.2. Task commands</a></li>
+<li><a href="#dashboard-feature-2">G.3. Dashboard feature</a></li>
+<li><a href="#settings-feature-2">G.4. Settings feature</a></li>
+<li><a href="#saving-data">G.5. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -84,7 +86,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -190,7 +192,7 @@ further explained using a separate diagram.
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 </div>
 <div class="sect3">
@@ -223,6 +225,18 @@ with <code>Logic</code>, hence Figure 5 below shows an association between <code
 relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code>. These <code>UiPart</code> components are the <code>MemberListPanel</code>,
 <code>ProjectDashBoardView</code> etc.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The non-static <code>UiPart</code> components are stored in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/ui/views"><code>views</code></a> folder.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Step 4: This component is then passed to <code>UserViewController</code> to set the current view of
 <code>UserViewMain</code> component.</p>
@@ -231,7 +245,7 @@ relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code
 <p>Step 5: Users view is then switched successfully.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses the JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses the JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -258,7 +272,7 @@ relevant data from <code>Logic</code>, to create the relevant <code>UiPart</code
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -310,7 +324,7 @@ The lifeline for <code>DeleteTaskCommandParser</code> should end at the destroy 
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -371,13 +385,13 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Project Dashb
 <div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-T12-1/main/tree/master/src/main/java/seedu/pluswork/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">1.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.pluswork.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -593,7 +607,7 @@ The diagram omits objects involving the <code>Ui</code> component as well as spe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram" width="800">
+<img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram">
 </div>
 <div class="title">Figure 10. Snapshot of objects involved in populating the dashboard with data</div>
 </div>
@@ -695,7 +709,7 @@ To allow <code>Ui</code> to be responsive to updates in the settings, two of the
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram" width="400">
+<img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
 </div>
 <div class="title">Figure 11. Activity diagram of settings command execution.</div>
 </div>
@@ -850,7 +864,7 @@ that resides within model. The <code>Statistics</code> class implements the foll
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-To allow the <code>UI</code> to be responsive, one of the operations is similarly exposed in the <code>Logic</code> interface as <code>Logic#getStatistics()</code>.
+To allow the <code>Ui</code> to be responsive, one of the operations is similarly exposed in the <code>Logic</code> interface as <code>Logic#getStatistics()</code>.
 </td>
 </tr>
 </table>
@@ -2404,7 +2418,7 @@ Use case resumes from step 2.</p>
 <p>User requests to add a meeting and specifies a description and the time of the meeting</p>
 </li>
 <li>
-<p>+Work informs user that meeting was succesfully created</p>
+<p>+Work informs user that meeting was successfully created</p>
 </li>
 <li>
 <p>+Work updates the dashboard</p>
@@ -2653,9 +2667,6 @@ Use case resumes from step 2.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -2751,13 +2762,14 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+   Expected: Shows the GUI with the dashboard. The window size is optimum to view the dashboard
+entirely.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Saving window preferences</p>
+<p>Altering window preferences</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2765,51 +2777,217 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+   Expected: If the window size is less than the minimum, it will be re-sized automatically. Else, the window
+preferences will be retained.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">G.2. Deleting a task</a></h3>
+<h3 id="task-commands"><a class="link" href="#task-commands">G.2. Task commands</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a task while all tasks are listed</p>
+<p>Deleting a task</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
 <p>Prerequisites: List all tasks using the <code>list-tasks</code> command. Multiple tasks in the list.</p>
 </li>
 <li>
-<p>Test case: <code>delete-task 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>delete-task ti/1</code><br>
+Expected: First task is deleted from the list. Details of the deleted task shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
-<p>Test case: <code>delete-task 0</code><br>
+<p>Test case: <code>delete-task ti/0</code><br>
 Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete-task</code>, <code>delete-task x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete-task</code>, <code>delete-task ti/x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
+<li>
+<p>Editing a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>list-tasks</code> command. Multiple tasks in the list. Third task has no deadline.</p>
+</li>
+<li>
+<p>Test case: <code>edit-task ti/1 tn/New name</code><br>
+Expected: First task name is changed to "New name". Details of the edited task shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>edit-task ti/3 at/10-10-2025 19:00</code><br>
+Expected: Third task is not edited. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect edit commands to try: <code>edit-task ti/1</code>, <code>edit-task ti/x</code> (where x is larger than list size)</p>
+</li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</li>
+<li>
+<p>Setting a deadline for a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>list-tasks</code> command. Multiple tasks in the list. First task has a deadline, third task has no deadline.</p>
+</li>
+<li>
+<p>Test case: <code>set-deadline ti/1 at/12-12-2020 19:00</code><br>
+Expected: Deadline is set for the task. Details of the task shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>set-deadline ti/3 at/13-10-2031 18:00</code><br>
+Expected: Deadline not set for third task. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect set deadline commands to try: <code>set-deadline ti/1 at/10/10/2020</code>. <code>set-deadline ti/x at/10-10-2020 10:00</code> (where x is larger than list size)
+<code>set-deadline ti/2 at/time</code> (where time refers to a date in the past).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Completing a task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: List all tasks using the <code>list-tasks</code> command. Multiple tasks in the list, second task with status <code>doing</code> and has deadline in less than two week.
+Third task has status <code>done</code>.</p>
+</li>
+<li>
+<p>Test case: <code>done-task ti/2</code><br>
+Expected: Second task status is changed to <code>done</code>. Deadline is removed as well.</p>
+</li>
+<li>
+<p>Test case: <code>done-task ti/3</code><br>
+Expected: Third task status is unchanged. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="dashboard-feature-2"><a class="link" href="#dashboard-feature-2">G.3. Dashboard feature</a></h3>
+<div class="paragraph">
+<p>Test any commands related to manipulating <code>Task</code> and <code>Meeting</code> data, changes should be reflected in the dashbaord.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigating to the dashboard</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Start at a different view of +Work.</p>
+</li>
+<li>
+<p>Test case: <code>home</code><br>
+Expected: View is switched to dashboard.</p>
+</li>
+<li>
+<p>Test case: <code>hom</code><br>
+Expected: View is not changed. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Viewing task data in the dashboard</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: View initial state of dashboard.</p>
+</li>
+<li>
+<p>Test case: Perform test 3b in <a href="#Task">[Task]</a>.
+Expected: Task is removed from upcoming deadlines list and is moved to the <code>done</code> column of the dashboard.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="settings-feature-2"><a class="link" href="#settings-feature-2">G.4. Settings feature</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigating to the settings panel</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Start at a different view of +Work.</p>
+</li>
+<li>
+<p>Test case: <code>settings</code><br>
+Expected: View is switched to settings panel.</p>
+</li>
+<li>
+<p>Test case: <code>settin</code><br>
+Expected: View is not changed. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Changing the theme of +Work</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Current theme is the <code>dark</code>.</p>
+</li>
+<li>
+<p>Test case: <code>theme light</code><br>
+Expected: +Work theme changes to light.</p>
+</li>
+<li>
+<p>Test case: <code>theme yellow</code><br>
+Expected: +Work theme is not changed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect theme commands to try: <code>theme x</code> (Where x is not <code>light</code> or <code>dark</code>).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Changing the time format of +Work.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Current time format is 24 hour clock.</p>
+</li>
+<li>
+<p>Test case: <code>clock twelve</code><br>
+Expected: +Work time format changed to 12 hour clock. Switch view to task list to confirm.</p>
+</li>
+<li>
+<p>Test case: <code>clock ten</code><br>
+Expected: +Work time format is not changed. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect theme commands to try: <code>clock x</code> (Where x is not <code>twelve</code> or <code>twenty_four</code>).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2817,16 +2995,20 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: Clone the repo and delete the <code>plusworksettings</code> and <code>projectdashboard</code> (under data  folder) json files. Launch the application.</p>
+</li>
+<li>
+<p>Test case: Perform valid operations.</p>
+</li>
+<li>
+<p>Expected outcome: New data is saved and the previously missing <code>plusworksettings</code> and <code>projectdashboard</code> json files are created
+and contain the updated data.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:34:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 21:18:52 UTC</div></div></div></body></html>
