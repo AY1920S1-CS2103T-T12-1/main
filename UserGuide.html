@@ -16,7 +16,7 @@
 <li><a href="#universal-commands">3.1. Universal Commands</a></li>
 <li><a href="#member-related-commands">3.2. Member-related Commands</a></li>
 <li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
-<li><a href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></li>
+<li><a href="#calendar-commands">3.4. Calendar Commands</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
 <li><a href="#multiline-commands">3.7. Multiline Commands</a></li>
@@ -974,66 +974,80 @@ The "Upcoming deadlines" sidebar (right side of above picture) helps you keep tr
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-commands-coming-in-v1-3"><a class="link" href="#calendar-commands-coming-in-v1-3">3.4. Calendar Commands (Coming in v1.3)</a></h3>
+<h3 id="calendar-commands"><a class="link" href="#calendar-commands">3.4. Calendar Commands</a></h3>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Suggested steps for you to follow</p>
+<p>Before using +Work&#8217;s calendar features</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User first exports their <code>.ics</code> file from NUSmods</p>
+<p>Have your team members download their calendar through NUSmods as an <code>.ics</code> file</p>
 </li>
 <li>
-<p>Then import it into their google calendar</p>
+<p>Team members import the file into their google calendar and add their weekly commitments</p>
 </li>
 <li>
-<p>Add any weekly commitments to their google calendar</p>
+<p>Team members export the calendar as an <code>.ics</code> file once again</p>
 </li>
 <li>
-<p>Export <code>.ics</code> file again</p>
+<p>Collect these calendar <code>.ics</code> files from team members</p>
 </li>
 <li>
-<p>Import all to our application</p>
-</li>
-<li>
-<p>enter command <code>generate-timings</code></p>
-</li>
-<li>
-<p>Choose the desired timing for the weekly meetings from the grid displayed</p>
-</li>
-<li>
-<p>Create a new <code>Meeting</code></p>
+<p>Take note of the file path that the files are stored under</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Now you are ready to use +Work&#8217;s calendar commands!</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-members-calendar-code-import-calendar-code"><a class="link" href="#adding-a-members-calendar-code-import-calendar-code">3.4.1. Adding a members calendar: <code>import-calendar</code></a></h4>
+<h4 id="adding-a-member-s-calendar-code-add-calendar-code"><a class="link" href="#adding-a-member-s-calendar-code-add-calendar-code">3.4.1. Adding a member&#8217;s calendar: <code>add-calendar</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code></p>
+<p>Format: <code>add-calendar [mn/MEMBER_NAME] [fp/PATH_TO_ICS_FILE]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>You can add your project&#8217;s member John Doe&#8217;s <code>ics</code> file like this,</p>
+<p>You can add your team member John Doe&#8217;s calendar file with the command</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>import-calendar mi/JD c/data/john_ics_file</code><br>
-Adds a calendar to John&#8217;s profile</p>
+<p><code>add-calendar mn/John Doe fp/C:\Users\gabriel\Desktop\CalendarFiles\john_calendar.ics</code><br>
+John&#8217;s calendar is now saved in +Work</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="generating-time-across-all-calendars-uploaded-code-generate-timings-code"><a class="link" href="#generating-time-across-all-calendars-uploaded-code-generate-timings-code">3.4.2. Generating time across all calendars uploaded: <code>generate-timings</code></a></h4>
+<h4 id="removing-a-member-s-calendar-code-delete-calendar-code"><a class="link" href="#removing-a-member-s-calendar-code-delete-calendar-code">3.4.2. Removing a member&#8217;s calendar: <code>delete-calendar</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>generate-timings</code></p>
+<p>Format: <code>delete-calendar [mn/MEMBER_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>You can also remove a team member&#8217;s calendar file like this,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-calendar mn/John Doe</code><br>
+John&#8217;s calendar has been deleted from +Work</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-meeting-time-code-find-meeting-time-code"><a class="link" href="#find-a-meeting-time-code-find-meeting-time-code">3.4.3. Find a meeting time: <code>find-meeting-time</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>find-meeting-time [start/START_DATE] [end/END_DATE] [hours/DURATION]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -1041,14 +1055,14 @@ Adds a calendar to John&#8217;s profile</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>generate-timings</code><br>
+<p><code>find-meeting-time start/<em>19-10-2019 08:00</em> end/<em>29-10-2019 17:00</em> hours/2</code><br>
 Generates a grid showing the number of people who can make it for a particular time slot during the week (mock-up needed)</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-meeting-code-add-meeting-code"><a class="link" href="#adding-a-meeting-code-add-meeting-code">3.4.3. Adding a meeting: <code>add meeting</code></a></h4>
+<h4 id="adding-a-meeting-code-add-meeting-code"><a class="link" href="#adding-a-meeting-code-add-meeting-code">3.4.4. Adding a meeting: <code>add meeting</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>add-meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
 </div>
@@ -1875,4 +1889,4 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:59:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 14:23:12 UTC</div></div></div></body></html>
