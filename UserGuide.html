@@ -14,8 +14,8 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#universal-commands">3.1. Universal Commands</a></li>
-<li><a href="#member-related-commands">3.2. Member-related Commands</a></li>
-<li><a href="#task-related-commands">3.3. Task-related Commands</a></li>
+<li><a href="#member-commands">3.2. Member Commands</a></li>
+<li><a href="#task-commands">3.3. Task Commands</a></li>
 <li><a href="#calendar-commands">3.4. Calendar Commands</a></li>
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
@@ -23,6 +23,16 @@
 <li><a href="#settings-commands">3.8. Settings Commands</a></li>
 <li><a href="#saving-data">3.9. Saving Data</a></li>
 <li><a href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></li>
+</ul>
+</li>
+<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#upcoming-features">6. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></li>
+<li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-support-for-prefixes-code-coming-in-v2-0-code">6.3. AutoComplete Support for prefixes <code>[coming in v2.0]</code></a></li>
+<li><a href="#instant-messaging-code-coming-in-v2-0-code">6.4. Instant Messaging <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -389,7 +399,7 @@ Once you restart +Work, you won&#8217;t be able to <code>undo</code> commands fr
 </div>
 </div>
 <div class="sect2">
-<h3 id="member-related-commands"><a class="link" href="#member-related-commands">3.2. Member-related Commands</a></h3>
+<h3 id="member-commands"><a class="link" href="#member-commands">3.2. Member Commands</a></h3>
 <div class="sect3">
 <h4 id="adding-a-member-code-add-member-code-br"><a class="link" href="#adding-a-member-code-add-member-code-br">3.2.1. Adding a member: <code>add-member</code><br></a></h4>
 <div class="paragraph">
@@ -695,9 +705,9 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-related-commands"><a class="link" href="#task-related-commands">3.3. Task-related Commands</a></h3>
+<h3 id="task-commands"><a class="link" href="#task-commands">3.3. Task Commands</a></h3>
 <div class="sect3">
-<h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add task</code></a></h4>
+<h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add-task</code></a></h4>
 <div class="paragraph">
 <p>To add a task to the project, use the <code>add-task</code> command in the format below.<br>
 Format: <code>add-task [tn/TASK_NAME]</code><br>
@@ -2046,6 +2056,195 @@ You can use <kbd>control</kbd> to navigate along the various prefixes.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>tag::dataencryption[]
+=== Encrypting data files <code>[coming in v2.0]</code></p>
+</div>
+<div class="paragraph">
+<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:04:37 UTC</div></div></div></body></html>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: Can I use file formats other than ics for the calendar feature?<br>
+<strong>A</strong>: No, the file format has to be in ics folder, downloaded either from <a href="https://nusmods.com">NUSmods</a> or <a href="https://calendar.google.com/calendar">Google Calendar</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can I export the claims report as a word document?<br>
+<strong>A</strong>: No, the application only supports exporting of files in PDF format.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What if the calendar cannot find a timing where everyone is free?<br>
+<strong>A</strong>: There will be a list showing the number of available members for the time period you specified, so it will be easier for the user to choose the best possible your meeting.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: My project has a budget, does the application help me keep track of the projects financial status?<br>
+<strong>A</strong>: Using /inventory the application can keep track of current expenses for each task and the member who purchased it, however, there are currently no accounting services available.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Some of the tasks for my project require sub tasks to be completed, is there a way to add them?<br>
+<strong>A</strong>: Ideally since the user is the project leader, they should only see the main tasks to be accomplished for the project. This would help facilitate their managerial role within the project. Hence, the application does not support subtasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How can I add multiple members to the same task?<br>
+<strong>A</strong>: You can use the <code>assign</code> command detailed in in <a href="#member-commands">Section 3.2, &#8220;Member Commands&#8221;</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What happens when a task has been completed?<br>
+<strong>A</strong>: You can mark the task as <code>done</code>, which will move the task to the <code>done</code> portion of the dashboard. In the case where you do not want to keep the task in the list, using ‘Remove Task’ will delete it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-calendar [mn/MEMBER_NAME] [fp/PATH_TO_ICS]</code>:  <strong>Imports a calendar</strong></p>
+</li>
+<li>
+<p><code>add-inv [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Adds an inventory</strong></p>
+</li>
+<li>
+<p><code>add-meeting [meeting/index]</code>: <strong>Adds a meeting from the generated meeting time list from <code>find-meeting-time</code></strong></p>
+</li>
+<li>
+<p><code>add-member [mn/MEMBER_NAME] [mi/MEMBER_ID] [mt/MEMBER_TAG]</code>: <strong>Adds a member</strong></p>
+</li>
+<li>
+<p><code>add-task [tn/TASK_NAME] [s/TASK_STATUS] [tt/TASK_TAG]</code>: <strong>Adds a task</strong></p>
+</li>
+<li>
+<p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Adds a task to a member</strong></p>
+</li>
+<li>
+<p><code>clear</code>: <strong>Clears all data from dashboard</strong></p>
+</li>
+<li>
+<p><code>clock twelve</code>: <strong>Switches deadline display to the 12 hour clock format</strong></p>
+</li>
+<li>
+<p><code>clock twenty_four</code>: <strong>Switches deadline display to the 24 hour clock format</strong></p>
+</li>
+<li>
+<p><code>set-deadline [ti/TASK_ID] [at/dd-mm-yyyy hh:mm]</code>: <strong>Assigns a deadline to a task</strong></p>
+</li>
+<li>
+<p><code>delete-calendar [mn/MEMBER_NAME]</code>: Deletes calendar of member</p>
+</li>
+<li>
+<p><code>delete-inv [ii/ITEM_ID]</code>: <strong>Deletes an inventory</strong></p>
+</li>
+<li>
+<p><code>delete-meeting [meeting/MEETING_INDEX]</code>: <strong>Deletes a meeting</strong></p>
+</li>
+<li>
+<p><code>delete-task [ti/TASK_INDEX]</code>: <strong>Deletes a task</strong></p>
+</li>
+<li>
+<p><code>doing-task [ti/TASK_ID]</code>: <strong>Marks a task as <code>doing</code></strong></p>
+</li>
+<li>
+<p><code>done-task [ti/TASK_ID]</code>: <strong>Marks a task as <code>done</code></strong></p>
+</li>
+<li>
+<p><code>edit-inv [ii/ITEM_ID] [i/ITEM_NAME] [p/PRICE] [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Edits an inventory</strong></p>
+</li>
+<li>
+<p><code>edit-member [mi/MEMBER_ID] [mn/MEMBER_NAME] [mt/MEMBER_TAG]</code>: <strong>Edits a member</strong></p>
+</li>
+<li>
+<p><code>edit-task [ti/TASk_ID] [FIELDS_TO_EDIT]</code>: <strong>Edits a task</strong></p>
+</li>
+<li>
+<p><code>exit</code>: <strong>Exits +Work</strong></p>
+</li>
+<li>
+<p><code>fire [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Removes a task from a member</strong></p>
+</li>
+<li>
+<p><code>find-meeting-time [start/dd-mm-yyyy hh:mm] [end/dd-mm-yyyy hh:mm] [hours/HOURS]</code>: <strong>Generates free times among members</strong></p>
+</li>
+<li>
+<p><code>home</code>: <strong>Switches to the project dashboard</strong></p>
+</li>
+<li>
+<p><code>help</code>: <strong>Navigates to help page</strong></p>
+</li>
+<li>
+<p><code>list-members</code>: <strong>Lists all members</strong></p>
+</li>
+<li>
+<p><code>list-tasks</code>: <strong>Lists all tasks</strong></p>
+</li>
+<li>
+<p><code>list-inv</code>: <strong>Lists all inventories</strong></p>
+</li>
+<li>
+<p><code>member-stats</code>: <strong>Displays member statistics</strong></p>
+</li>
+<li>
+<p><code>pdf [ty/TYPE]</code>: <strong>Creates a PDF document of inventory list</strong></p>
+</li>
+<li>
+<p><code>redo</code>: <strong>Redoes last known command</strong></p>
+</li>
+<li>
+<p><code>remove-member [mi/MEMBER_ID]</code>: <strong>Removes a member</strong></p>
+</li>
+<li>
+<p><code>set-image[mi/MEMBER_ID] [im/IMAGE_FILEPPATH]</code>: <strong>Switches to the settings configuration page</strong></p>
+</li>
+<li>
+<p><code>settings</code>: <strong>Switches to the settings configuration page</strong></p>
+</li>
+<li>
+<p><code>task-stats</code>: <strong>Displays task statistics</strong></p>
+</li>
+<li>
+<p><code>theme dark</code>: <strong>Switches to the dark theme</strong></p>
+</li>
+<li>
+<p><code>theme light</code>: <strong>Switches to the light theme</strong></p>
+</li>
+<li>
+<p><code>undo</code>: <strong>Undoes last known command</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Collaborate online with your teammates, and store your project details such as members calendars in the cloud.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customisable-user-profiles-code-coming-in-v2-0-code"><a class="link" href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Create more detailed profiles for members and choose who has authority to change details of the project.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-support-for-prefixes-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-support-for-prefixes-code-coming-in-v2-0-code">6.3. AutoComplete Support for prefixes <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>AutoComplete to support users in prompting existing entities. For example, membedID and taskTags to be prompted to users when prefix is input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instant-messaging-code-coming-in-v2-0-code"><a class="link" href="#instant-messaging-code-coming-in-v2-0-code">6.4. Instant Messaging <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Communicate with teammates on one central application, instead of using multiple messaging apps.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:39:32 UTC</div></div></div></body></html>
