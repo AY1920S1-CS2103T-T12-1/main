@@ -1,0 +1,951 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Gabriel Seow - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">PlusWork</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Gabriel Seow - Project Portfolio</h1></div><div id="content"><div class="sect2">
+<h3 id="overview"><a class="link" href="#overview">1. Overview</a></h3>
+<div class="paragraph">
+<p>This project portfolio documents the key features I implemented for +Work, an app
+designed for project managers to manage their teams with less hassle. This app was designed
+as part of the a team project for the NUS module, <em>CS2103 Software Engineering</em>.</p>
+</div>
+<div class="sect3">
+<h4 id="about-the-team"><a class="link" href="#about-the-team">1.1. About The Team</a></h4>
+<div class="paragraph">
+<p>The team consists of 5 students NUS Computer Science, currently in their 2nd year.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="about-the-project"><a class="link" href="#about-the-project">1.2. About The Project</a></h4>
+<div class="paragraph">
+<p>+Work is a application designed with project managers in mind, and includes features directed
+towards making project management hassle-free. +Work allows users to easily view and manage tasks, team members and
+inventories, generate inventory reports and schedule team meetings, among other features.</p>
+</div>
+<div class="paragraph">
+<p>+Work is also a Command Line Interface (CLI) application, and is best suited for users that
+are familiarised with the commands and can type reasonably fast.</p>
+</div>
+<div class="paragraph">
+<p>The application is aimed at
+NUS project leaders, who would benefit from the inventory features, as their small to medium sized
+projects would require a student, typically the project leader, to take on the role of the treasurer.
+These student leaders would also benefit from the calendar feature, as their well-defined timetables
+will allow +Work to schedule the best meeting times according to their schedule.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of Contributions</a></h3>
+<div class="paragraph">
+<p>This section describes my contributions to the project, and showcases the variety of features implemented.</p>
+</div>
+<div class="sect3">
+<h4 id="enhancements"><a class="link" href="#enhancements">2.1. Enhancements</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: I added the Calendar features for +Work</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows users to import <code>.ics</code> files (Calendar format for Gmail and NUSmods) to +Work
+, where +Work implements the logic to find common available timings and generate timings when the most number of members
+are available.</p>
+</li>
+<li>
+<p>Justification: This feature greatly reduces the hassle of scheduling a team meeting, as project leaders no longer require
+the hassle of choosing sub-optimal meeting times and thereafter, gather responses from team members. +Work
+guarantees that the meeting times generated have the highest possible attendance rate.</p>
+</li>
+<li>
+<p>Highlights: It was very interesting working with calendar <code>.ics</code> files and observing how applications like 'Google Calendar'
+would store their calendars. However, implementing the Calendar features required working with the <code>iCal4j</code>
+library, and required adding dependencies, configuring <code>ical4j.properties</code> and learning the API. Overall, the process
+was challenging, but rewarding as well.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: I added the Undo/Redo feature for +Work</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows users to undo a command at any point of time, while using the application.</p>
+</li>
+<li>
+<p>Justification: This feature greatly improves the user experience, as any accidental deletions can be easily 'undone'
+with the short <code>undo</code> command. If the user realises he does not need to undo, he can also execute the <code>redo</code> command.</p>
+</li>
+<li>
+<p>Highlights: Learning how to implement the undo/redo feature required me to observe the project architecture,
+and allowed me to appreciate the well organised way in which the AB3 source code was structured. As +Work is based
+on the AB3 source code, it showed me the importance of a well-structured project.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: I added support for mapping tasks, team members and inventories to one another</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows users to assign tasks to team members, or assign inventories under tasks.
+By creating 'associations' between the tasks, team members and inventories, users can view these 'associations'
+by seeing the tasks allocated to a team member, or the inventories allocated for a task.</p>
+</li>
+<li>
+<p>Justification: Assigning a task to a team member or allocating inventories under a task is commonplace in
+a project. Allowing users to capture these associations greatly improves the user experience when wanting to view additional
+information about the tasks or team members.</p>
+</li>
+<li>
+<p>Highlights: While implementing the mappings classes, I ran into problems deciding how to effectively store these mappings
+as Json objects. However, through discussions with the team, we came up with an efficient solution, to store index references
+to the task, team member or inventory, which would greatly reduce the storage needed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=gabrielseow&amp;tabRepo=AY1920S1-CS2103T-T12-1%2Fmain%5Bmaster%5D">Functional code</a>]
+[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=gabrielseow&amp;tabRepo=AY1920S1-CS2103T-T12-1%2Fmain%5Bmaster%5D">Test code</a>]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h3>
+<div class="paragraph">
+<p>The following section documents my contributions to the <strong>+Work User Guide</strong> for the <code>Undo/Redo</code> and <code>Calendar</code> features.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar-commands"><a class="link" href="#calendar-commands">4. Calendar Commands</a></h3>
+<div class="paragraph">
+<p>This section contains the commands for managing your team member&#8217;s calendars and for scheduling a project meeting time.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Before you start using +Work&#8217;s calendar commands, make sure</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Your team members have exported their calendars as an <code>.ics</code> file</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Not sure how to export a calendar? Refer to the short guide below for instructions
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>You have collected the calendar files from your team members</p>
+</li>
+<li>
+<p>You take note of the file path where the files are stored, it will be used in the commands</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>How to export a calendars as an <code>.ics</code> file?</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the NUSmods page, click on the <kbd>Download</kbd> icon and select download as an iCalendar File(<code>.ics</code>)</p>
+</li>
+<li>
+<p>If you wish to include other commitments, simply open 'Google Calendar', click on <kbd>Settings</kbd>, select <kbd>Import &amp; Export</kbd> and import the file from Step 1</p>
+</li>
+<li>
+<p>Add any additional commitments through 'Google Calendar'</p>
+</li>
+<li>
+<p>Export the calendar again by clicking <kbd>Settings</kbd>, followed by <kbd>Import &amp; Export</kbd> and lastly <kbd>Export</kbd></p>
+</li>
+<li>
+<p>The <code>.ics</code> file will be downloaded, containing your timetable from NUSmods and 'Google Calendar'</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-team-member-s-calendar-code-add-calendar-code"><a class="link" href="#adding-a-team-member-s-calendar-code-add-calendar-code">4.1. Adding a team member&#8217;s calendar: <code>add-calendar</code></a></h4>
+<div class="paragraph">
+<p>You can add a calendar by inputting the file path of the team member&#8217;s calendar as well as the name of the team member.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add-calendar [mn/MEMBER_NAME] [fp/PATH_TO_ICS_FILE]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Adding <em>John Doe&#8217;s</em> calendar to +Work</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add-calendar mn/John Doe fp/C:\Users\gabriel\TeamCalendars\john_calendar.ics</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-team-member-s-calendar-code-delete-calendar-code"><a class="link" href="#removing-a-team-member-s-calendar-code-delete-calendar-code">4.2. Removing a team member&#8217;s calendar: <code>delete-calendar</code></a></h4>
+<div class="paragraph">
+<p>You can also remove a calendar by specifying the team member&#8217;s name.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete-calendar [mn/MEMBER_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>Removing <em>John Doe&#8217;s</em> calendar from +Work</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete-calendar mn/John Doe</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-possible-meeting-times-code-find-meeting-time-code"><a class="link" href="#find-possible-meeting-times-code-find-meeting-time-code">4.3. Find possible meeting times: <code>find-meeting-time</code></a></h4>
+<div class="paragraph">
+<p>You can schedule a meeting by specifying the <strong>duration</strong> of the meeting in hour(s) and the <strong>time period</strong> to search for.</p>
+</div>
+<div class="paragraph">
+<p>+Work will show a list of  suitable meeting time between <code>START_DATE</code> and <code>END_DATE</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find-meeting-time [start/START_DATE] [end/END_DATE] [hours/DURATION]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
++Work recognises date and time in the format 'dd-mm-yyyy hh:mm`
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
++Work shows you the meeting times where the <strong>most</strong> number of people are available
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Let&#8217;s say you want to schedule a <em>2</em> hour meeting in the upcoming week, between <em>11th Nov 8 a.m</em> and <em>15th Nov 5 p.m</em>. After entering the details in the correct format, as such</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/find-meeting-time-entry.PNG" alt="find meeting time entry" width="500">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit <kbd>Enter</kbd> and +Work will display a list of suitable timings as well as the team members that are available for that timing</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/find-meeting-time-timings.PNG" alt="find meeting time timings" width="500">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there are no suitable timings, +Work will notify you as well
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Because showing <strong>ALL</strong> possible meeting timings may not be appropriate, +Work helps by restricting the meeting timings to be between 8 a.m and 10 p.m
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="schedule-a-team-meeting-code-add-meeting-code"><a class="link" href="#schedule-a-team-meeting-code-add-meeting-code">4.4. Schedule a team meeting: <code>add-meeting</code></a></h4>
+<div class="paragraph">
+<p>After using the command <code>find-meeting-time</code>, you can schedule a meeting from the list of possible timings by referring to the <code>INDEX</code> of the meeting in the list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add-meeting [meeting/INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you are looking to schedule a <em>2</em> hour meeting between <em>11th Nov 8 a.m</em> and <em>15th Nov 5 p.m</em>.</p>
+</li>
+<li>
+<p>After using the <code>find-meeting-time</code> command, you are given the following timings</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/possible-meeting-timings.PNG" alt="possible meeting timings" width="500">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After looking through the suitable timings, you choose meeting <strong>#5</strong> as your preferred timing</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/preferred-meeting-time.PNG" alt="preferred meeting time" width="500">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the index of meeting <strong>#5</strong>, enter the command <code>add-meeting meeting/5</code></p>
+</li>
+<li>
+<p>You can then view the recently added meeting at the <code>home</code> page</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/updated-meeting-time.PNG" alt="updated meeting time" width="500">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-team-meeting-code-delete-meeting-code"><a class="link" href="#remove-a-team-meeting-code-delete-meeting-code">4.5. Remove a team meeting: <code>delete-meeting</code></a></h4>
+<div class="paragraph">
+<p>You can remove a meeting by simply referring to the <code>INDEX</code> of the meeting in the 'Upcoming Meetings' list.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can view your list of meetings by going to the <code>home</code> page
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete-meeting [meeting/INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To remove meeting <strong>#3</strong>, simply enter the command <code>delete-meeting meeting/3</code> and the meeting will be removed</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">4.6. Undo a command: <code>undo</code></a></h4>
+<div class="paragraph">
+<p>You can undo your recent commands by using the <code>undo</code> command</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you accidentally deleted task <strong>#6</strong> using the <code>delete-task</code> command</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/before-undo.PNG" alt="before undo" width="500">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering the <code>undo</code> command will bring back the deleted task</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/after-undo.PNG" alt="after undo" width="500">
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Once you restart +Work, you won&#8217;t be able to <code>undo</code> commands from the previous session!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">4.7. Redo a command: <code>redo</code></a></h4>
+<div class="paragraph">
+<p>You can redo a previously <code>undone</code> command by typing <code>redo</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Let&#8217;s say you deleted a task and you <code>undo</code> the command. You can simply use the <code>redo</code> command to delete the task again</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contribution-to-the-developer-guide"><a class="link" href="#contribution-to-the-developer-guide">5. Contribution to the Developer Guide</a></h3>
+<div class="paragraph">
+<p>The following section documents my contributions to the <strong>+Work Developer Guide</strong> for the <code>Calendar</code> and <code>Undo/Redo</code> features.
+My contributions would hopefully demonstrate my ability to write a concise and well-documented guide for software developers to easily refer to.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">6. Calendar feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is implemented to allow users to easily schedule a meeting time, without the hassle of having to obtain responses from team members.</p>
+</div>
+<div class="paragraph">
+<p>This feature includes basic commands for managing meetings and team member&#8217;s
+calendars, i.e. <code>add-meeting</code>, <code>delete-meeting</code> and <code>add-calendar</code>,
+<code>delete-calendar</code> respectively. This feature also includes support to parse and import
+<code>.ics</code> calendar files, with help from the <code>net.fortuna.ical4j</code> library. The calendar feature also
+implements additional logic to compare member&#8217;s calendars and generate possible meeting times
+where the most number of members are available.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Team member&#8217;s calendars in +Work are always handled and stored in a <code>CalendarWrapper</code> class, which also stores the name of the team member
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Apart from the basic commands for managing calendars, the command for finding a meeting time is handled by
+<code>UniqueCalendarList</code>, while the logic for accessing external <code>.ics</code> files is handled by
+<code>DataAccess</code>. Finally, the logic for parsing <code>.ics</code> files is incorporated into <code>ParserUtil</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>UniqueCalendarList#findMeetingTime(startDate, endDate, meetingDuration)</code>&#8201;&#8212;&#8201;Generates a list of possible meeting timings where the <strong>most</strong> number of members are available</p>
+</li>
+<li>
+<p><code>DataAccess#getCalendarStorageFormat(filePath)</code>&#8201;&#8212;&#8201;Converts an external <code>.ics</code> file into String format</p>
+</li>
+<li>
+<p><code>ParserUtil#parseCalendar(.ics String)</code>&#8201;&#8212;&#8201;Parses an <code>.ics</code> in String format to create a <code>Calendar</code> object</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Commands for generating meeting times and managing calendars or meetings are exposed in the <code>Model</code> interface in the following respective commands</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#findMeetingTime(startDate, endDate, meetingDuration)</code></p>
+</li>
+<li>
+<p><code>Model#addCalendar(calendarToAdd)</code></p>
+</li>
+<li>
+<p><code>Model#deleteCalendar(calendarToRemove)</code></p>
+</li>
+<li>
+<p><code>Model#addMeeting(meetingToAdd)</code></p>
+</li>
+<li>
+<p><code>Model#deleteMeeting(meetingToRemove)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the more complex commands work.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command:</strong> <code>Model#addCalendar(calendarToAdd)</code></p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user calls the <code>add-calendar</code> command, which is handled by <code>AddCalendarParser</code></p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>DataAccess#getCalendarStorageFormat</code>  accesses the file specified by the user and converts the <code>.ics</code> file into a <code>String</code> format</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>.ics</code> file in <code>String</code> format is parsed using <code>ParserUtil#parseCalendar</code> and converted into a <code>net.fortuna.ical4j.Calendar</code> object</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>Calendar</code> object is stored as a <code>CalendarWrapper</code> object together with the <code>MemberName</code> of the associated team member</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>CalendarWrapper</code> object is passed to the <code>Model</code> and subsequently <code>ProjectDashboard</code>, where it is stored in <code>ProjectDashboard&#8217;s</code> <code>UniqueCalendarList</code> instance variable.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command:</strong> <code>Model#findMeetingTime(startDate, endDate, meetingDuration)</code></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>findMeetingTime</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/find_meeting_time_sequence.png" alt="find meeting time sequence" width="500">
+</div>
+<div class="title">Figure 1. FindMeetingTimeCommand Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user calls the <code>find-meeting-time</code> command, which is handled by <code>FindMeetingTimeParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. This creates a <code>FindMeetingTime</code> command that executes <code>Model#findMeetingTime</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>findMeetingTime</code> command is passed from <code>Model</code> to <code>ProjectDashboard</code> and finally to <code>UniqueCalendarList</code>, where team member&#8217;s calendars are stored.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>UniqueCalendarList</code> handles the logic for comparing each calendar and generates a <code>MeetingQuery</code> object, which contains the list of possible meeting times and other essential information about the most recent <code>findMeetingTime</code> command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Details on the logic for handling calendar 'events' and timings are excluded for the sake of simplicity.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>MeetingQuery</code> is then stored in <code>ProjectDashboard</code> where the user view can update and display the list of possible meeting times.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <strong>Follow-up from user:</strong> The user can execute the <code>add-meeting</code> command to select a meeting from the list of timings, by referring to the <code>INDEX</code> of the meeting in the list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-scheduling-meetings-based-on-tasks"><a class="link" href="#aspect-scheduling-meetings-based-on-tasks">6.2.1. Aspect: Scheduling meetings based on tasks</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> +Work assumes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easier to implement, files can be stored in application.</p>
+</li>
+<li>
+<p>Cons: User must enter file path, which is error prone.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Upon execution of <code>import-calendar</code> a file chooser pops up to allow user to browse and upload file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can use UI to upload instead.</p>
+</li>
+<li>
+<p>Cons: Due to constraints of application, a ui based upload may not be feasible (Possibly in v2.0)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-storing-calendar-data-on-work"><a class="link" href="#aspect-storing-calendar-data-on-work">6.2.2. Aspect: Storing calendar data on +Work</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> +Work preserves and stores the original calendar <code>.ics</code> file in <code>String</code> format</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less error prone when converting from storage format to <code>Calendar</code> object format</p>
+</li>
+<li>
+<p>Pros: Captures more details about calendar 'events'. More compatible with additional <code>v2.0</code> features, such as meeting location suggestions</p>
+</li>
+<li>
+<p>Cons: Requires more storage space when storing calendars</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> +Work only stores essential calendar information (i.e. duration and time of calendar 'events')</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Takes lesser time to retrieve <code>Calendar</code> objects from storage</p>
+</li>
+<li>
+<p>Cons: Harder to implement and requires manipulating <code>Property</code> and <code>Component</code> objects stored in <code>net.fortuna.ical4j.Calendar</code> objects</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">7. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">7.1. Implementation</a></h4>
+<div class="paragraph">
+<p>This feature is implemented to allow the user to undo/redo a command, while improving the overall user experience.</p>
+</div>
+<div class="paragraph">
+<p>This feature does not implement many additional functions. Rather, it takes advantage of the
+existing project architecture, to achieve the according <code>undo</code> or <code>redo</code> outcome. This
+feature includes the basic commands <code>undo</code> and <code>redo</code>. The feature introduces the ability
+for the <code>Model</code> to store previous instances of the <code>ProjectDashboard</code>,
+essentially saving the 'state' of <code>ProjectDashboard</code>, similar to a commit on
+GitHub. The user then navigates between these 'states' when using the <code>undo</code> and
+<code>redo</code> commands.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each <code>ProjectDashboard</code> instance stores all information in +Work, which is why reverting to a previous <code>ProjectDashboard</code> instance does not result in any loss of data
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code>, <code>redo</code> mechanism is facilitated within <code>Model</code>, by including two variables
+<code>previousSaveState</code> and <code>redoSaveState</code> to store <code>ProjectDashboard</code> 'states'
+and the addition of the <code>Model#saveDashboardState</code> function. The <code>undo</code> and <code>redo</code>
+commands also make use of the <code>ProjectDashboard#resetDate</code> to revert the <code>ProjectDashboard</code>
+displayed by +Work to a previous 'state'.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>previousSaveState</code>&#8201;&#8212;&#8201;Stores <code>ProjectDashboard</code> states from previous non-<code>undo</code> commands</p>
+</li>
+<li>
+<p><code>redoSaveState</code>&#8201;&#8212;&#8201;Stores <code>ProjectDashboard</code> states from previous <code>undo</code> commands</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
++Work can only <code>redo</code> and <code>undo</code> command, if no command was executed after the <code>undo</code> command
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#saveDashboardState()</code>&#8201;&#8212;&#8201;Saves the current <code>ProjectDashboard</code> state</p>
+</li>
+<li>
+<p><code>ProjectDashboard#resetData(previousState)</code>&#8201;&#8212;&#8201;Resets the data of the current <code>ProjectDashboard</code> using data from the <code>previousState</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only the <code>undo</code> and <code>redo</code> commands are exposed in the <code>Model</code> interface. Other commands
+are used internally as part of the logic to manage <code>ProjectDashboard</code> states
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>undo</code>, <code>redo</code> mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. When the user starts up +Work, the <code>Model</code> does not store <code>ProjectDashboard</code> states
+from the previous session.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. When the user executes the <code>delete-meeting meeting/2</code> command,
+<code>Model#saveDashboardState</code> is called to save a copy of the original
+<code>ProjectDashboard</code> state, <code>pd0:ProjectDashboard</code> before executing the
+command. As shown below, the original <code>ProjectDashboard</code> state has been saved.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0" width="500">
+</div>
+<div class="title">Figure 2. Storing previous ProjectDashboard states</div>
+</div>
+<div class="paragraph">
+<p>Step 3. After executing another command i.e. <code>add-task tn/Complete DG</code>, a copy of the
+current <code>ProjectDashboard</code> state, <code>pd1:ProjectDashboard</code> is also saved and added
+to the list. The command continues execution on <code>pd2:ProjectDashboard</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1" width="500">
+</div>
+<div class="title">Figure 3. Executing more commands</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If an invalid command is entered by the user, <code>Model#saveDashboardState</code>
+is not called and the <code>ProjectDashboard</code> state is not saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. When the user realises he does not need to complete the DG, the user
+executes the <code>undo</code> command, reverting to the most recent <code>ProjectDashboard</code>
+state, <code>pd1:ProjectDashboard</code>. <code>ProjectDashboard#resetData</code> is called with
+the previous state. Previously <code>Current State</code> would have been pointing to
+the <code>pd2:ProjectDashboard</code>, where the 'Complete DG' task was added.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2" width="500">
+</div>
+<div class="title">Figure 4. Retrieving a previous state</div>
+</div>
+<div class="paragraph">
+<p>Step 5. The user can also execute the <code>undo</code> command again to revert to the original
+state, <code>pd0:ProjectDashboard</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState3.png" alt="UndoRedoState3" width="500">
+</div>
+<div class="title">Figure 5. Retrieving previous states</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there are no more states to revert to, +Work will notify the user that
+there is no command to <code>undo</code>. The <code>undo</code> command uses <code>Model#canUndo()</code>
+to check if this is the case.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>redo</code> command works similar to the <code>undo</code> command, except it can only
+access <code>ProjectDashboard</code> states created by the <code>undo</code> command. In other words,
+<code>redo</code> can only be executed after an <code>undo</code> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram" width="500">
+</div>
+<div class="title">Figure 6. Executing a new command</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/updated_undo_diagram.png" alt="updated undo diagram" width="500">
+</div>
+<div class="title">Figure 7. Interactions between Logic and Model</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-different-implementations-for-undo-redo"><a class="link" href="#aspect-different-implementations-for-undo-redo">7.2.1. Aspect: Different implementations for undo &amp; redo</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire <code>ProjectDashbaord</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Very easy to implement.</p>
+</li>
+<li>
+<p>Cons: May result in performance issues, when saving numerous instances of <code>ProjectDashboard</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Each individual command has a <code>undo</code> couterpart.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Uses much less memory, since the <code>Model</code> only has to keep track of which commands need to be undone.</p>
+</li>
+<li>
+<p>Cons: Prone to error, since +Work allows tasks, team members and inventories to be associated with one another. E.g. Trying to <code>undo</code> a deleted task may be unsuccessful in retrieving the original task.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-history-of-code-projectdashboard-code-and-number-of-times-code-undo-code-can-be-executed"><a class="link" href="#aspect-history-of-code-projectdashboard-code-and-number-of-times-code-undo-code-can-be-executed">7.2.2. Aspect: 'History' of <code>ProjectDashboard</code> and number of times <code>undo</code> can be executed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Keep track of all past <code>ProjectDashboard</code> states</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Gives users the freedom 'undoing' any previous command.</p>
+</li>
+<li>
+<p>Cons: Uses a lot of memory to store previous instances of <code>ProjectDashboard</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Clear redundant 'history' of previous <code>ProjectDashboard</code> states after exceeding a chosen quota. (E.g. 5 commands executed)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Uses memory efficiently, while giving users some freedom to <code>undo</code> multiple commands.</p>
+</li>
+<li>
+<p>Cons: User would be unable to <code>undo</code> certain 'Older' commands.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:59:51 UTC</div></div></div></body></html>
