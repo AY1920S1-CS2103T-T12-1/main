@@ -31,6 +31,7 @@
 <ul class="sectlevel2">
 <li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></li>
 <li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#instant-messaging-code-coming-in-v2-0-code">6.3. Instant Messaging <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 </ul>
@@ -132,7 +133,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Example: In <code>add-task tn/TASK_NAME s/TASK_STATUS</code>, the user inputs the name of the task after tn/ and inputs the status of the task after s/ , such as: <code>add task t/Finish Project Draft s/undone</code></p>
+<p>Example: In <code>add-task tn/TASK_NAME s/TASK_STATUS</code>, the user inputs the name of the task after <code>tn/</code> and inputs the status of the task after <code>s/</code> , such as: <code>add task t/Finish Project Draft s/undone</code></p>
 </li>
 </ul>
 </div>
@@ -325,6 +326,73 @@ Format: <code>help</code></p>
 <div class="content">
 <img src="images/Help.png" alt="Help" width="400">
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-a-command-code-undo-code"><a class="link" href="#undo-a-command-code-undo-code">3.1.5. Undo a command: <code>undo</code></a></h4>
+<div class="paragraph">
+<p>You can undo your recent commands by using the <code>undo</code> command</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you accidentally deleted task <strong>#6</strong> using the <code>delete-task</code> command</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/before-undo.PNG" alt="before undo">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Entering the <code>undo</code> command will bring back the deleted task</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/after-undo.PNG" alt="after undo">
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Once you restart +Work, you won&#8217;t be able to <code>undo</code> commands from the previous session!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redo-a-command-code-redo-code"><a class="link" href="#redo-a-command-code-redo-code">3.1.6. Redo a command: <code>redo</code></a></h4>
+<div class="paragraph">
+<p>You can redo a previously <code>undone</code> command by typing <code>redo</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Let&#8217;s say you deleted a task and you <code>undo</code> the command. You can simply use the <code>redo</code> command to delete the task again</p>
+</li>
+</ul>
 </div>
 <hr>
 </div>
@@ -975,37 +1043,80 @@ The "Upcoming deadlines" sidebar (right side of above picture) helps you keep tr
 </div>
 <div class="sect2">
 <h3 id="calendar-commands"><a class="link" href="#calendar-commands">3.4. Calendar Commands</a></h3>
+<div class="paragraph">
+<p>This section contains the commands for managing your team member&#8217;s calendars and for scheduling a project meeting time.</p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Before using +Work&#8217;s calendar features</p>
+<p><strong>Before you start using +Work&#8217;s calendar commands, make sure</strong></p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Have your team members download their calendar through NUSmods as an <code>.ics</code> file</p>
+<p>Your team members have exported their calendars as an <code>.ics</code> file</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Not sure how to export a calendar? Refer to the short guide below for instructions
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Team members import the file into their google calendar and add their weekly commitments</p>
+<p>You have collected the calendar files from your team members</p>
 </li>
 <li>
-<p>Team members export the calendar as an <code>.ics</code> file once again</p>
-</li>
-<li>
-<p>Collect these calendar <code>.ics</code> files from team members</p>
-</li>
-<li>
-<p>Take note of the file path that the files are stored under</p>
+<p>You take note of the file path where the files are stored, it will be used in the commands</p>
 </li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
-<p>Now you are ready to use +Work&#8217;s calendar commands!</p>
+<p><strong>How to export a calendars as an <code>.ics</code> file?</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the NUSmods page, click on the <kbd>Download</kbd> icon and select download as an iCalendar File(<code>.ics</code>)</p>
+</li>
+<li>
+<p>If you wish to include other commitments, simply open 'Google Calendar', click on <kbd>Settings</kbd>, select <kbd>Import &amp; Export</kbd> and import the file from Step 1</p>
+</li>
+<li>
+<p>Add any additional commitments through 'Google Calendar'</p>
+</li>
+<li>
+<p>Export the calendar again by clicking <kbd>Settings</kbd>, followed by <kbd>Import &amp; Export</kbd> and lastly <kbd>Export</kbd></p>
+</li>
+<li>
+<p>The <code>.ics</code> file will be downloaded, containing your timetable from NUSmods and 'Google Calendar'</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-member-s-calendar-code-add-calendar-code"><a class="link" href="#adding-a-member-s-calendar-code-add-calendar-code">3.4.1. Adding a member&#8217;s calendar: <code>add-calendar</code></a></h4>
+<h4 id="adding-a-team-member-s-calendar-code-add-calendar-code"><a class="link" href="#adding-a-team-member-s-calendar-code-add-calendar-code">3.4.1. Adding a team member&#8217;s calendar: <code>add-calendar</code></a></h4>
+<div class="paragraph">
+<p>You can add a calendar by inputting the file path of the team member&#8217;s calendar as well as the name of the team member.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>add-calendar [mn/MEMBER_NAME] [fp/PATH_TO_ICS_FILE]</code></p>
 </div>
@@ -1013,19 +1124,21 @@ The "Upcoming deadlines" sidebar (right side of above picture) helps you keep tr
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>You can add your team member John Doe&#8217;s calendar file with the command</p>
+<p>Adding <em>John Doe&#8217;s</em> calendar to +Work</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-calendar mn/John Doe fp/C:\Users\gabriel\Desktop\CalendarFiles\john_calendar.ics</code><br>
-John&#8217;s calendar is now saved in +Work</p>
+<p><code>add-calendar mn/John Doe fp/C:\Users\gabriel\TeamCalendars\john_calendar.ics</code><br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-member-s-calendar-code-delete-calendar-code"><a class="link" href="#removing-a-member-s-calendar-code-delete-calendar-code">3.4.2. Removing a member&#8217;s calendar: <code>delete-calendar</code></a></h4>
+<h4 id="removing-a-team-member-s-calendar-code-delete-calendar-code"><a class="link" href="#removing-a-team-member-s-calendar-code-delete-calendar-code">3.4.2. Removing a team member&#8217;s calendar: <code>delete-calendar</code></a></h4>
+<div class="paragraph">
+<p>You can also remove a calendar by specifying the team member&#8217;s name.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>delete-calendar [mn/MEMBER_NAME]</code></p>
 </div>
@@ -1033,41 +1146,98 @@ John&#8217;s calendar is now saved in +Work</p>
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>You can also remove a team member&#8217;s calendar file like this,</p>
+<p>Removing <em>John Doe&#8217;s</em> calendar from +Work</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-calendar mn/John Doe</code><br>
-John&#8217;s calendar has been deleted from +Work</p>
+<p><code>delete-calendar mn/John Doe</code><br></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-a-meeting-time-code-find-meeting-time-code"><a class="link" href="#find-a-meeting-time-code-find-meeting-time-code">3.4.3. Find a meeting time: <code>find-meeting-time</code></a></h4>
+<h4 id="find-possible-meeting-times-code-find-meeting-time-code"><a class="link" href="#find-possible-meeting-times-code-find-meeting-time-code">3.4.3. Find possible meeting times: <code>find-meeting-time</code></a></h4>
+<div class="paragraph">
+<p>You can schedule a meeting by specifying the <strong>duration</strong> of the meeting in hour(s) and the <strong>time period</strong> to search for.</p>
+</div>
+<div class="paragraph">
+<p>+Work will show a list of  suitable meeting time between <code>START_DATE</code> and <code>END_DATE</code>.</p>
+</div>
 <div class="paragraph">
 <p>Format: <code>find-meeting-time [start/START_DATE] [end/END_DATE] [hours/DURATION]</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
++Work recognises date and time in the format 'dd-mm-yyyy hh:mm
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
++Work shows you the meeting times where the <strong>most</strong> number of people are available
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find-meeting-time start/<em>19-10-2019 08:00</em> end/<em>29-10-2019 17:00</em> hours/2</code><br>
-Generates a grid showing the number of people who can make it for a particular time slot during the week (mock-up needed)</p>
+<p>Let&#8217;s say you want to schedule a <em>2</em> hour meeting in the upcoming week, between <em>11th Nov 8 a.m</em> and <em>15th Nov 5 p.m</em>. After entering the details in the correct format, as such</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/find-meeting-time-entry.PNG" alt="find meeting time entry">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hit <kbd>Enter</kbd> and +Work will display a list of suitable timings as well as the team members that are available for that timing</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/find-meeting-time-timings.PNG" alt="find meeting time timings">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If there are no suitable timings, +Work will notify you as well
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-meeting-code-add-meeting-code"><a class="link" href="#adding-a-meeting-code-add-meeting-code">3.4.4. Adding a meeting: <code>add meeting</code></a></h4>
+<h4 id="schedule-a-team-meeting-code-add-meeting-code"><a class="link" href="#schedule-a-team-meeting-code-add-meeting-code">3.4.4. Schedule a team meeting: <code>add-meeting</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>add-meeting [at/ dd-mm-yyyy hh:mm]  [l/LOCATION]</code></p>
+<p>After using the command <code>find-meeting-time</code>, you can schedule a meeting from the list of possible timings by referring to the <code>INDEX</code> of the meeting in the list.</p>
 </div>
 <div class="paragraph">
-<p>to add a new meeting</p>
+<p>Format: <code>add-meeting [meeting/INDEX]</code></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -1075,8 +1245,73 @@ Generates a grid showing the number of people who can make it for a particular t
 <div class="ulist">
 <ul>
 <li>
-<p><code>add-meeting at/10-10-2018 19:00 l/COM2-0204</code><br>
-User chooses the meeting time from the grid displayed from generate timings commands (3.4.2) . A meeting is added to the internal calendar of the application, which will be displayed on the dashboard.</p>
+<p>Suppose you are looking to schedule a <em>2</em> hour meeting between <em>11th Nov 8 a.m</em> and <em>15th Nov 5 p.m</em>.</p>
+</li>
+<li>
+<p>After using the <code>find-meeting-time</code> command, you are given the following timings</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/possible-meeting-timings.PNG" alt="possible meeting timings">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After looking through the suitable timings, you choose meeting <strong>#5</strong> as your preferred timing</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/preferred-meeting-time.PNG" alt="preferred meeting time">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Using the index of meeting <strong>#5</strong>, enter the command <code>add-meeting meeting/5</code></p>
+</li>
+<li>
+<p>You can then view the recently added meeting at the <code>home</code> page</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/updated-meeting-time.PNG" alt="updated meeting time">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-team-meeting-code-delete-meeting-code"><a class="link" href="#remove-a-team-meeting-code-delete-meeting-code">3.4.5. Remove a team meeting: <code>delete-meeting</code></a></h4>
+<div class="paragraph">
+<p>You can remove a meeting by simply referring to the <code>INDEX</code> of the meeting in the 'Upcoming Meetings' list.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can view your list of meetings by going to the <code>home</code> page
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete-meeting [meeting/INDEX]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To remove meeting <strong>#3</strong>, simply enter the command <code>delete-meeting meeting/3</code> and the meeting will be removed</p>
 </li>
 </ul>
 </div>
@@ -1837,10 +2072,13 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <div class="ulist">
 <ul>
 <li>
+<p><code>add-calendar [mn/MEMBER_NAME] [fp/PATH_TO_ICS_FILE]</code>: <strong>Adds a calendar</strong></p>
+</li>
+<li>
 <p><code>add-inv [i/NAME] [p/PRICE] [ti/TASKID] [mi/MEMBER_ID]</code>: <strong>Adds an inventory</strong></p>
 </li>
 <li>
-<p><code>add-meeting [at/dd-mm-yyyy hh:mm - hh:mm] [l/LOCATION]</code>: <strong>Adds a meeting</strong></p>
+<p><code>add-meeting [meeting/INDEX]</code>: <strong>Adds a meeting</strong></p>
 </li>
 <li>
 <p><code>add-member [mn/MEMBER_NAME] [mi/MEMBER_ID] [mt/MEMBER_TAG]</code>: <strong>Adds a member</strong></p>
@@ -1852,9 +2090,6 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>assign [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Adds a task to a member</strong></p>
 </li>
 <li>
-<p><code>calendar</code>: <strong>Switches to the time management page</strong></p>
-</li>
-<li>
 <p><code>clock twelve</code>: <strong>Switches deadline display to the 12 hour clock format</strong></p>
 </li>
 <li>
@@ -1864,7 +2099,13 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>set-deadline [ti/TASK_ID] [at/dd-mm-yyyy hh:mm]</code>: <strong>Assigns a deadline to a task</strong></p>
 </li>
 <li>
+<p><code>delete-calendar [mn/MEMBER_NAME]</code>: <strong>Deletes a member&#8217;s calendar</strong></p>
+</li>
+<li>
 <p><code>delete-inv [ii/ITEM_ID]</code>: <strong>Deletes an inventory</strong></p>
+</li>
+<li>
+<p><code>delete-meeting [meeting/INDEX]</code>: <strong>Deletes a meeting</strong></p>
 </li>
 <li>
 <p><code>doing-task [ti/TASK_ID]</code>: <strong>Marks a task as <code>doing</code></strong></p>
@@ -1882,6 +2123,9 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>edit-task [ti/TASk_ID] [FIELDS_TO_EDIT]</code>: <strong>Edits a task</strong></p>
 </li>
 <li>
+<p><code>find-meeting-time [start/START_DATE] [end/END_DATE] [hours/DURATION]</code>: <strong>Generate a list of possible meeting times</strong></p>
+</li>
+<li>
 <p><code>fire-member [ti/TASK_ID] [mi/MEMBER_ID]</code>: <strong>Removes a task from a member</strong></p>
 </li>
 <li>
@@ -1891,16 +2135,10 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p><code>generate-inventory /person</code>: <strong>Generates report of inventory by person</strong></p>
 </li>
 <li>
-<p><code>generate-timings</code>: <strong>Generates free times among members</strong></p>
-</li>
-<li>
 <p><code>home</code>: <strong>Switches to the project dashboard</strong></p>
 </li>
 <li>
 <p><code>help</code>: <strong>Accesses the help window</strong></p>
-</li>
-<li>
-<p><code>import-calendar [mi/MEMBER_ID] [c/PATH_TO_ICS]</code>: (Coming in v1.3) <strong>Imports a calendar</strong></p>
 </li>
 <li>
 <p><code>list-members</code>: <strong>Lists all members</strong></p>
@@ -1948,5 +2186,11 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 <p>Create more detailed profiles for members and choose who has authority to change details of the project.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="instant-messaging-code-coming-in-v2-0-code"><a class="link" href="#instant-messaging-code-coming-in-v2-0-code">6.3. Instant Messaging <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Communicate with teammates on one central application, instead of using multiple messaging apps.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:11:49 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:27:07 UTC</div></div></div></body></html>
