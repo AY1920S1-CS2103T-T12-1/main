@@ -1,10 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>+Work - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><meta name="author" content="endif::"><title>+Work - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">PlusWork</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>+Work - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">PlusWork</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-T12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>+Work - User Guide</h1><div class="details"><span class="author" id="author">endif::</span><br></div></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>CS2103T-T12-1</code>      Since: <code>Sept 2019</code>      Licence: <code>MIT</code></p>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
@@ -26,6 +27,15 @@
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#upcoming-features">6. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></li>
+<li><a href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></li>
+<li><a href="#autocomplete-support-for-prefixes-code-coming-in-v2-0-code">6.3. AutoComplete Support for prefixes <code>[coming in v2.0]</code></a></li>
+<li><a href="#instant-messaging-code-coming-in-v2-0-code">6.4. Instant Messaging <code>[coming in v2.0]</code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -59,7 +69,7 @@ Happy working!</p>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="400">
+<img src="images/Ui.png" alt="Ui">
 </div>
 </div>
 </li>
@@ -225,6 +235,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -290,14 +304,14 @@ using the format <code>mt/&#8230;&#8203; mt/&#8230;&#8203; mt/&#8230;&#8203;</co
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Settings.png" alt="Settings">
+<img src="images/Settings.png" alt="Settings" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 You can refer to section 3.7 on specific settings-related commands to apply.
@@ -315,7 +329,7 @@ Format: <code>help</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Help.png" alt="Help">
+<img src="images/Help.png" alt="Help" width="500">
 </div>
 </div>
 </div>
@@ -339,7 +353,7 @@ Format: <code>help</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/before-undo.PNG" alt="before undo">
+<img src="images/before-undo.PNG" alt="before undo" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -351,7 +365,7 @@ Format: <code>help</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/after-undo.PNG" alt="after undo">
+<img src="images/after-undo.PNG" alt="after undo" width="500">
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -406,7 +420,7 @@ Once you restart +Work, you won&#8217;t be able to <code>undo</code> commands fr
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeAdd.png" alt="BeforeAdd">
+<img src="images/BeforeAdd.png" alt="BeforeAdd" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -415,7 +429,7 @@ command prompt box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DuringAdd.png" alt="DuringAdd">
+<img src="images/DuringAdd.png" alt="DuringAdd" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -423,7 +437,7 @@ command prompt box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DoneAdd.png" alt="DoneAdd">
+<img src="images/DoneAdd.png" alt="DoneAdd" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -431,7 +445,7 @@ command prompt box.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListAdd.png" alt="ListAdd">
+<img src="images/ListAdd.png" alt="ListAdd" width="500">
 </div>
 </div>
 <div class="admonitionblock important">
@@ -450,7 +464,7 @@ Member ID is an alphanumeric ID set by you, and cannot be changed once the membe
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 <div class="ulist">
@@ -485,7 +499,7 @@ Member ID is an alphanumeric ID set by you, and cannot be changed once the membe
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeSet.png" alt="BeforeSet">
+<img src="images/BeforeSet.png" alt="BeforeSet" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -498,14 +512,14 @@ picture, specified by the image path you entered.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SetImage.png" alt="SetImage">
+<img src="images/SetImage.png" alt="SetImage" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 Image Path refers to the folder path of the image stored in your computer, and should end with .png
@@ -564,7 +578,7 @@ It is recommended that you store all the images in a central folder to prevent t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeEdit.png" alt="BeforeEdit">
+<img src="images/BeforeEdit.png" alt="BeforeEdit" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -577,7 +591,7 @@ with a new member name 'No Longer New' and new tag 'edited'.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AfterEdit.png" alt="AfterEdit">
+<img src="images/AfterEdit.png" alt="AfterEdit" width="500">
 </div>
 </div>
 </div>
@@ -592,7 +606,7 @@ Format: <code>list-members</code><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ListMembers.png" alt="ListMembers">
+<img src="images/ListMembers.png" alt="ListMembers" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -613,7 +627,7 @@ Format: <code>remove-member [mi/MEMBER_ID]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeRemove.png" alt="BeforeRemove">
+<img src="images/BeforeRemove.png" alt="BeforeRemove" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -626,7 +640,7 @@ seen from the list of members below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AfterRemove.png" alt="AfterRemove">
+<img src="images/AfterRemove.png" alt="AfterRemove" width="500">
 </div>
 </div>
 </div>
@@ -648,7 +662,7 @@ seen from the list of members below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeAssign.png" alt="BeforeAssign">
+<img src="images/BeforeAssign.png" alt="BeforeAssign" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -657,7 +671,7 @@ seen from the list of members below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AfterAssign.png" alt="AfterAssign">
+<img src="images/AfterAssign.png" alt="AfterAssign" width="500">
 </div>
 </div>
 </div>
@@ -679,7 +693,7 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/BeforeFire.png" alt="BeforeFire">
+<img src="images/BeforeFire.png" alt="BeforeFire" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -688,7 +702,7 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AfterFireMember.png" alt="AfterFireMember">
+<img src="images/AfterFireMember.png" alt="AfterFireMember" width="500">
 </div>
 </div>
 <hr>
@@ -710,7 +724,7 @@ Optional parameters: <code>[s/STATUS]</code> <code>[tt/TAG]</code></p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 If a status is not given for the task, +Work will assign it as <code>unbegun</code> or "Not Started" by default.
@@ -731,7 +745,7 @@ as show below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/add-task-preview.png" alt="add task preview">
+<img src="images/add-task-preview.png" alt="add task preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -755,7 +769,7 @@ The prompt displayed as a result of performing <code>add-task</code> is further 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/add-task-res-list.png" alt="add task res list">
+<img src="images/add-task-res-list.png" alt="add task res list" width="500">
 </div>
 </div>
 </div>
@@ -778,7 +792,7 @@ box as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/delete-task-preview.png" alt="delete task preview">
+<img src="images/delete-task-preview.png" alt="delete task preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -790,7 +804,7 @@ box as shown below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/delete-task-res-list.png" alt="delete task res list">
+<img src="images/delete-task-res-list.png" alt="delete task res list" width="500">
 </div>
 </div>
 </div>
@@ -826,7 +840,7 @@ Type <code>edit-task ti/4 tn/Update event website</code> into the command box as
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/edit-task-preview.png" alt="edit task preview">
+<img src="images/edit-task-preview.png" alt="edit task preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -838,7 +852,7 @@ Type <code>edit-task ti/4 tn/Update event website</code> into the command box as
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/edit-task-res-list.png" alt="edit task res list">
+<img src="images/edit-task-res-list.png" alt="edit task res list" width="500">
 </div>
 </div>
 </div>
@@ -860,7 +874,7 @@ Format: <code>list-tasks</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-tasks-preview.png" alt="list tasks preview">
+<img src="images/list-tasks-preview.png" alt="list tasks preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -872,7 +886,7 @@ Format: <code>list-tasks</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-tasks.png" alt="list tasks">
+<img src="images/list-tasks.png" alt="list tasks" width="500">
 </div>
 </div>
 </div>
@@ -894,7 +908,7 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-tasks-preview.png" alt="list tasks preview">
+<img src="images/list-tasks-preview.png" alt="list tasks preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -906,7 +920,7 @@ Format: <code>done-task [ti/TASK_ID]</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/done-task-preview-list.png" alt="done task preview list">
+<img src="images/done-task-preview-list.png" alt="done task preview list" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -919,14 +933,14 @@ Notice that "Shirts for freshman open day" has been moved to <code>done</code>.<
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/done-task-result-dashboard.png" alt="done task result dashboard">
+<img src="images/done-task-result-dashboard.png" alt="done task result dashboard" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 If a task previously had a deadline, it will be removed once it is marked as <code>done</code>
@@ -956,7 +970,7 @@ This sets the status of the third task to <code>doing</code>.</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 Usage of this command is very similar to setting a task status to <code>doing</code> as explained above.
@@ -985,7 +999,7 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-tasks-preview.png" alt="list tasks preview">
+<img src="images/list-tasks-preview.png" alt="list tasks preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -998,7 +1012,7 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/set-deadline-list-preview.png" alt="set deadline list preview">
+<img src="images/set-deadline-list-preview.png" alt="set deadline list preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1010,7 +1024,7 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/set-deadline-res-list.png" alt="set deadline res list">
+<img src="images/set-deadline-res-list.png" alt="set deadline res list" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -1018,14 +1032,14 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/set-deadline-res-dashboard.png" alt="set deadline res dashboard">
+<img src="images/set-deadline-res-dashboard.png" alt="set deadline res dashboard" width="500">
 </div>
 </div>
 <div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in <strong>two weeks</strong> or less.
@@ -1056,7 +1070,7 @@ The "Upcoming deadlines" sidebar (right side of above picture) helps you keep tr
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 Not sure how to export a calendar? Refer to the short guide below for instructions
@@ -1166,7 +1180,7 @@ Not sure how to export a calendar? Refer to the short guide below for instructio
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 +Work recognises date and time in the format 'dd-mm-yyyy hh:mm`
@@ -1178,7 +1192,7 @@ Not sure how to export a calendar? Refer to the short guide below for instructio
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 +Work shows you the meeting times where the <strong>most</strong> number of people are available
@@ -1198,7 +1212,7 @@ Not sure how to export a calendar? Refer to the short guide below for instructio
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/find-meeting-time-entry.PNG" alt="find meeting time entry">
+<img src="images/find-meeting-time-entry.PNG" alt="find meeting time entry" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1210,14 +1224,14 @@ Not sure how to export a calendar? Refer to the short guide below for instructio
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/find-meeting-time-timings.PNG" alt="find meeting time timings">
+<img src="images/find-meeting-time-timings.PNG" alt="find meeting time timings" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 If there are no suitable timings, +Work will notify you as well
@@ -1261,7 +1275,7 @@ Because showing <strong>ALL</strong> possible meeting timings may not be appropr
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/possible-meeting-timings.PNG" alt="possible meeting timings">
+<img src="images/possible-meeting-timings.PNG" alt="possible meeting timings" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1273,7 +1287,7 @@ Because showing <strong>ALL</strong> possible meeting timings may not be appropr
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/preferred-meeting-time.PNG" alt="preferred meeting time">
+<img src="images/preferred-meeting-time.PNG" alt="preferred meeting time" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1288,7 +1302,7 @@ Because showing <strong>ALL</strong> possible meeting timings may not be appropr
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/updated-meeting-time.PNG" alt="updated meeting time">
+<img src="images/updated-meeting-time.PNG" alt="updated meeting time" width="500">
 </div>
 </div>
 </div>
@@ -1301,7 +1315,7 @@ Because showing <strong>ALL</strong> possible meeting timings may not be appropr
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 You can view your list of meetings by going to the <code>home</code> page
@@ -1372,7 +1386,7 @@ When you enter this command, it adds the item “eggs” for $2.40 to the invent
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Add-inv_1.PNG" alt="Add inv 1">
+<img src="images/Add-inv_1.PNG" alt="Add inv 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1384,7 +1398,7 @@ When you enter this command, it adds the item “eggs” for $2.40 to the invent
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Add-inv_2.PNG" alt="Add inv 2">
+<img src="images/Add-inv_2.PNG" alt="Add inv 2" width="500">
 </div>
 </div>
 </div>
@@ -1416,7 +1430,7 @@ This command deletes the third item from the inventory list. The following pictu
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Delete-inv_1.PNG" alt="Delete inv 1">
+<img src="images/Delete-inv_1.PNG" alt="Delete inv 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1428,7 +1442,7 @@ This command deletes the third item from the inventory list. The following pictu
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Delete-inv_2.PNG" alt="Delete inv 2">
+<img src="images/Delete-inv_2.PNG" alt="Delete inv 2" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1440,7 +1454,7 @@ This command deletes the third item from the inventory list. The following pictu
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Delete-inv_3.PNG" alt="Delete inv 3">
+<img src="images/Delete-inv_3.PNG" alt="Delete inv 3" width="500">
 </div>
 </div>
 </div>
@@ -1455,7 +1469,7 @@ Format: <code>list-inv</code><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-inv.PNG" alt="list inv">
+<img src="images/list-inv.PNG" alt="list inv" width="500">
 </div>
 </div>
 </div>
@@ -1471,7 +1485,7 @@ Format: <code>list-inv</code><br></p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 Multiple attributes can be changed at the same time, but at least one of the inventory attributes must be changed.
@@ -1501,7 +1515,7 @@ This command edits the 4th inventory from the inventory list as shown by <code>l
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Edit-inv_1.PNG" alt="Edit inv 1">
+<img src="images/Edit-inv_1.PNG" alt="Edit inv 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1513,7 +1527,7 @@ This command edits the 4th inventory from the inventory list as shown by <code>l
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Edit-inv_2.PNG" alt="Edit inv 2">
+<img src="images/Edit-inv_2.PNG" alt="Edit inv 2" width="500">
 </div>
 </div>
 </div>
@@ -1558,7 +1572,7 @@ This command creates and opens a pdf file of inventories that is classified acco
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pdf-inv_1.PNG" alt="pdf inv 1">
+<img src="images/pdf-inv_1.PNG" alt="pdf inv 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1570,7 +1584,7 @@ This command creates and opens a pdf file of inventories that is classified acco
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pdf-inv_2.PNG" alt="pdf inv 2">
+<img src="images/pdf-inv_2.PNG" alt="pdf inv 2" width="500">
 </div>
 </div>
 <hr>
@@ -1591,14 +1605,14 @@ This command creates and opens a pdf file of inventories that is classified acco
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/MemberStats.png" alt="MemberStats">
+<img src="images/MemberStats.png" alt="MemberStats" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 The resultant statistics displayed shows the proportion and number of tasks and inventory items allocated to each
@@ -1619,14 +1633,14 @@ Format: <code>task-stats</code><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskStats.png" alt="TaskStats">
+<img src="images/TaskStats.png" alt="TaskStats" width="500">
 </div>
 </div>
 <div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 The resultant statistics displayed shows the proportion of tasks that are undone, in progress and completed,
@@ -1639,7 +1653,7 @@ as well as the time taken for each task inputted into +Work.
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 The time spent on each task can only be calculated if the task involved has been marked as <code>DOING</code>, and then <code>DONE</code>.
@@ -1660,7 +1674,7 @@ If you immediately mark an <code>UNBEGUN</code> task as <code>DONE</code>, the t
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_1.PNG" alt="ml task 1">
+<img src="images/ml-task_1.PNG" alt="ml task 1" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -1673,7 +1687,7 @@ Format (to add deadline and member): <code>add-d [at/DEADLINE] [mi/MEMBER_ID]</c
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 <code>add-d</code> command does not work unless it is typed after <code>add-task</code> and <code>yes</code>.<br>
@@ -1703,7 +1717,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_1.PNG" alt="ml task 2 1">
+<img src="images/ml-task_2_1.PNG" alt="ml task 2 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1715,7 +1729,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_2.PNG" alt="ml task 2 2">
+<img src="images/ml-task_2_2.PNG" alt="ml task 2 2" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1727,7 +1741,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_3.PNG" alt="ml task 2 3">
+<img src="images/ml-task_2_3.PNG" alt="ml task 2 3" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1739,7 +1753,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_4.PNG" alt="ml task 2 4">
+<img src="images/ml-task_2_4.PNG" alt="ml task 2 4" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1751,7 +1765,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_5.PNG" alt="ml task 2 5">
+<img src="images/ml-task_2_5.PNG" alt="ml task 2 5" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1763,7 +1777,7 @@ A new task will be added to the project dashboard, which prompts a sequence of q
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_2_6.PNG" alt="ml task 2 6">
+<img src="images/ml-task_2_6.PNG" alt="ml task 2 6" width="500">
 </div>
 </div>
 </div>
@@ -1786,7 +1800,7 @@ only for tasks that are tagged “Inventory”
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_3.PNG" alt="ml task 3">
+<img src="images/ml-task_3.PNG" alt="ml task 3" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -1799,7 +1813,7 @@ Format (to add price and member): <code>add-i [p/PRICE] [mi/MEMBER_ID]</code></p
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 <code>add-i</code> command does not work unless it is typed after <code>done-task</code> and <code>yes</code>.<br>
@@ -1828,7 +1842,7 @@ The task with index 8 will have its task status changed to done. Since the task 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_4_1.PNG" alt="ml task 4 1">
+<img src="images/ml-task_4_1.PNG" alt="ml task 4 1" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1840,7 +1854,7 @@ The task with index 8 will have its task status changed to done. Since the task 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_4_2.PNG" alt="ml task 4 2">
+<img src="images/ml-task_4_2.PNG" alt="ml task 4 2" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1852,7 +1866,7 @@ The task with index 8 will have its task status changed to done. Since the task 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_4_3.PNG" alt="ml task 4 3">
+<img src="images/ml-task_4_3.PNG" alt="ml task 4 3" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1864,7 +1878,7 @@ The task with index 8 will have its task status changed to done. Since the task 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_4_4.PNG" alt="ml task 4 4">
+<img src="images/ml-task_4_4.PNG" alt="ml task 4 4" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1876,7 +1890,7 @@ The task with index 8 will have its task status changed to done. Since the task 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ml-task_4_5.PNG" alt="ml task 4 5">
+<img src="images/ml-task_4_5.PNG" alt="ml task 4 5" width="500">
 </div>
 </div>
 <hr>
@@ -1890,7 +1904,7 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCompletePre.png" alt="AutoCompletePre">
+<img src="images/AutoCompletePre.png" alt="AutoCompletePre" width="500">
 </div>
 </div>
 <div class="paragraph">
@@ -1898,14 +1912,14 @@ For example, when you type <code>add-mem</code> into the command-line, +Work wil
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AutoCompletePost.png" alt="AutoCompletePost">
+<img src="images/AutoCompletePost.png" alt="AutoCompletePost" width="500">
 </div>
 </div>
 <div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 You can use <kbd>right arrow</kbd> to navigate along the various prefixes.
@@ -1930,7 +1944,7 @@ to the settings panel by entering <code>settings</code> as described in section 
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 By default, the theme is set to <code>dark</code>.
@@ -1953,7 +1967,7 @@ By default, the theme is set to <code>dark</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/theme-light-preview.png" alt="theme light preview">
+<img src="images/theme-light-preview.png" alt="theme light preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1965,7 +1979,7 @@ By default, the theme is set to <code>dark</code>.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/theme-light-res.png" alt="theme light res">
+<img src="images/theme-light-res.png" alt="theme light res" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -1985,7 +1999,7 @@ By default, the theme is set to <code>dark</code>.
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-tip" title=":bulb:"></i>
 </td>
 <td class="content">
 The time format is set to 24 hour by default.
@@ -1997,7 +2011,7 @@ The time format is set to 24 hour by default.
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-note" title=":information_source:"></i>
 </td>
 <td class="content">
 This does not affect the input format of deadlines for tasks, you still need to be enter them in the 24 hour format!
@@ -2020,7 +2034,7 @@ This does not affect the input format of deadlines for tasks, you still need to 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/clock-twelve-preview.png" alt="clock twelve preview">
+<img src="images/clock-twelve-preview.png" alt="clock twelve preview" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -2032,7 +2046,7 @@ This does not affect the input format of deadlines for tasks, you still need to 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/clock-twelve-res-settings.png" alt="clock twelve res settings">
+<img src="images/clock-twelve-res-settings.png" alt="clock twelve res settings" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -2045,7 +2059,7 @@ back to the dashboard by entering <code>home</code> you should see a window simi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/clock-twelve-res-dashboard.png" alt="clock twelve res dashboard">
+<img src="images/clock-twelve-res-dashboard.png" alt="clock twelve res dashboard" width="500">
 </div>
 </div>
 <div class="ulist">
@@ -2079,16 +2093,12 @@ There is no need to save manually.</p>
 <strong>A</strong>: No, the application only supports exporting of files in PDF format.</p>
 </div>
 <div class="paragraph">
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-<strong>Q</strong>: What if +Work cannot find a timing where everyone is free?<br>
+<p><strong>Q</strong>: What if +Work cannot find a timing where everyone is free?<br>
 <strong>A</strong>: +Work cannot guarantee to find a meeting time that can suit every team member, but it will provide a list of the best possible timings when the <strong>most</strong> number of members are available.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
 <p><strong>Q</strong>: What if the calendar cannot find a timing where everyone is free?<br>
-<strong>A</strong>: There will be a list showing the number of available members for the time period you specified, so it will be easier for the user to choose the best possible your meeting.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; fc226fa6ab4bfcabf99c0c6d3a13fa912e69a0d9</p>
+<strong>A</strong>: There will be a list showing the number of available members for the time period you specified, so it will be easier for the user to choose the best possible your meeting.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: My project has a budget, does the application help me keep track of the projects financial status?<br>
@@ -2106,9 +2116,11 @@ There is no need to save manually.</p>
 <p><strong>Q</strong>: What happens when a task has been completed?<br>
 <strong>A</strong>: You can mark the task as <code>done</code>, which will move the task to the <code>done</code> portion of the dashboard. In the case where you do not want to keep the task in the list, using ‘Remove Task’ will delete it.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The following is a summary of all the commands +Work offers arranged in alphabetical order.</p>
 </div>
@@ -2227,38 +2239,38 @@ There is no need to save manually.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== Upcoming Features</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Our team is currently working hard on the following exciting features! Make sure to follow our application for any
 updates in the future.</p>
 </div>
-<div class="paragraph">
-<p>=== Cloud Integration <code>[coming in v2.0]</code></p>
-</div>
+<div class="sect2">
+<h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Collaborate online with your teammates, and store your project details such as members calendars in the cloud.</p>
 </div>
-<div class="paragraph">
-<p>=== Customisable User Profiles <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="customisable-user-profiles-code-coming-in-v2-0-code"><a class="link" href="#customisable-user-profiles-code-coming-in-v2-0-code">6.2. Customisable User Profiles <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Create more detailed profiles for members and choose who has authority to change details of the project.</p>
 </div>
-<div class="paragraph">
-<p>=== AutoComplete Support for prefixes <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="autocomplete-support-for-prefixes-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-support-for-prefixes-code-coming-in-v2-0-code">6.3. AutoComplete Support for prefixes <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>AutoComplete to support users in prompting existing entities. For example, member ID and task tags to be prompted to users when prefix is input.</p>
 </div>
-<div class="paragraph">
-<p>=== Instant Messaging <code>[coming in v2.0]</code></p>
 </div>
+<div class="sect2">
+<h3 id="instant-messaging-code-coming-in-v2-0-code"><a class="link" href="#instant-messaging-code-coming-in-v2-0-code">6.4. Instant Messaging <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Communicate with teammates on one central application, instead of using multiple messaging applications.</p>
 </div>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:33:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:38:11 UTC</div></div></div></body></html>
