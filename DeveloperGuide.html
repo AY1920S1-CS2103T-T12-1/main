@@ -31,10 +31,11 @@
 <li><a href="#statistics-feature">2.4. Statistics feature</a></li>
 <li><a href="#member-feature">2.5. Member Feature</a></li>
 <li><a href="#inventory-feature">2.6. Inventory feature</a></li>
-<li><a href="#proposed-undo-redo-feature">2.7. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">2.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">2.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">2.10. Configuration</a></li>
+<li><a href="#autocomplete-feature">2.7. AutoComplete feature</a></li>
+<li><a href="#proposed-undo-redo-feature">2.8. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">2.9. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">2.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">2.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">3. Documentation</a></li>
@@ -1385,9 +1386,72 @@ represented as enumerations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.7. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">2.7. AutoComplete feature</a></h3>
 <div class="sect3">
 <h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.7.1. Proposed Implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Logic handles the autocomplete logic. While Commandbox will receive the result and populate the context menu based on output from logic.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to change autocomplete logic in the future if need be, such as integrating prefix suggestions, which require the dashboard&#8217;s data;</p>
+</li>
+<li>
+<p>Cons: Need to access the autocomplete component. Hard to pass props to logic with regards to textbox like caret position.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Handle all autocomplete logic within command box</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This would be easier to implement and maintain UI components. Can access TextField directly.</p>
+</li>
+<li>
+<p>Cons: Difficult to access other logic components. Handles both UI and logic in the same component. ]</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how AutoComplete  behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application. The command box is initialized together in the main window. Logic is initialised and passed into command box.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user attempts to type a command <code>input</code> in Command Box.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Command Box  calls <code>Logic#getAutoCompleteResults()</code> which calls <code>AutoComplete#completeText(String input)</code>, which calls <code>Keywords #commandList(String input)</code>. This returns a filtered Linked List of possible commands.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The Linked List of commands will be passed back into Command Box who will call <code>populatePopup(LinkedList&lt;String&gt; searchResult)</code> to make its own ContextMenu to be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The UI now reflects a list of available commands filtered based on text.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the autocomplete works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteFlow.png" alt="AutoCompleteFlow">
+</div>
+<div class="title">Figure 15. Operational flow of <code>getAutoCompleteResults()</code></div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.8. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-4"><a class="link" href="#proposed-implementation-4">2.8.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -1529,7 +1593,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">2.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">2.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1599,20 +1663,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">2.9. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">2.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">2.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1643,7 +1707,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3162,4 +3226,4 @@ and contain the updated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:27:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:04:37 UTC</div></div></div></body></html>
