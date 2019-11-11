@@ -49,10 +49,12 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#task-commands">G.2. Task commands</a></li>
-<li><a href="#dashboard-feature-2">G.3. Dashboard feature</a></li>
-<li><a href="#settings-feature-2">G.4. Settings feature</a></li>
-<li><a href="#saving-data">G.5. Saving data</a></li>
+<li><a href="#member-feature-2">G.2. Member Feature</a></li>
+<li><a href="#statistics-feature-2">G.3. Statistics Feature</a></li>
+<li><a href="#task-commands">G.4. Task commands</a></li>
+<li><a href="#dashboard-feature-2">G.5. Dashboard feature</a></li>
+<li><a href="#settings-feature-2">G.6. Settings feature</a></li>
+<li><a href="#saving-data">G.7. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -2787,7 +2789,156 @@ preferences will be retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-commands"><a class="link" href="#task-commands">G.2. Task commands</a></h3>
+<h3 id="member-feature-2"><a class="link" href="#member-feature-2">G.2. Member Feature</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a member:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: "add-member mn/YOUR_NAME mi/T1 mt/testing"<br>
+Expected: Shows that a member is successfully added into +Work. Entering "list-members" in command prompt displays a list of members, including the one newly added.</p>
+</li>
+<li>
+<p>Test case: "add-member mn/YOUR_NAME mi/test!!! mt/testing"<br>
+Expected: Invalid member ID, since member ID has to be alphanumeric.</p>
+</li>
+<li>
+<p>Test case: "add-member mn/YOUR_NAME mi/T2 testing"<br>
+Expected: A member is successfully added to +Work, with member ID "T2 testing"</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Edit a member:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: "edit-member mi/T1 mn/NICKNAME"<br>
+Expected: Shows that the previously added member is successfully edited, with a name change from YOUR_NAME to NICKNAME.</p>
+</li>
+<li>
+<p>Test case: "edit-member mi/T1"<br>
+Expected: Fails to edit the specified member given the lack of fields to edit.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Set an image:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>In your laptop, find an image that you would like to set as the profile picture of a member. Take note of the image&#8217;s filepath.</p>
+</li>
+<li>
+<p>In the command prompt, enter "set-image mi/T1 im/FILE_PATH". Note that file path should end with 'IMAGE_NAME.png'.<br>
+Expected: The member with member id 'T1' has a new profile picture, depicting the image you chose from your laptop.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: "set-image mi/T1 im/random string"<br>
+Expected: No image is set for the specified member, as an image cannot be found.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Assign a member to a task:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: "assign ti/1 mi/T1"<br>
+Expected: Shows that the member with member id 'T1' has one more task added to his list of assigned tasks. Entering "list-tasks" in command prompt displays the list of tasks in +Work, with the involved member listed under
+the task at index 1, as assigned.</p>
+</li>
+<li>
+<p>Test case: "assign ti/x mi/t1" where x is larger than the number of tasks<br>
+Expected: +Work cannot assign the member since the task does not exist.</p>
+</li>
+<li>
+<p>Other test case to try: "assign ti/1 mi/x" where x is an invalid member ID<br></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Fire a member from a task:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the command prompt, enter "fire ti/1 mi/T1"<br>
+Expected: Shows that the task with index 1 has been removed from member with member id 'T1' (under his 'list of tasks assigned'). Entering "list-tasks" in command prompt displays the list of tasks in +Work, with the involved member removed from
+the task at index 1.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics-feature-2"><a class="link" href="#statistics-feature-2">G.3. Statistics Feature</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Obtaining member-related statistics:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: "member-stats"<br>
+Expected: Shows the GUI with two pie charts, relating to the amount of tasks and inventory items under each member.</p>
+</li>
+<li>
+<p>Test case: "testing member-stats"<br>
+Expected: +Work is unable to recognise this as a valid command.</p>
+</li>
+<li>
+<p>Test case: "member-stats testinggg"<br>
+Expected: +Work recognises this command as member-stats, and displays the GUI.</p>
+</li>
+<li>
+<p>Test case: Assign / remove (fire) more tasks to/from any member, and enter the command "member-stats" once more.<br>
+Expected: Pie charts displayed changes accordingly.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Obtaining task-related statistics:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the command prompt, enter "task-stats"<br>
+Expected: Shows the GUI with a list of tasks and the time taken to complete them on the left, and a pie chart relating to the number of tasks of each status (unbegun, doing, done) on the right.</p>
+</li>
+<li>
+<p>Test case: "testing task-stats"<br>
+Expected: +Work is unable to recognise this as a valid command.</p>
+</li>
+<li>
+<p>Test case: Use command "add-task tn/name of task ts/unbegun" to add a task to +Work. Then, use commands "doing-task ti/" and "done-task ti/" on the task at a few minutes interval, before calling "task-stats" again.<br>
+Expected: The time taken for the newly added task has been updated accordingly.</p>
+</li>
+<li>
+<p>Continue to add tasks, and change task status from unbegun to doing to done, to watch task-stats get updated.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-commands"><a class="link" href="#task-commands">G.4. Task commands</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2878,7 +3029,7 @@ Expected: Third task status is unchanged. Error details shown in the status mess
 </div>
 </div>
 <div class="sect2">
-<h3 id="dashboard-feature-2"><a class="link" href="#dashboard-feature-2">G.3. Dashboard feature</a></h3>
+<h3 id="dashboard-feature-2"><a class="link" href="#dashboard-feature-2">G.5. Dashboard feature</a></h3>
 <div class="paragraph">
 <p>Test any commands related to manipulating <code>Task</code> and <code>Meeting</code> data, changes should be reflected in the dashbaord.</p>
 </div>
@@ -2920,7 +3071,7 @@ Expected: Task is removed from upcoming deadlines list and is moved to the <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="settings-feature-2"><a class="link" href="#settings-feature-2">G.4. Settings feature</a></h3>
+<h3 id="settings-feature-2"><a class="link" href="#settings-feature-2">G.6. Settings feature</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2987,7 +3138,7 @@ Expected: +Work time format is not changed. Error details shown in the status me
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.5. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.7. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3011,4 +3162,4 @@ and contain the updated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:20:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 04:50:24 UTC</div></div></div></body></html>
