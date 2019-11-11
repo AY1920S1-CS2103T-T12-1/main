@@ -20,9 +20,9 @@
 <li><a href="#inventory-commands">3.5. Inventory Commands</a></li>
 <li><a href="#statistics-commands">3.6. Statistics Commands</a></li>
 <li><a href="#multiline-commands">3.7. Multiline Commands</a></li>
-<li><a href="#settings-commands">3.8. Settings Commands</a></li>
-<li><a href="#saving-data">3.9. Saving Data</a></li>
-<li><a href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></li>
+<li><a href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></li>
+<li><a href="#settings-commands">3.9. Settings Commands</a></li>
+<li><a href="#saving-data">3.10. Saving Data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -148,14 +148,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <col style="width: 33.3333%;">
 <col style="width: 33.3334%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Command Type</th>
-<th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Description + Parameters can be given in any order</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description<br>
+(Parameters can be given in any order)</p></td>
+</tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Calendars</p></th>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fp/</p></td>
@@ -300,7 +299,7 @@ using the format <code>mt/&#8230;&#8203; mt/&#8230;&#8203; mt/&#8230;&#8203;</co
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Settings.png" alt="Settings" width="400">
+<img src="images/Settings.png" alt="Settings">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -325,7 +324,7 @@ Format: <code>help</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Help.png" alt="Help" width="400">
+<img src="images/Help.png" alt="Help">
 </div>
 </div>
 </div>
@@ -530,8 +529,8 @@ Image Path refers to the folder path of the image stored in your computer, and s
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-If you shift the image&#8217;s location in your computer, +Work will be unable to find the image to display, and will
-display a warning message, before displaying the default profile picture.
+If you shift the image&#8217;s location in your computer, +Work will be unable to find the image to display.
+A warning message will be displayed, before displaying the default profile picture.
 It is recommended that you store all the images in a central folder to prevent this from happening.
 </td>
 </tr>
@@ -706,6 +705,9 @@ from being assigned to task 'Review Budget'. The task 'Review Budget' has task I
 </div>
 <div class="sect2">
 <h3 id="task-commands"><a class="link" href="#task-commands">3.3. Task Commands</a></h3>
+<div class="paragraph">
+<p>The following commands will help you manage the tasks in your project.</p>
+</div>
 <div class="sect3">
 <h4 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.3.1. Adding a task: <code>add-task</code></a></h4>
 <div class="paragraph">
@@ -731,7 +733,7 @@ If a status is not given for the task, +Work will assign it as <code>unbegun</co
 <div class="ulist">
 <ul>
 <li>
-<p>Suppose you want to add a task called "Finish up milestones settings" to your project. First type <code>add-task tn/Finish up milestone setting</code>
+<p>Suppose you want to add a task called "Finish up milestones settings" to your project. First type <code>add-task tn/Finish up milestone settings</code>
 as show below.</p>
 </li>
 </ul>
@@ -744,7 +746,7 @@ as show below.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Hit the <kbd>Enter</kbd> key and you will see that the task is added to the project!<br></p>
+<p>Hit the <kbd>Enter</kbd> key and you will see that the task is added to your project!<br></p>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -767,7 +769,7 @@ The prompt displayed as a result of performing <code>add-task</code> is further 
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-task-delete-task"><a class="link" href="#deleting-a-task-delete-task">3.3.2. Deleting a task: delete-task</a></h4>
+<h4 id="deleting-a-task-code-delete-task-code"><a class="link" href="#deleting-a-task-code-delete-task-code">3.3.2. Deleting a task: <code>delete-task</code></a></h4>
 <div class="paragraph">
 <p>To delete a task from your project, use the <code>delete-task</code> command in the format below.<br>
 Format: <code>delete-task [ti/TASK_ID]</code></p>
@@ -815,7 +817,7 @@ Optional parameters: <code>[tn/TASK_NAME]</code> <code>[s/STATUS]</code> <code>[
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-At least one of the optional parameter must be provided in the command for a task to be edited successfully.
+At least one of the optional parameters must be provided in the command for a task to be edited successfully.
 </td>
 </tr>
 </table>
@@ -929,6 +931,18 @@ Notice that "Shirts for freshman open day" has been moved to <code>done</code>.<
 <img src="images/done-task-result-dashboard.png" alt="done task result dashboard">
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a task previously had a deadline, it will be removed once it is marked as <code>done</code>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="setting-a-task-s-status-to-code-doing-code-code-doing-task-code"><a class="link" href="#setting-a-task-s-status-to-code-doing-code-code-doing-task-code">3.3.6. Setting a task&#8217;s status to <code>doing</code>: <code>doing-task</code></a></h4>
@@ -943,7 +957,7 @@ Format: <code>doing-task [ti/TASK_ID]</code></p>
 <ul>
 <li>
 <p><code>doing-task ti/3</code><br>
-This sets the status of task 3 to <code>doing</code>.</p>
+This sets the status of the third task to <code>doing</code>.</p>
 </li>
 </ul>
 </div>
@@ -968,18 +982,6 @@ Usage of this command is very similar to setting a task status to <code>doing</c
 <div class="paragraph">
 <p>Format: <code>set-deadline [ti/TASK_ID] [at/DEADLINE] [at/dd-mm-yyyy hh:mm]</code></p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-The deadline you enter has to be at a future date!
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
@@ -998,7 +1000,8 @@ The deadline you enter has to be at a future date!
 <div class="ulist">
 <ul>
 <li>
-<p>Suppose the deadline for your task is on the 20th of November 2019 at 6pm, enter <code>set-deadline ti/5 at/10-11-2019 18:00</code> into the command box as shown below.</p>
+<p>Suppose the deadline for your task is on the 20th of November 2019 at 6pm, enter<br>
+<code>set-deadline ti/5 at/20-11-2019 18:00</code> into the command box as shown below.</p>
 </li>
 </ul>
 </div>
@@ -1034,7 +1037,7 @@ The deadline you enter has to be at a future date!
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in two weeks or less.
+The "Upcoming deadlines" sidebar (right side of above picture) helps you keep track of tasks which are due in <strong>two weeks</strong> or less.
 </td>
 </tr>
 </table>
@@ -1175,7 +1178,7 @@ Not sure how to export a calendar? Refer to the short guide below for instructio
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-+Work recognises date and time in the format 'dd-mm-yyyy hh:mm
++Work recognises date and time in the format 'dd-mm-yyyy hh:mm`
 </td>
 </tr>
 </table>
@@ -1449,7 +1452,7 @@ Format: <code>list-inv</code><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/list-inv.png" alt="list inv">
+<img src="images/list-inv.PNG" alt="list inv">
 </div>
 </div>
 </div>
@@ -1873,16 +1876,50 @@ The task with index 8 will have its task status changed to done. Since the task 
 <img src="images/ml-task_4_5.PNG" alt="ml task 4 5">
 </div>
 </div>
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="settings-commands"><a class="link" href="#settings-commands">3.8. Settings Commands</a></h3>
+<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.8. Command Line Autocomplete</a></h3>
+<div class="paragraph">
+<p>+Work will automatically prompt you on the various possible commands based on input and help you paste the correct command format into the command line if chosen.<br>
+For example, when you type <code>add-mem</code> into the command-line, +Work will prompt you to select <code>add-member</code> from the drop down menu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompletePre.png" alt="AutoCompletePre">
+</div>
+</div>
+<div class="paragraph">
+<p>After selecting <code>add-member</code>, +Work will paste <code>add-member mn/ mi/ mt/</code> into your command-line automatically!</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompletePost.png" alt="AutoCompletePost">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can use <kbd>control</kbd> to navigate along the various prefixes.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="settings-commands"><a class="link" href="#settings-commands">3.9. Settings Commands</a></h3>
 <div class="paragraph">
 <p>+Work helps you view your current settings by highlighting your current option! To see your current settings navigate
-to the settings panel by entering <code>settings</code> as described in section Section 3.1.3.</p>
+to the settings panel by entering <code>settings</code> as described in section 3.1.3.</p>
 </div>
 <div class="sect3">
-<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.8.1. Switching the theme of +Work: <code>theme</code></a></h4>
+<h4 id="switching-the-theme-of-work-code-theme-code"><a class="link" href="#switching-the-theme-of-work-code-theme-code">3.9.1. Switching the theme of +Work: <code>theme</code></a></h4>
 <div class="paragraph">
 <p>This command helps you toggle the theme of +Work between <code>light</code> and <code>dark</code> to suit your viewing preferences.</p>
 </div>
@@ -1937,7 +1974,7 @@ By default, the theme is set to <code>dark</code>.
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-the-time-format-of-work-code-clock-code"><a class="link" href="#switching-the-time-format-of-work-code-clock-code">3.8.2. Switching the time format of +Work: <code>clock</code></a></h4>
+<h4 id="switching-the-time-format-of-work-code-clock-code"><a class="link" href="#switching-the-time-format-of-work-code-clock-code">3.9.2. Switching the time format of +Work: <code>clock</code></a></h4>
 <div class="paragraph">
 <p>This command helps you toggle the time format of +Work between 24 hour and 12 hour clock.<br></p>
 </div>
@@ -2019,42 +2056,10 @@ back to the dashboard by entering <code>home</code> you should see a window simi
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">3.9. Saving Data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">3.10. Saving Data</a></h3>
 <div class="paragraph">
 <p>Project data is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="command-line-autocomplete"><a class="link" href="#command-line-autocomplete">3.10. Command Line Autocomplete</a></h3>
-<div class="paragraph">
-<p>+Work will automatically prompt you on the various possible commands based on input and help you paste the correct command format into the command line if chosen.<br>
-For example, when you type <code>add-mem</code> into the command-line, +Work will prompt you to select <code>add-member</code> from the drop down menu.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutoCompletePre.png" alt="AutoCompletePre">
-</div>
-</div>
-<div class="paragraph">
-<p>After selecting <code>add-member</code>, +Work will paste <code>add-member mn/ mi/ mt/</code> into your command-line automatically!</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AutoCompletePost.png" alt="AutoCompletePost">
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can use <kbd>control</kbd> to navigate along the various prefixes.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -2095,6 +2100,9 @@ You can use <kbd>control</kbd> to navigate along the various prefixes.
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The following is a summary of all the commands +Work offers arranged in alphabetical order.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -2215,6 +2223,10 @@ You can use <kbd>control</kbd> to navigate along the various prefixes.
 <div class="sect1">
 <h2 id="upcoming-features"><a class="link" href="#upcoming-features">6. Upcoming Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Our team is currently working hard on the following exciting features! Make sure to follow our application for any
+updates in the future.</p>
+</div>
 <div class="sect2">
 <h3 id="cloud-integration-code-coming-in-v2-0-code"><a class="link" href="#cloud-integration-code-coming-in-v2-0-code">6.1. Cloud Integration <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
@@ -2230,14 +2242,14 @@ You can use <kbd>control</kbd> to navigate along the various prefixes.
 <div class="sect2">
 <h3 id="autocomplete-support-for-prefixes-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-support-for-prefixes-code-coming-in-v2-0-code">6.3. AutoComplete Support for prefixes <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>AutoComplete to support users in prompting existing entities. For example, membedID and taskTags to be prompted to users when prefix is input.</p>
+<p>AutoComplete to support users in prompting existing entities. For example, member ID and task tags to be prompted to users when prefix is input.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="instant-messaging-code-coming-in-v2-0-code"><a class="link" href="#instant-messaging-code-coming-in-v2-0-code">6.4. Instant Messaging <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Communicate with teammates on one central application, instead of using multiple messaging apps.</p>
+<p>Communicate with teammates on one central application, instead of using multiple messaging applications.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:26:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:42:44 UTC</div></div></div></body></html>
