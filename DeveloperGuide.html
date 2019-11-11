@@ -25,14 +25,14 @@
 </li>
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></li>
+<li><a href="#calendar-feature">2.1. Calendar feature</a></li>
 <li><a href="#dashboard-feature">2.2. Dashboard feature</a></li>
 <li><a href="#settings-feature">2.3. Settings feature</a></li>
 <li><a href="#statistics-feature">2.4. Statistics feature</a></li>
 <li><a href="#member-feature">2.5. Member Feature</a></li>
 <li><a href="#inventory-feature">2.6. Inventory feature</a></li>
 <li><a href="#autocomplete-feature">2.7. AutoComplete feature</a></li>
-<li><a href="#proposed-undo-redo-feature">2.8. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#undo-redo-feature">2.8. Undo/Redo feature</a></li>
 <li><a href="#proposed-data-encryption">2.9. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">2.10. Logging</a></li>
 <li><a href="#Implementation-Configuration">2.11. Configuration</a></li>
@@ -55,7 +55,9 @@
 <li><a href="#task-commands">G.4. Task commands</a></li>
 <li><a href="#dashboard-feature-2">G.5. Dashboard feature</a></li>
 <li><a href="#settings-feature-2">G.6. Settings feature</a></li>
-<li><a href="#saving-data">G.7. Saving data</a></li>
+<li><a href="#calendar-feature-2">G.7. Calendar Feature</a></li>
+<li><a href="#undo-redo-feature-2">G.8. Undo/Redo Feature</a></li>
+<li><a href="#saving-data">G.9. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -409,55 +411,144 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Project Dashb
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-calendar-feature"><a class="link" href="#proposed-calendar-feature">2.1. [Proposed] Calendar feature</a></h3>
+<h3 id="calendar-feature"><a class="link" href="#calendar-feature">2.1. Calendar feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">2.1.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">2.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The commands introduced by this feature include; <code>generate-timings</code>, <code>ics</code> import and commands.
-The commands are facilitated by <code>ProjectCalendar</code>. The various <code>ics</code> files of the members are parsed in this component.</p>
+<p>This feature is implemented to allow users to easily schedule a meeting time, without the hassle of having to obtain responses from team members.</p>
+</div>
+<div class="paragraph">
+<p>This feature includes basic commands for managing meetings and team member&#8217;s
+calendars, i.e. <code>add-meeting</code>, <code>delete-meeting</code> and <code>add-calendar</code>,
+<code>delete-calendar</code> respectively. This feature also includes support to parse and import
+<code>.ics</code> calendar files, with help from the <code>net.fortuna.ical4j</code> library. The calendar feature also
+implements additional logic to compare member&#8217;s calendars and generate possible meeting times
+where the most number of members are available.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Team member&#8217;s calendars in +Work are always handled and stored in a <code>CalendarWrapper</code> class, which also stores the name of the team member
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Apart from the basic commands for managing calendars, the command for finding a meeting time is handled by
+<code>UniqueCalendarList</code>, while the logic for accessing external <code>.ics</code> files is handled by
+<code>DataAccess</code>. Finally, the logic for parsing <code>.ics</code> files is incorporated into <code>ParserUtil</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>ProjectCalendar#generateTimings()</code>&#8201;&#8212;&#8201;Generates the free times after on syncing <code>ics</code> calendars of members.</p>
+<p><code>UniqueCalendarList#findMeetingTime(startDate, endDate, meetingDuration)</code>&#8201;&#8212;&#8201;Generates a list of possible meeting timings where the <strong>most</strong> number of members are available</p>
 </li>
 <li>
-<p><code>ProjectCalendar#getAvailableTimings()</code>&#8201;&#8212;&#8201;Retrieves the available timings of members.</p>
+<p><code>DataAccess#getCalendarStorageFormat(filePath)</code>&#8201;&#8212;&#8201;Converts an external <code>.ics</code> file into String format</p>
 </li>
 <li>
-<p><code>ProjectCalendar#importCalendar()</code>&#8201;&#8212;&#8201;Import the member&#8217;s calendar.</p>
+<p><code>ParserUtil#parseCalendar(.ics String)</code>&#8201;&#8212;&#8201;Parses an <code>.ics</code> in String format to create a <code>Calendar</code> object</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#generateTimings()</code>, <code>Model#getAvailableTimings()</code> and
-<code>Model#importCalendar()</code>.</p>
+<p>Commands for generating meeting times and managing calendars or meetings are exposed in the <code>Model</code> interface in the following respective commands</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#findMeetingTime(startDate, endDate, meetingDuration)</code></p>
+</li>
+<li>
+<p><code>Model#addCalendar(calendarToAdd)</code></p>
+</li>
+<li>
+<p><code>Model#deleteCalendar(calendarToRemove)</code></p>
+</li>
+<li>
+<p><code>Model#addMeeting(meetingToAdd)</code></p>
+</li>
+<li>
+<p><code>Model#deleteMeeting(meetingToRemove)</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the various commands work.</p>
+<p>Given below is an example usage scenario and how the more complex commands work.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application. The <code>ProjectCalendar</code> will be initialised based on the
-saved <code>ProjectCalendar</code>.</p>
+<p><strong>Command:</strong> <code>Model#addCalendar(calendarToAdd)</code></p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user imports members' calendars by executing <code>import-calendar</code>.</p>
+<p>Step 1. The user calls the <code>add-calendar</code> command, which is handled by <code>AddCalendarParser</code></p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>generate-timings</code> command.</p>
+<p>Step 2. <code>DataAccess#getCalendarStorageFormat</code>  accesses the file specified by the user and converts the <code>.ics</code> file into a <code>String</code> format</p>
 </div>
 <div class="paragraph">
-<p>Step 4. +Work displays available meeting times for the project members.</p>
+<p>Step 3. The <code>.ics</code> file in <code>String</code> format is parsed using <code>ParserUtil#parseCalendar</code> and converted into a <code>net.fortuna.ical4j.Calendar</code> object</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>Calendar</code> object is stored as a <code>CalendarWrapper</code> object together with the <code>MemberName</code> of the associated team member</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>CalendarWrapper</code> object is passed to the <code>Model</code> and subsequently <code>ProjectDashboard</code>, where it is stored in <code>ProjectDashboard&#8217;s</code> <code>UniqueCalendarList</code> instance variable.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command:</strong> <code>Model#findMeetingTime(startDate, endDate, meetingDuration)</code></p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>findMeetingTime</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/find_meeting_time_sequence.png" alt="find meeting time sequence">
+</div>
+<div class="title">Figure 10. FindMeetingTimeCommand Sequence Diagram</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user calls the <code>find-meeting-time</code> command, which is handled by <code>FindMeetingTimeParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. This creates a <code>FindMeetingTime</code> command that executes <code>Model#findMeetingTime</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>findMeetingTime</code> command is passed from <code>Model</code> to <code>ProjectDashboard</code> and finally to <code>UniqueCalendarList</code>, where team member&#8217;s calendars are stored.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>UniqueCalendarList</code> handles the logic for comparing each calendar and generates a <code>MeetingQuery</code> object, which contains the list of possible meeting times and other essential information about the most recent <code>findMeetingTime</code> command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Details on the logic for handling calendar 'events' and timings are excluded for the sake of simplicity.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The <code>MeetingQuery</code> is then stored in <code>ProjectDashboard</code> where the user view can update and display the list of possible meeting times.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <strong>Follow-up from user:</strong> The user can execute the <code>add-meeting</code> command to select a meeting from the list of timings, by referring to the <code>INDEX</code> of the meeting in the list.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-importing-and-storing-calendars-of-users"><a class="link" href="#aspect-importing-and-storing-calendars-of-users">Aspect: Importing and storing calendars of users</a></h5>
+<h5 id="aspect-scheduling-meetings-based-on-tasks"><a class="link" href="#aspect-scheduling-meetings-based-on-tasks">Aspect: Scheduling meetings based on tasks</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> User specifies file path of <code>ics</code> file in command line.</p>
+<p><strong>Alternative 1 (current choice):</strong> +Work assumes</p>
 <div class="ulist">
 <ul>
 <li>
@@ -486,33 +577,34 @@ saved <code>ProjectCalendar</code>.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-flexibility-in-syncing-calendars"><a class="link" href="#aspect-flexibility-in-syncing-calendars">Aspect: Flexibility in syncing calendars</a></h5>
+<h5 id="aspect-storing-calendar-data-on-work"><a class="link" href="#aspect-storing-calendar-data-on-work">Aspect: Storing calendar data on +Work</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> +Work syncs all calendars uploaded when <code>generate-timings</code> is executed</p>
+<p><strong>Alternative 1 (current choice):</strong> +Work preserves and stores the original calendar <code>.ics</code> file in <code>String</code> format</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easier to implement.</p>
+<p>Pros: Less error prone when converting from storage format to <code>Calendar</code> object format</p>
 </li>
 <li>
-<p>Cons: User may be finding a suitable time for an event where only specific members are required, in which case timings
-may not help as much.</p>
+<p>Pros: Captures more details about calendar 'events'. More compatible with additional <code>v2.0</code> features, such as meeting location suggestions</p>
+</li>
+<li>
+<p>Cons: Requires more storage space when storing calendars</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> User can specify which members calendars to sync</p>
+<p><strong>Alternative 2:</strong> +Work only stores essential calendar information (i.e. duration and time of calendar 'events')</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User can find more suitable timings for events which involve only specific members.</p>
+<p>Pros: Takes lesser time to retrieve <code>Calendar</code> objects from storage</p>
 </li>
 <li>
-<p>Cons: Association between members and their respective calendars must be rigorously tested to ensure accuracy of timings.
-May introduce complexity into storage and dependencies among components.</p>
+<p>Cons: Harder to implement and requires manipulating <code>Property</code> and <code>Component</code> objects stored in <code>net.fortuna.ical4j.Calendar</code> objects</p>
 </li>
 </ul>
 </div>
@@ -525,7 +617,7 @@ May introduce complexity into storage and dependencies among components.</p>
 <div class="sect2">
 <h3 id="dashboard-feature"><a class="link" href="#dashboard-feature">2.2. Dashboard feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">2.2.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">2.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to view the status of the tasks in their project, upcoming deadlines and upcoming meetings
 at a glance.</p>
@@ -615,7 +707,7 @@ The diagram omits objects involving the <code>Ui</code> component as well as spe
 <div class="content">
 <img src="images/DashboardObjectDiagram.png" alt="DashboardObjectDiagram">
 </div>
-<div class="title">Figure 10. Snapshot of objects involved in populating the dashboard with data</div>
+<div class="title">Figure 11. Snapshot of objects involved in populating the dashboard with data</div>
 </div>
 </div>
 <div class="sect3">
@@ -668,7 +760,7 @@ benefit the dashboard greatly it would cause almost all other components and vie
 <div class="sect2">
 <h3 id="settings-feature"><a class="link" href="#settings-feature">2.3. Settings feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">2.3.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">2.3.1. Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to customise their experience when using +Work.</p>
 </div>
@@ -717,7 +809,7 @@ To allow <code>Ui</code> to be responsive to updates in the settings, two of the
 <div class="content">
 <img src="images/SettingsActivityDiagram.png" alt="SettingsActivityDiagram">
 </div>
-<div class="title">Figure 11. Activity diagram of settings command execution.</div>
+<div class="title">Figure 12. Activity diagram of settings command execution.</div>
 </div>
 <div class="paragraph">
 <p>Assume that the current <code>theme</code> is <code>LIGHT</code> and <code>clockFormat</code> is <code>TWENTY_FOUR</code>.</p>
@@ -749,7 +841,7 @@ This changes the <code>theme</code> attribute in <code>UserSettings</code> to <c
 <div class="content">
 <img src="images/ThemeSequenceDiagram.png" alt="ThemeSequenceDiagram">
 </div>
-<div class="title">Figure 12. Operational flow of <code>ThemeCommand</code></div>
+<div class="title">Figure 13. Operational flow of <code>ThemeCommand</code></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -839,7 +931,7 @@ for future developers to extend the functionality of <code>UserSettings</code> i
 broad overview of the project&#8217;s and member&#8217;s project.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">2.4.1. Implementation</a></h4>
+<h4 id="implementation-5"><a class="link" href="#implementation-5">2.4.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The commands introduced by this statistics feature includes: <code>task-stats</code> and <code>member-stats</code>. These commands are facilitated by the class 'Statistics'
 that resides within model. The <code>Statistics</code> class implements the following operations:</p>
@@ -1054,7 +1146,7 @@ more than Alternative 2 does.</p>
 This makes +Work a more comprehensive application because project tasks and members can be kept track of together.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">2.5.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">2.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>+Work&#8217;s members and their related commands are supported by a <code>Member</code> class that resides within model.
 The following class diagram exposes the structure of the Member class, and shows how the different components relating to the Member class works together.</p>
@@ -1245,7 +1337,7 @@ being final and unchangeable.</p>
 <div class="sect2">
 <h3 id="inventory-feature"><a class="link" href="#inventory-feature">2.6. Inventory feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.6.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">2.6.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>This feature was implemented to allow users to add inventories when using +Work.</p>
 </div>
@@ -1281,7 +1373,7 @@ respectively.</p>
 <div class="content">
 <img src="images/AddInvActivityDiagram.png" alt="AddInvActivityDiagram">
 </div>
-<div class="title">Figure 13. Activity diagram of <code>add-inv</code> command execution.</div>
+<div class="title">Figure 14. Activity diagram of <code>add-inv</code> command execution.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how add-inv command behaves at each step:</p>
@@ -1308,7 +1400,7 @@ respectively.</p>
 <div class="content">
 <img src="images/AddInvSequenceDiagram.png" alt="AddInvSequenceDiagram">
 </div>
-<div class="title">Figure 14. Operational flow of <code>AddInventoryCommand</code></div>
+<div class="title">Figure 15. Operational flow of <code>AddInventoryCommand</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1391,7 +1483,7 @@ represented as enumerations.</p>
 <div class="sect2">
 <h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">2.7. AutoComplete feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">2.7.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">2.7.1. Proposed Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1447,81 +1539,155 @@ represented as enumerations.</p>
 <div class="content">
 <img src="images/AutoCompleteFlow.png" alt="AutoCompleteFlow">
 </div>
-<div class="title">Figure 15. Operational flow of <code>getAutoCompleteResults()</code></div>
+<div class="title">Figure 16. Operational flow of <code>getAutoCompleteResults()</code></div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">2.8. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">2.8. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-4"><a class="link" href="#proposed-implementation-4">2.8.1. Proposed Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">2.8.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p>This feature is implemented to allow the user to undo/redo a command, while improving the overall user experience.</p>
+</div>
+<div class="paragraph">
+<p>This feature does not implement many additional functions. Rather, it takes advantage of the
+existing project architecture, to achieve the according <code>undo</code> or <code>redo</code> outcome. This
+feature includes the basic commands <code>undo</code> and <code>redo</code>. The feature introduces the ability
+for the <code>Model</code> to store previous instances of the <code>ProjectDashboard</code>,
+essentially saving the 'state' of <code>ProjectDashboard</code>, similar to a commit on
+GitHub. The user then navigates between these 'states' when using the <code>undo</code> and
+<code>redo</code> commands.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each <code>ProjectDashboard</code> instance stores all information in +Work, which is why reverting to a previous <code>ProjectDashboard</code> instance does not result in any loss of data
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>undo</code>, <code>redo</code> mechanism is facilitated within <code>Model</code>, by including two variables
+<code>previousSaveState</code> and <code>redoSaveState</code> to store <code>ProjectDashboard</code> 'states'
+and the addition of the <code>Model#saveDashboardState</code> function. The <code>undo</code> and <code>redo</code>
+commands also make use of the <code>ProjectDashboard#resetDate</code> to revert the <code>ProjectDashboard</code>
+displayed by +Work to a previous 'state'.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
+<p><code>previousSaveState</code>&#8201;&#8212;&#8201;Stores <code>ProjectDashboard</code> states from previous non-<code>undo</code> commands</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
+<p><code>redoSaveState</code>&#8201;&#8212;&#8201;Stores <code>ProjectDashboard</code> states from previous <code>undo</code> commands</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
++Work can only <code>redo</code> and <code>undo</code> command, if no command was executed after the <code>undo</code> command
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#saveDashboardState()</code>&#8201;&#8212;&#8201;Saves the current <code>ProjectDashboard</code> state</p>
+</li>
+<li>
+<p><code>ProjectDashboard#resetData(previousState)</code>&#8201;&#8212;&#8201;Resets the data of the current <code>ProjectDashboard</code> using data from the <code>previousState</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only the <code>undo</code> and <code>redo</code> commands are exposed in the <code>Model</code> interface. Other commands
+are used internally as part of the logic to manage <code>ProjectDashboard</code> states
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario and how the <code>undo</code>, <code>redo</code> mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. When the user starts up +Work, the <code>Model</code> does not store <code>ProjectDashboard</code> states
+from the previous session.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. When the user executes the <code>delete-meeting meeting/2</code> command,
+<code>Model#saveDashboardState</code> is called to save a copy of the original
+<code>ProjectDashboard</code> state, <code>pd0:ProjectDashboard</code> before executing the
+command. As shown below, the original <code>ProjectDashboard</code> state has been saved.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
+<div class="title">Figure 17. Storing previous ProjectDashboard states</div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 3. After executing another command i.e. <code>add-task tn/Complete DG</code>, a copy of the
+current <code>ProjectDashboard</code> state, <code>pd1:ProjectDashboard</code> is also saved and added
+to the list. The command continues execution on <code>pd2:ProjectDashboard</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState1.png" alt="UndoRedoState1">
 </div>
+<div class="title">Figure 18. Executing more commands</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If an invalid command is entered by the user, <code>Model#saveDashboardState</code>
+is not called and the <code>ProjectDashboard</code> state is not saved.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 4. When the user realises he does not need to complete the DG, the user
+executes the <code>undo</code> command, reverting to the most recent <code>ProjectDashboard</code>
+state, <code>pd1:ProjectDashboard</code>. <code>ProjectDashboard#resetData</code> is called with
+the previous state. Previously <code>Current State</code> would have been pointing to
+the <code>pd2:ProjectDashboard</code>, where the 'Complete DG' task was added.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState2.png" alt="UndoRedoState2">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
+<div class="title">Figure 19. Retrieving a previous state</div>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 5. The user can also execute the <code>undo</code> command again to revert to the original
+state, <code>pd0:ProjectDashboard</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState3.png" alt="UndoRedoState3">
 </div>
+<div class="title">Figure 20. Retrieving previous states</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1530,18 +1696,12 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If there are no more states to revert to, +Work will notify the user that
+there is no command to <code>undo</code>. The <code>undo</code> command uses <code>Model#canUndo()</code>
+to check if this is the case.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1550,41 +1710,12 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial a
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The <code>redo</code> command works similar to the <code>undo</code> command, except it can only
+access <code>ProjectDashboard</code> states created by the <code>undo</code> command. In other words,
+<code>redo</code> can only be executed after an <code>undo</code> command.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command:</p>
@@ -1593,36 +1724,46 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
 </div>
+<div class="title">Figure 21. Executing a new command</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/updated_undo_diagram.png" alt="updated undo diagram">
+</div>
+<div class="title">Figure 22. Interactions between Logic and Model</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">2.8.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-different-implementations-for-undo-redo"><a class="link" href="#aspect-different-implementations-for-undo-redo">Aspect: Different implementations for undo &amp; redo</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire <code>ProjectDashbaord</code> object.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Very easy to implement.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
+<p>Cons: May result in performance issues, when saving numerous instances of <code>ProjectDashboard</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Each individual command has a <code>undo</code> couterpart.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Uses much less memory, since the <code>Model</code> only has to keep track of which commands need to be undone.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
+<p>Cons: Prone to error, since +Work allows tasks, team members and inventories to be associated with one another. E.g. Trying to <code>undo</code> a deleted task may be unsuccessful in retrieving the original task.</p>
 </li>
 </ul>
 </div>
@@ -1631,31 +1772,31 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-history-of-code-projectdashboard-code-and-number-of-times-code-undo-code-can-be-executed"><a class="link" href="#aspect-history-of-code-projectdashboard-code-and-number-of-times-code-undo-code-can-be-executed">Aspect: 'History' of <code>ProjectDashboard</code> and number of times <code>undo</code> can be executed</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
+<p><strong>Alternative 1 (current choice):</strong> Keep track of all past <code>ProjectDashboard</code> states</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>Pros: Gives users the freedom 'undoing' any previous command.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Uses a lot of memory to store previous instances of <code>ProjectDashboard</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<p><strong>Alternative 2:</strong> Clear redundant 'history' of previous <code>ProjectDashboard</code> states after exceeding a chosen quota. (E.g. 5 commands executed)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+<p>Pros: Uses memory efficiently, while giving users some freedom to <code>undo</code> multiple commands.</p>
 </li>
 <li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: User would be unable to <code>undo</code> certain 'Older' commands.</p>
 </li>
 </ul>
 </div>
@@ -3205,7 +3346,156 @@ Expected: +Work time format is not changed. Error details shown in the status me
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.7. Saving data</a></h3>
+<h3 id="calendar-feature-2"><a class="link" href="#calendar-feature-2">G.7. Calendar Feature</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a calendar</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Downloaded a valid <code>.ics</code> file.</p>
+</li>
+<li>
+<p>Test case: <code>add-calendar mn/John fp/INVALID_FILE</code><br>
+Expected: +Work throws an error message</p>
+</li>
+<li>
+<p>Test case: <code>add-calendar mn/John fp/YOUR_FILE_PATH</code><br>
+Expected: +Work notifies you that the Calendar has been added</p>
+</li>
+<li>
+<p>Test case: <code>add-calendar mn/DUPLICATE_NAME fp/VALID_FILE_PATH</code><br>
+Expected: +Work notifies you that a duplicate calendar has been found</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Removing a calendar</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete-calendar mn/John</code><br>
+Expected: If there is a calendar previously added under John&#8217;s name, +Work notifies you that the calendar has been removed</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Finding a meeting time</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Added at least 1 calendar with the <code>add-calendar</code> command</p>
+</li>
+<li>
+<p>Test case: <code>find-meeting-time start/11-11-2019 end/12-11-2019 hours/1</code><br>
+Expected: +Work displays a list of suitable meeting times, while indicating which members are available</p>
+</li>
+<li>
+<p>Test case: <code>find-meeting-time start/12-11-2019 end/11-11-2019 hours/1</code><br>
+Expected: +Work prompts user to input a valid end date</p>
+</li>
+<li>
+<p>Test case: <code>find-meeting-time start/12-11-2019 end/15-11-2019 hours/-1</code><br>
+Expected: +Work prompts user to input a valid duration</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a meeting</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add-meeting meeting/1</code><br>
+Expected: +Work adds the first meeting in the list and displays the meeting in the <code>home</code> page</p>
+</li>
+<li>
+<p>Test case: <code>add-meeting meeting/INVALID_INDEX</code><br>
+Expected: +Work displays an error message</p>
+</li>
+<li>
+<p>Prerequisites: Did not use the <code>find-meeting-time</code> command</p>
+</li>
+<li>
+<p>Test case: <code>add-meeting meeting/2</code><br>
+Expected: +Work prompts the user to first use the <code>find-meeting-time</code> command</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a meeting</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>delete-meeting meeting/1</code><br>
+Expected: +Work removes the meeting</p>
+</li>
+<li>
+<p>Test case: <code>delete-meeting meeting/INVALID_INDEX</code><br>
+Expected: +Work displays an error message</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature-2"><a class="link" href="#undo-redo-feature-2">G.8. Undo/Redo Feature</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Undo a command</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list-tasks</code><br>
+Expected: +Work will not undo the <code>list-tasks</code> command, and will find the next most recent command to undo</p>
+</li>
+<li>
+<p>Test case: <code>delete-meeting meeting/1</code><br>
+Expected: +Work will undo the deletion</p>
+</li>
+<li>
+<p>Prerequisites: App has just and no command has been executed</p>
+</li>
+<li>
+<p>Test case: <code>undo</code><br>
+Expected: +Work will display a message saying that there is no command to undo</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Redo a command</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No <code>undo</code> command has been called</p>
+</li>
+<li>
+<p>Test case: <code>redo</code>
+Expected: +Work will display a message saying that there is no command to redo</p>
+</li>
+<li>
+<p>Prerequisites: An <code>undo</code> command has been called</p>
+</li>
+<li>
+<p>Test case: <code>redo</code>
+Expected: +Work will redo the most recent <code>undo</code> command</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-data"><a class="link" href="#saving-data">G.9. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3229,4 +3519,4 @@ and contain the updated data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:19:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:25:01 UTC</div></div></div></body></html>
